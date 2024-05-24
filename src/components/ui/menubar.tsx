@@ -20,7 +20,10 @@ const Menubar = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <MenubarPrimitive.Root
     ref={ref}
-    className={cn("flex h-10 items-center space-x-1 rounded-md p-1", className)}
+    className={cn(
+      "flex h-10 items-center space-x-1 rounded-md p-1 ",
+      className
+    )}
     {...props}
   />
 ));
@@ -33,7 +36,7 @@ const MenubarTrigger = React.forwardRef<
   <MenubarPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex cursor-pointer select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none  ",
+      "md-desktop:text-xl md-laptop:text-base lg-desktop:text-4xl flex cursor-pointer select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none  ",
       className
     )}
     {...props}

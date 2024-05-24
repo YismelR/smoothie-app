@@ -4,7 +4,7 @@ import HomeFooter from "./HomeFooter";
 
 export default function HomeCard() {
   return (
-    <div className="flex flex-col bg-[url('/src/assets/logo/curve.svg')] bg-contain bg-no-repeat ml-48 rounded-l-[2rem] bg-white gap-12 w-full shadow-md">
+    <div className="grid bg-[url('/src/assets/logo/curve.svg')] bg-contain bg-no-repeat ml-48 rounded-l-[2rem] bg-white  w-full shadow-sm shadow-[#DF4062]">
       <HomeHeader />
       <HomeMain />
       <HomeFooter />

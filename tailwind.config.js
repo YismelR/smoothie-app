@@ -9,12 +9,20 @@ module.exports = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      "2xl": "1400px",
+      "s-phone": "320px",
+      "md-phone": "375px",
+      "lg-phone": "425px",
+      "md-tablet": "768px",
+      "s-laptop": "1024px",
+      "md-laptop": "1440px",
+      "md-desktop": "1920px",
+      "lg-desktop": "2560px",
+    },
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
     },
     extend: {
       boxShadow: {
