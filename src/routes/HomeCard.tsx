@@ -4,7 +4,7 @@ import HomeFooter from "./HomeFooter";
 
 export default function HomeCard() {
   return (
-    <div className="grid bg-[url('/src/assets/logo/curve.svg')] bg-contain bg-no-repeat ml-48 rounded-l-[2rem] bg-white  w-full shadow-sm shadow-[#DF4062]">
+    <div className="grid grid-rows-[1fr_4fr] md-tablet:bg-[url('/src/assets/logo/curve-s-view.svg')] s-laptop:bg-[url('/src/assets/logo/curve.svg')] bg-contain bg-no-repeat s-laptop:ml-48 rounded-l-[2rem] bg-white  w-full shadow-sm shadow-[#DF4062] md-tablet:ml-28">
       <HomeHeader />
       <HomeMain />
       <HomeFooter />
