@@ -26,7 +26,7 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        "3xl": "0px 15px 20px -15px #DF4062",
+        "3xl": "0px 15px 20px -11px #DF4062",
       },
       colors: {
         border: "hsl(var(--border))",

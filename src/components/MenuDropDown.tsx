@@ -7,6 +7,9 @@ import { Button } from "@/components/ui/button";
 import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
 import { MenubarDemo } from "./MenubarDemo";
+import facebook from "../assets/icons/facebook.svg";
+import twitter from "../assets/icons/twitter.svg";
+import instagram from "../assets/icons/instagram.svg";
 
 export default function Component() {
   return (
@@ -23,7 +26,7 @@ export default function Component() {
             <MountainIcon className="h-6 w-6" />
             <span className="sr-only">Acme Inc</span>
           </Link>
-          <div className="grid gap-2 py-6">
+          <div className="flex flex-col h-full gap-2 py-6">
             <Link
               className="flex w-full items-center py-2 text-lg font-semibold"
               to="#"
@@ -48,6 +51,23 @@ export default function Component() {
             >
               Contact Us
             </Link>
+          </div>
+          <div className="flex gap-4 justify-end ">
+            <img
+              src={facebook}
+              alt="facebook"
+              className="lg-desktop:w-8 md-desktop:w-6"
+            />
+            <img
+              src={twitter}
+              alt="twitter"
+              className="lg-desktop:w-8 md-desktop:w-6"
+            />
+            <img
+              src={instagram}
+              alt="instagram"
+              className="lg-desktop:w-8 md-desktop:w-6"
+            />
           </div>
         </SheetContent>
       </Sheet>
