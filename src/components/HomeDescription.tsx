@@ -1,5 +1,5 @@
 import mainLogo from "../assets/logo/main-logo.svg";
-export default function MainDescription() {
+export default function HomeDescription() {
   return (
     <div className="flex flex-col gap-8  md-tablet:pl-16 lg-phone:pl-8 ">
       <img src={mainLogo} alt="Main logo" />
