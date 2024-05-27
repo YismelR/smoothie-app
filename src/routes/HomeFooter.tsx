@@ -10,7 +10,7 @@ export default function HomeFooter() {
         <img
           src={blueBowl}
           alt="blueberry bowl"
-          className="md-tablet:h-28 s-laptop:-top-12 md-desktop:h-32 absolute md-desktop:-top-16 s-laptop:left-6 border-2 border-[#4096DE] rounded-full md-desktop:left-8 lg-desktop:left-12 lg-desktop:w-48 lg-desktop:h-48 lg-desktop:-top-32  lg-desktop:border-4 md-tablet:-top-16 md-tablet:left-8 lg-phone:h-20 lg-phone:left-3 lg-phone:-top-8 max-md-tablet:shadow-[0_10px_20px_rgb(100,149,237)] md-phone:h-16 s-laptop:h-24"
+          className="md-tablet:h-28 s-laptop:-top-12 md-desktop:h-32 absolute md-desktop:-top-16 s-laptop:left-6 border-2 border-[#4096DE] rounded-full md-desktop:left-8 lg-desktop:left-12 lg-desktop:w-48 lg-desktop:h-48 lg-desktop:-top-32  lg-desktop:border-4 md-tablet:-top-16 md-tablet:left-8 lg-phone:h-20 lg-phone:left-3 lg-phone:-top-8 max-md-tablet:shadow-[0_10px_20px_rgb(100,149,237)] md-phone:h-16 s-laptop:h-24 s-phone:h-16"
         />
         <p className="text-center font-semibold hidden md-tablet:flex">
           Blueberry Banana Smoothie
@@ -20,7 +20,7 @@ export default function HomeFooter() {
         <img
           src={greenBowl}
           alt="cucumber bowl"
-          className="md-tablet:h-28 s-laptop:-top-12 md-desktop:h-32 absolute md-desktop:-top-16 s-laptop:left-6 border-2 border-[#7B992C] rounded-full md-desktop:left-8 lg-desktop:left-12 lg-desktop:w-48 lg-desktop:h-48 lg-desktop:-top-32 lg-desktop:border-4 md-tablet:-top-16 md-tablet:left-8 lg-phone:h-20 lg-phone:left-3 lg-phone:-top-8 max-md-tablet:shadow-[0_10px_20px_rgb(85,107,47)] md-phone:h-16 s-laptop:h-24"
+          className="md-tablet:h-28 s-laptop:-top-12 md-desktop:h-32 absolute md-desktop:-top-16 s-laptop:left-6 border-2 border-[#7B992C] rounded-full md-desktop:left-8 lg-desktop:left-12 lg-desktop:w-48 lg-desktop:h-48 lg-desktop:-top-32 lg-desktop:border-4 md-tablet:-top-16 md-tablet:left-8 lg-phone:h-20 lg-phone:left-3 lg-phone:-top-8 max-md-tablet:shadow-[0_10px_20px_rgb(85,107,47)] md-phone:h-16 s-laptop:h-24 s-phone:h-16"
         />
         <p className="text-center font-semibold hidden md-tablet:flex">
           Cucumber Smoothie
@@ -30,7 +30,7 @@ export default function HomeFooter() {
         <img
           src={purpleBowl}
           alt="mango bowl"
-          className="md-tablet:h-28 s-laptop:-top-12 md-desktop:h-32 absolute md-desktop:-top-16 s-laptop:left-6 border-2 border-[#DE40AD] rounded-full md-desktop:left-8 lg-desktop:left-12 lg-desktop:w-48 lg-desktop:h-48 lg-desktop:-top-32 lg-desktop:border-4 md-tablet:-top-16 md-tablet:left-8 lg-phone:h-20 lg-phone:left-3 lg-phone:-top-8 max-md-tablet:shadow-[0_10px_20px_rgb(128,0,128)] md-phone:h-16 s-laptop:h-24"
+          className="md-tablet:h-28 s-laptop:-top-12 md-desktop:h-32 absolute md-desktop:-top-16 s-laptop:left-6 border-2 border-[#DE40AD] rounded-full md-desktop:left-8 lg-desktop:left-12 lg-desktop:w-48 lg-desktop:h-48 lg-desktop:-top-32 lg-desktop:border-4 md-tablet:-top-16 md-tablet:left-8 lg-phone:h-20 lg-phone:left-3 lg-phone:-top-8 max-md-tablet:shadow-[0_10px_20px_rgb(128,0,128)] md-phone:h-16 s-laptop:h-24 s-phone:h-16"
         />
         <p className="text-center font-semibold px-5 hidden md-tablet:flex">
           Hibiscus Chia Smoothie
@@ -40,7 +40,7 @@ export default function HomeFooter() {
         <img
           src={yellowBowl}
           alt="mango bowl"
-          className="md-tablet:h-28 s-laptop:-top-12 md-desktop:h-32 absolute md-desktop:-top-16 s-laptop:left-6 border-2 border-[#FFC61A] rounded-full md-desktop:left-8 lg-desktop:left-12 lg-desktop:w-48 lg-desktop:h-48 lg-desktop:-top-32 lg-desktop:border-4 md-tablet:-top-16 md-tablet:left-8 lg-phone:h-20 lg-phone:left-3 lg-phone:-top-8 max-md-tablet:shadow-[0_10px_20px_rgb(240,128,128)] md-phone:h-16 s-laptop:h-24 "
+          className="md-tablet:h-28 s-laptop:-top-12 md-desktop:h-32 absolute md-desktop:-top-16 s-laptop:left-6 border-2 border-[#FFC61A] rounded-full md-desktop:left-8 lg-desktop:left-12 lg-desktop:w-48 lg-desktop:h-48 lg-desktop:-top-32 lg-desktop:border-4 md-tablet:-top-16 md-tablet:left-8 lg-phone:h-20 lg-phone:left-3 lg-phone:-top-8 max-md-tablet:shadow-[0_10px_20px_rgb(240,128,128)] md-phone:h-16 s-laptop:h-24 s-phone:h-16 "
         />
         <p className="text-center font-semibold hidden md-tablet:flex">
           Mango-Almond Smoothie
