@@ -25,17 +25,17 @@ export default function HomeImageMore() {
         <img
           src={facebook}
           alt="facebook"
-          className="lg-desktop:w-8 md-desktop:w-6"
+          className="s-laptop:w-4 lg-desktop:w-8 md-laptop:w-6"
         />
         <img
           src={twitter}
           alt="twitter"
-          className="lg-desktop:w-8 md-desktop:w-6"
+          className="s-laptop:w-4 lg-desktop:w-8 md-laptop:w-6"
         />
         <img
           src={instagram}
           alt="instagram"
-          className="lg-desktop:w-8 md-desktop:w-6"
+          className="s-laptop:w-4 lg-desktop:w-8 md-laptop:w-6"
         />
       </div>
     </div>
