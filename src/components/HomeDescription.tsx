@@ -50,7 +50,7 @@ export default function HomeDescription() {
         />
       </svg>
 
-      <p className="md-desktop:text-2xl lg-desktop:text-4xl s-laptop:text-sm md-laptop:text-base lg-phone:text-base md-phone:text-sm s-phone:text-sm">
+      <p className="md-desktop:text-2xl lg-desktop:text-[2rem] s-laptop:text-sm md-laptop:text-base lg-phone:text-base md-phone:text-sm s-phone:text-sm">
         Smoothies are so healthy, refreshing and the perfect way to pack some
         extra fruit and veggies into your diet.
       </p>
