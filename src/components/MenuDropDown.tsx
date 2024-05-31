@@ -10,8 +10,11 @@ import { MenubarDemo } from "./MenubarDemo";
 import facebook from "../assets/icons/facebook.svg";
 import twitter from "../assets/icons/twitter.svg";
 import instagram from "../assets/icons/instagram.svg";
+import useSmoothiesStore from "@/store/store";
 
 export default function Component() {
+  const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
+
   return (
     <header className="flex h-20 shrink-0 items-center md:px-6">
       <Sheet>
@@ -46,7 +49,7 @@ export default function Component() {
               About
             </Link>
             <Link
-              className="flex w-full items-center py-2 text-lg font-semibold text-[#DF4062]"
+              className={`flex w-full items-center py-2 text-lg font-semibold ${selectedSmoothie.textColor}`}
               to="#"
             >
               Contact Us

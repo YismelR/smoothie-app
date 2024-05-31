@@ -13,8 +13,11 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar";
+import useSmoothiesStore from "@/store/store";
 
 export function MenubarDemo() {
+  const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
+
   return (
     <Menubar>
       <MenubarMenu>
@@ -67,7 +70,9 @@ export function MenubarDemo() {
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger className="text-[#DF4062]">Contact Us</MenubarTrigger>
+        <MenubarTrigger className={`${selectedSmoothie.textColor}`}>
+          Contact Us
+        </MenubarTrigger>
         <MenubarContent>
           <MenubarRadioGroup value="benoit">
             <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
