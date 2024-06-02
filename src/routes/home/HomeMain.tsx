@@ -1,5 +1,5 @@
-import HomeDescription from "@/components/HomeDescription";
-import HomeImageMore from "@/components/HomeImageMore";
+import HomeDescription from "@/routes/home/HomeDescription";
+import HomeImageMore from "@/routes/home/HomeImageMore";
 
 export default function HomeMain() {
   return (

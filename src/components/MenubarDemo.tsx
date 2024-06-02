@@ -1,19 +1,6 @@
-import {
-  Menubar,
-  MenubarCheckboxItem,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarRadioGroup,
-  MenubarRadioItem,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
-  MenubarTrigger,
-} from "@/components/ui/menubar";
+import { Menubar, MenubarMenu } from "@/components/ui/menubar";
 import useSmoothiesStore from "@/store/store";
+import { Link } from "react-router-dom";
 
 export function MenubarDemo() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
@@ -21,69 +8,42 @@ export function MenubarDemo() {
   return (
     <Menubar>
       <MenubarMenu>
-        <MenubarTrigger>Home</MenubarTrigger>
+        <Link
+          to={"/"}
+          className={
+            "md-desktop:text-xl md-laptop:text-base lg-desktop:text-3xl flex cursor-pointer select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none  "
+          }
+        >
+          Home
+        </Link>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger>Bowls</MenubarTrigger>
-        <MenubarContent>
-          <MenubarItem>
-            Undo <MenubarShortcut>⌘Z</MenubarShortcut>
-          </MenubarItem>
-          <MenubarItem>
-            Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
-          </MenubarItem>
-          <MenubarSeparator />
-          <MenubarSub>
-            <MenubarSubTrigger>Find</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>Search the web</MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem>Find...</MenubarItem>
-              <MenubarItem>Find Next</MenubarItem>
-              <MenubarItem>Find Previous</MenubarItem>
-            </MenubarSubContent>
-          </MenubarSub>
-          <MenubarSeparator />
-          <MenubarItem>Cut</MenubarItem>
-          <MenubarItem>Copy</MenubarItem>
-          <MenubarItem>Paste</MenubarItem>
-        </MenubarContent>
+        <Link
+          to={"bowls"}
+          className={
+            "md-desktop:text-xl md-laptop:text-base lg-desktop:text-3xl flex cursor-pointer select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none  "
+          }
+        >
+          Bowls
+        </Link>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger>About</MenubarTrigger>
-        <MenubarContent>
-          <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-          <MenubarCheckboxItem checked>
-            Always Show Full URLs
-          </MenubarCheckboxItem>
-          <MenubarSeparator />
-          <MenubarItem inset>
-            Reload <MenubarShortcut>⌘R</MenubarShortcut>
-          </MenubarItem>
-          <MenubarItem disabled inset>
-            Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
-          </MenubarItem>
-          <MenubarSeparator />
-          <MenubarItem inset>Toggle Fullscreen</MenubarItem>
-          <MenubarSeparator />
-          <MenubarItem inset>Hide Sidebar</MenubarItem>
-        </MenubarContent>
+        <Link
+          to={"about"}
+          className={
+            "md-desktop:text-xl md-laptop:text-base lg-desktop:text-3xl flex cursor-pointer select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none  "
+          }
+        >
+          About
+        </Link>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger className={`${selectedSmoothie.textColor}`}>
+        <Link
+          to={"contact-us"}
+          className={`${selectedSmoothie.textColor} md-desktop:text-xl md-laptop:text-base lg-desktop:text-3xl flex cursor-pointer select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none `}
+        >
           Contact Us
-        </MenubarTrigger>
-        <MenubarContent>
-          <MenubarRadioGroup value="benoit">
-            <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-            <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-            <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
-          </MenubarRadioGroup>
-          <MenubarSeparator />
-          <MenubarItem inset>Edit...</MenubarItem>
-          <MenubarSeparator />
-          <MenubarItem inset>Add Profile...</MenubarItem>
-        </MenubarContent>
+        </Link>
       </MenubarMenu>
     </Menubar>
   );

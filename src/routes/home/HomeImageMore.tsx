@@ -1,8 +1,8 @@
 // import mainBowl from "../assets/images/berry-smoothie.png";
-import arrow from "../assets/icons/arrow.svg";
-import facebook from "../assets/icons/facebook.svg";
-import twitter from "../assets/icons/twitter.svg";
-import instagram from "../assets/icons/instagram.svg";
+import arrow from "@/assets/icons/arrow.svg";
+import facebook from "@/assets/icons/facebook.svg";
+import twitter from "@/assets/icons/twitter.svg";
+import instagram from "@/assets/icons/instagram.svg";
 import useSmoothiesStore from "@/store/store";
 export default function HomeImageMore() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
