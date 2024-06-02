@@ -9,7 +9,7 @@ export function MenubarDemo() {
     <Menubar>
       <MenubarMenu>
         <Link
-          to={"/home"}
+          to={"/"}
           className={
             "md-desktop:text-xl md-laptop:text-base lg-desktop:text-3xl flex cursor-pointer select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none  "
           }

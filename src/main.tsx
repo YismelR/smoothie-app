@@ -6,16 +6,16 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import About from "./routes/about/About.tsx";
 import Bowls from "./routes/bowls/Bowls.tsx";
 import ContactUs from "./routes/contact-us/ContactUs.tsx";
-import HomeHeader from "./routes/home/HomeHeader.tsx";
+import Header from "./routes/header/Header.tsx";
 
 const router = createBrowserRouter([
   {
-    path: "/home",
+    path: "/",
     element: <App />,
   },
   {
     path: "/",
-    element: <HomeHeader />,
+    element: <Header />,
     children: [
       {
         path: "/about",

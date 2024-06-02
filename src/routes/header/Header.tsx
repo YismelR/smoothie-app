@@ -1,8 +1,8 @@
 // import topLogo from "../assets/logo/top-logo.svg";
 import MenuDropDown from "@/components/MenuDropDown";
 import useSmoothiesStore from "@/store/store";
-
-export default function HomeHeader() {
+import { Outlet } from "react-router-dom";
+export default function Header() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
 
   return (
@@ -34,6 +34,9 @@ export default function HomeHeader() {
 
         <MenuDropDown />
       </header>
+      <div id="detail">
+        <Outlet />
+      </div>
     </>
   );
 }
