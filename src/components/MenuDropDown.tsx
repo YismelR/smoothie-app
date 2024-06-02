@@ -32,13 +32,13 @@ export default function Component() {
           <div className="flex flex-col h-full gap-2 py-6">
             <Link
               className="flex w-full items-center py-2 text-lg font-semibold"
-              to="/"
+              to="/home"
             >
               Home
             </Link>
             <Link
               className="flex w-full items-center py-2 text-lg font-semibold"
-              to="#"
+              to="bowls"
             >
               Bowls
             </Link>
@@ -50,7 +50,7 @@ export default function Component() {
             </Link>
             <Link
               className={`flex w-full items-center py-2 text-lg font-semibold ${selectedSmoothie.textColor}`}
-              to="#"
+              to="contact-us"
             >
               Contact Us
             </Link>
