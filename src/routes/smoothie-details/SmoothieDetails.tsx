@@ -27,9 +27,11 @@ export default function SmoothieDetails() {
       <img src={backBtn} alt="back button" className="pl-8 cursor-pointer" />
       <div className="s-phone:flex flex-col place-items-center pl-8 pr-8">
         <CarouselDemo />
-        <div className="flex flex-col gap-4 py-4">
+        <div className="flex flex-col gap-4 py-4 lg-phone:gap-12">
           <div className="flex justify-between">
-            <h1>Berry-strawberry bowl</h1>
+            <h1 className="s-phone:text-lg font-semibold lg-phone:text-2xl">
+              Berry-strawberry bowl
+            </h1>
             <input
               type="checkbox"
               id="heartCheckbox"
@@ -45,13 +47,13 @@ export default function SmoothieDetails() {
               />
             </label>
           </div>
-          <p className="text-xs">
+          <p className="s-phone:text-xs md-phone:text-sm lg-phone:text-base">
             The bowls feature a wide range of toppings for you to enjoy with
             each scoop. Unlike a typical smoothie that you slurp down quickly, a
             smoothie bowl is meant to be savored as a wholesome and tasty meal.
           </p>
-          <div>
-            <p>Price $18</p>
+          <div className="lg-phone:flex flex-col gap-2">
+            <p className="font-medium lg-phone:text-xl">Price $18</p>
             <div className="flex gap-2">
               <button className="cursor-pointer" onClick={handlePlus}>
                 <img src={plus} alt="plus sign" />
@@ -62,7 +64,7 @@ export default function SmoothieDetails() {
               </button>
             </div>
           </div>
-          <button className="text-white bg-pink-darker px-4 py-2 rounded-[2rem] cursor-pointer">
+          <button className="text-white bg-pink-darker px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl">
             Add To Cart
           </button>
         </div>

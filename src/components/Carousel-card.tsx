@@ -10,7 +10,7 @@ import pinkBowl from "@/assets/images/berry-smoothie.png";
 
 export function CarouselDemo() {
   return (
-    <Carousel className="w-full max-w-48 justify-self-center">
+    <Carousel className="w-full s-phone:max-w-48 md-phone:max-w-60 lg-phone:max-w-80 justify-self-center">
       <CarouselContent>
         <CarouselItem>
           <div className="p-1">
