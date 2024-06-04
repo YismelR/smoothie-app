@@ -2,6 +2,8 @@
 import MenuDropDown from "@/components/MenuDropDown";
 import useSmoothiesStore from "@/store/store";
 import { Outlet } from "react-router-dom";
+import shoppingCart from "@/assets/icons/shoppingCart.svg";
+
 export default function Header() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
 
@@ -31,8 +33,14 @@ export default function Header() {
           <path d="M82.3333 33.4667C75.4666 37.4 73.8 51.8 79.3333 58.4667C84.1333 64.0667 95.6 64.2 101.8 58.6667C107.333 53.7333 108.733 39.4 104.133 34.8C101 31.6667 86.8666 30.8 82.3333 33.4667ZM88 35.2C88 35.4667 87.1333 37.8 86 40.4667C83.6 46.2 83.4 52.2 85.6 54.4C86.4666 55.2667 86.6666 56.4 86.1333 57C82.2666 60.8667 80 47 83.2666 39.2667C84.8 35.6 88 32.8 88 35.2ZM101.333 43.1333C101.333 49.5333 98.8666 57 96.4666 57.8667C94.8666 58.5333 94.6 58.1333 95.3333 56.3333C97.2666 51.7333 98.4666 43.2667 97.6666 39.3333C96.9333 35.7333 97.0666 35.5333 99.1333 37.1333C100.333 38.2 101.333 40.8667 101.333 43.1333ZM93.3333 44.5333C93.3333 50.1333 92.1333 53.6 90.5333 52.6C89.1333 51.7333 88.8666 42.2 90.2 40.8667C92.2 38.9333 93.3333 40.2667 93.3333 44.5333Z" />
           <path d="M162.867 33.2C159.333 35.4667 160 61.9334 163.667 62.4C166.533 62.8667 166.667 62.4667 166.667 52.4C166.667 46.6667 167.067 39.7334 167.533 37C168.4 31.8 166.933 30.6 162.867 33.2Z" />
         </svg>
-
-        <MenuDropDown />
+        <div className="flex justify-center place-items-center">
+          <MenuDropDown />
+          <img
+            src={shoppingCart}
+            alt="shopping cart"
+            className="lg-desktop:h-10"
+          />
+        </div>
       </header>
       <div id="detail">
         <Outlet />
