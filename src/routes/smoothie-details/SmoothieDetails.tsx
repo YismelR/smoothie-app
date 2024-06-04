@@ -25,10 +25,10 @@ export default function SmoothieDetails() {
   return (
     <>
       <img src={backBtn} alt="back button" className="pl-8 cursor-pointer" />
-      <div className="s-phone:flex flex-col place-items-center px-8 md-tablet:px-12">
+      <div className="s-phone:flex flex-col place-items-center px-8 md-tablet:px-12 s-laptop:grid grid-cols-2 mt-20">
         <CarouselDemo />
-        <div className="flex flex-col gap-4 py-4 lg-phone:gap-12">
-          <div className="flex justify-between">
+        <div className="flex flex-col gap-4 py-4 lg-phone:gap-12 s-laptop:px-8">
+          <div className="flex justify-between place-items-center">
             <h1 className="s-phone:text-lg font-semibold lg-phone:text-2xl md-tablet:text-3xl">
               Berry-strawberry bowl
             </h1>
