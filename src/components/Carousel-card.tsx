@@ -6,9 +6,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import pinkBowl from "@/assets/images/berry-smoothie.png";
+import useSmoothiesStore from "@/store/store";
 
 export function CarouselDemo() {
+  const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
+
   return (
     <Carousel className="w-full s-phone:max-w-48 md-phone:max-w-60 lg-phone:max-w-80  md-tablet:max-w-md md-laptop:max-w-xl md-desktop:max-w-2xl lg-desktop:max-w-4xl">
       <CarouselContent>
@@ -17,7 +19,7 @@ export function CarouselDemo() {
             <Card>
               <CardContent className="flex aspect-square items-center justify-center p-6">
                 <img
-                  src={pinkBowl}
+                  src={selectedSmoothie.src}
                   alt="pink bowl"
                   className="md-desktop:w-[39rem] lg-desktop:w-[53rem]"
                 />
