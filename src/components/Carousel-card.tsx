@@ -10,7 +10,7 @@ import pinkBowl from "@/assets/images/berry-smoothie.png";
 
 export function CarouselDemo() {
   return (
-    <Carousel className="w-full s-phone:max-w-48 md-phone:max-w-60 lg-phone:max-w-80  md-tablet:max-w-md md-laptop:max-w-xl md-desktop:max-w-2xl">
+    <Carousel className="w-full s-phone:max-w-48 md-phone:max-w-60 lg-phone:max-w-80  md-tablet:max-w-md md-laptop:max-w-xl md-desktop:max-w-2xl lg-desktop:max-w-4xl">
       <CarouselContent>
         <CarouselItem>
           <div className="p-1">
@@ -19,7 +19,7 @@ export function CarouselDemo() {
                 <img
                   src={pinkBowl}
                   alt="pink bowl"
-                  className="md-desktop:w-[39rem]"
+                  className="md-desktop:w-[39rem] lg-desktop:w-[53rem]"
                 />
               </CardContent>
             </Card>
