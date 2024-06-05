@@ -3,13 +3,15 @@ import MenuDropDown from "@/components/MenuDropDown";
 import useSmoothiesStore from "@/store/store";
 import { Outlet } from "react-router-dom";
 import shoppingCart from "@/assets/icons/shoppingCart.svg";
+import Curve from "@/components/Curve";
 
 export default function Header() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
 
   return (
-    <>
-      <header className="flex justify-between items-center md-tablet:pl-10 md-tablet:pr-16  lg-phone:pr-6 s-phone:pl-4 s-phone:pr-4 z-20 md-tablet:mt-8">
+    <div className="relative md-phone:h-screen">
+      <Curve />
+      <header className="flex relative justify-between items-center md-tablet:pl-10 md-tablet:pr-16  lg-phone:pr-6 s-phone:pl-4 s-phone:pr-4 z-20 md-tablet:pt-8">
         <svg
           viewBox="0 0 203 82"
           fill="none"
@@ -42,9 +44,9 @@ export default function Header() {
           />
         </div>
       </header>
-      <div id="detail">
+      <div id="detail" className="z-20 relative">
         <Outlet />
       </div>
-    </>
+    </div>
   );
 }
