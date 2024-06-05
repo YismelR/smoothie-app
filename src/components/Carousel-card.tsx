@@ -16,7 +16,11 @@ export function CarouselDemo() {
           <div className="p-1">
             <Card>
               <CardContent className="flex aspect-square items-center justify-center p-6">
-                <img src={pinkBowl} alt="pink bowl" />
+                <img
+                  src={pinkBowl}
+                  alt="pink bowl"
+                  className="md-desktop:w-[39rem]"
+                />
               </CardContent>
             </Card>
           </div>
