@@ -31,7 +31,38 @@ export function CarouselDemo() {
           <div className="p-1">
             <Card>
               <CardContent className="flex aspect-square items-center justify-center p-6">
-                <span className="text-4xl font-semibold">Description</span>
+                <span className="s-phone:text-xs md-phone:text-sm lg-phone:text-base md-tablet:text-xl md-desktop:text-2xl lg-desktop:text-3xl font-semibold grid grid-cols-2">
+                  <div>
+                    <h2>Content:</h2>
+                    <p>strawberry</p>
+                    <p>raspberrries</p>
+                  </div>
+                  <div>
+                    <h2>Nutritional Value:</h2>
+                    <table>
+                      <tr>
+                        <td>155</td>
+                        <td>Calories</td>
+                      </tr>
+                      <tr>
+                        <td>0</td>
+                        <td>Fat</td>
+                      </tr>
+                      <tr>
+                        <td>35g</td>
+                        <td>Carbohydrate</td>
+                      </tr>
+                      <tr>
+                        <td>5g</td>
+                        <td>Protein</td>
+                      </tr>
+                      <tr>
+                        <td>54g</td>
+                        <td>Sodium</td>
+                      </tr>
+                    </table>
+                  </div>
+                </span>
               </CardContent>
             </Card>
           </div>
