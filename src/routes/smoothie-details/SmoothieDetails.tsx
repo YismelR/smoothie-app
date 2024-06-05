@@ -5,7 +5,10 @@ import backBtn from "@/assets/icons/backbtn.svg";
 import { useState } from "react";
 import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
+import useSmoothiesStore from "@/store/store";
 export default function SmoothieDetails() {
+  const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
+
   const [isChecked, setIsChecked] = useState(false);
   const [count, setCount] = useState(0);
 
@@ -33,7 +36,9 @@ export default function SmoothieDetails() {
         <CarouselDemo />
         <div className="flex flex-col gap-4 py-4 lg-phone:gap-12 s-laptop:px-8 md-desktop:px-16 lg-desktop:pr-40 lg-desktop:gap-20 ">
           <div className="flex justify-between place-items-center">
-            <h1 className="s-phone:text-lg font-semibold lg-phone:text-2xl md-tablet:text-3xl md-desktop:text-5xl lg-desktop:text-6xl">
+            <h1
+              className={`${selectedSmoothie.textColor} s-phone:text-lg font-semibold lg-phone:text-2xl md-tablet:text-3xl md-desktop:text-5xl lg-desktop:text-6xl`}
+            >
               Berry-strawberry bowl
             </h1>
             <input
@@ -70,7 +75,9 @@ export default function SmoothieDetails() {
               </button>
             </div>
           </div>
-          <button className="text-white bg-pink-darker px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl lg-desktop:text-4xl lg-desktop:py-4">
+          <button
+            className={`text-white ${selectedSmoothie.hoverColor}  ${selectedSmoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl lg-desktop:text-4xl lg-desktop:py-4`}
+          >
             Add To Cart
           </button>
         </div>
