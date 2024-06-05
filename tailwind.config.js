@@ -54,6 +54,9 @@ module.exports = {
           light: "#FFF08D",
           lightest: "#FFF7C6",
         },
+        grey: {
+          lightest: "#F7F7F7",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
