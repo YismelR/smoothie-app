@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex justify-between items-center md-tablet:pl-10 md-tablet:pr-16  lg-phone:pr-6 s-phone:pl-4 s-phone:pr-4 z-20">
+      <header className="flex justify-between items-center md-tablet:pl-10 md-tablet:pr-16  lg-phone:pr-6 s-phone:pl-4 s-phone:pr-4 z-20 md-tablet:mt-8">
         <svg
           viewBox="0 0 203 82"
           fill="none"
