@@ -33,27 +33,31 @@ export function CarouselDemo() {
           <div className="">
             <Card>
               <CardContent className="flex aspect-square items-center justify-center">
-                <div className="flex gap-3 s-phone:text-xs md-phone:text-sm lg-phone:text-base md-tablet:text-xl md-desktop:text-2xl lg-desktop:text-3xl font-semibold ">
-                  <div className="grid">
-                    <h2>Content:</h2>
+                <div className="flex s-phone:gap-3 md-laptop:gap-16 s-phone:text-xs md-phone:text-sm lg-phone:text-base md-tablet:text-xl md-desktop:text-2xl lg-desktop:text-3xl font-semibold ">
+                  <div className="flex flex-col gap-8">
+                    <h2 className="md-desktop:text-3xl lg-desktop:text-4xl">
+                      Content:
+                    </h2>
                     <div className="flex flex-col gap-4 place-items-center">
                       <img
                         src={strawberry}
                         alt="strawberry"
-                        className="s-phone:max-w-8"
+                        className="s-phone:max-w-7 md-phone:max-w-8 lg-phone:max-w-9 md-tablet:max-w-10 md-desktop:max-w-14 lg-desktop:max-w-24"
                       />
                       <img
                         src={raspberry}
                         alt="raspberry"
-                        className="s-phone:max-w-8"
+                        className="s-phone:max-w-7 md-phone:max-w-8 lg-phone:max-w-9 md-tablet:max-w-10 md-desktop:max-w-14 lg-desktop:max-w-24"
                       />
                     </div>
                   </div>
                   <div className="grid gap-8 ">
-                    <h2 className="place-self-center">Nutritional Value:</h2>
+                    <h2 className="place-self-center md-desktop:text-3xl lg-desktop:text-4xl">
+                      Nutritional Value:
+                    </h2>
                     <div className="flex">
                       <div
-                        className={`grid gap-2 p-2 place-items-center ${selectedSmoothie.backgroundColor} text-white rounded-l-lg`}
+                        className={`grid s-phone:gap-2 s-phone:p-2 md-laptop:gap-4 md-laptop:p-4 md-desktop:gap-8 md-desktop:p-8 lg-desktop:gap-12 lg-desktop:p-12 place-items-center ${selectedSmoothie.backgroundColor} text-white rounded-l-lg`}
                       >
                         <p>155</p>
                         <p>0</p>
@@ -62,7 +66,7 @@ export function CarouselDemo() {
                         <p>54g</p>
                       </div>
                       <div
-                        className={`grid p-2 gap-2 bg-grey-lightest rounded-r-lg`}
+                        className={`grid s-phone:gap-2 s-phone:p-2 md-laptop:gap-4 md-laptop:p-4 md-desktop:gap-8 md-desktop:p-8 bg-grey-lightest rounded-r-lg`}
                       >
                         <p>Calories</p>
                         <p>Fat</p>
