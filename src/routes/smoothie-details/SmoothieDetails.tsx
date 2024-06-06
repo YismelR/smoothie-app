@@ -46,7 +46,7 @@ export default function SmoothieDetails() {
             <h1
               className={`${selectedSmoothie.textColor} s-phone:text-lg font-semibold lg-phone:text-2xl md-tablet:text-3xl md-desktop:text-5xl lg-desktop:text-6xl`}
             >
-              Berry-strawberry bowl
+              {selectedSmoothie.text}
             </h1>
             <input
               type="checkbox"

@@ -13,4 +13,5 @@ export type Smoothie = {
   text: string;
   textColor: string;
   className: string;
+  content: string[];
 };

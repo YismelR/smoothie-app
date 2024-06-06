@@ -38,18 +38,18 @@ export function CarouselDemo() {
                     <h2 className="md-desktop:text-3xl lg-desktop:text-4xl">
                       Content:
                     </h2>
-                    <div className="flex flex-col gap-4 place-items-center">
-                      <img
-                        src={strawberry}
-                        alt="strawberry"
-                        className="s-phone:max-w-7 md-phone:max-w-8 lg-phone:max-w-9 md-tablet:max-w-10 md-desktop:max-w-14 lg-desktop:max-w-24"
-                      />
-                      <img
-                        src={raspberry}
-                        alt="raspberry"
-                        className="s-phone:max-w-7 md-phone:max-w-8 lg-phone:max-w-9 md-tablet:max-w-10 md-desktop:max-w-14 lg-desktop:max-w-24"
-                      />
-                    </div>
+                    {selectedSmoothie.content.map((fruits, idx) => {
+                      return (
+                        <div className="flex flex-col gap-4 place-items-center">
+                          <img
+                            key={idx}
+                            src={fruits}
+                            alt="strawberry"
+                            className="s-phone:max-w-7 md-phone:max-w-8 lg-phone:max-w-9 md-tablet:max-w-10 md-desktop:max-w-14 lg-desktop:max-w-24"
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                   <div className="grid gap-8 ">
                     <h2 className="place-self-center md-desktop:text-3xl lg-desktop:text-4xl">

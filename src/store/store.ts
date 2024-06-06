@@ -5,6 +5,16 @@ import blueBowl from "@/assets/images/blueberry-banana.png";
 import greenBowl from "@/assets/images/cucumber-smoothie.png";
 import yellowBowl from "@/assets/images/Mango-almond.png";
 import purpleBowl from "@/assets/images/purple-hibuscus.png";
+import strawberry from "@/assets/icons/strawberry.svg";
+import raspberry from "@/assets/icons/raspberry.svg";
+import blueberry from "@/assets/icons/blueberries.svg";
+import blueRaspberry from "@/assets/icons/blue-raspberry.svg";
+import banana from "@/assets/icons/banana.svg";
+import coconut from "@/assets/icons/coconut.svg";
+import cucumber from "@/assets/icons/cucumber.svg";
+import dragonFruit from "@/assets/icons/dragonfruit.svg";
+import mango from "@/assets/icons/mango.svg";
+import pineapple from "@/assets/icons/pineapple.svg";
 
 type SmoothieStore = {
   selectedSmoothie: Smoothie;
@@ -32,6 +42,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
       shadowBtnColor: "shadow-blue-darker",
       logoFill: "fill-blue-darker",
       className: "",
+      content: [blueberry, blueRaspberry],
     },
     {
       src: greenBowl,
@@ -49,6 +60,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
       text: "Cucumber Smoothie",
       textColor: "text-green-darker",
       className: "md-tablet:px-8",
+      content: [banana, cucumber, pineapple],
     },
     {
       src: purpleBowl,
@@ -66,6 +78,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
       text: "Hibiscus Chia Smoothie",
       textColor: "text-purple-darker",
       className: "md-tablet:px-5",
+      content: [banana, strawberry, dragonFruit],
     },
     {
       src: yellowBowl,
@@ -83,6 +96,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
       shadowBtnColor: "shadow-yellow-darker",
       textColor: "text-yellow-darker",
       className: "",
+      content: [mango, pineapple, banana, coconut],
     },
   ],
 
@@ -102,6 +116,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
     shadowBtnColor: "shadow-pink-darker",
     text: "Berry-Strawberry Smoothie",
     className: "",
+    content: [strawberry, raspberry],
   },
 
   selectSmoothie: (smoothie) => set({ selectedSmoothie: smoothie }),
