@@ -1,7 +1,4 @@
 import { CarouselDemo } from "@/components/Carousel-card";
-import plus from "@/assets/icons/plus.svg";
-import minus from "@/assets/icons/minus.svg";
-import backBtn from "@/assets/icons/backbtn.svg";
 import { useState } from "react";
 import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
@@ -27,11 +24,21 @@ export default function SmoothieDetails() {
 
   return (
     <>
-      <img
-        src={backBtn}
-        alt="back button"
-        className="pl-8 cursor-pointer md-tablet:hidden "
-      />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="size-6 ml-4 cursor-pointer md-tablet:hidden"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5"
+        />
+      </svg>
+
       <div className="s-phone:flex flex-col place-items-center px-8 md-tablet:px-12 s-laptop:grid grid-cols-2 s-laptop:mt-20 md-laptop:pl-20 md-laptop:pr-32">
         <CarouselDemo />
         <div className="flex flex-col gap-4 py-4 lg-phone:gap-12 s-laptop:px-8 md-desktop:px-16 lg-desktop:pr-40 lg-desktop:gap-20 ">
@@ -66,12 +73,42 @@ export default function SmoothieDetails() {
               Price $18
             </p>
             <div className="flex gap-2 md-tablet:text-2xl lg-desktop:text-3xl">
-              <button className="cursor-pointer" onClick={handlePlus}>
-                <img src={plus} alt="plus sign" />
+              <button
+                className="cursor-pointer disabled:opacity-25"
+                onClick={handleMinus}
+                disabled={count === 0}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6 md-desktop:size-8"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                  />
+                </svg>
               </button>
               <p>{count}</p>
-              <button className="cursor-pointer" onClick={handleMinus}>
-                <img src={minus} alt="minus sign" />
+              <button className="cursor-pointer" onClick={handlePlus}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6 md-desktop:size-8"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                  />
+                </svg>
               </button>
             </div>
           </div>
