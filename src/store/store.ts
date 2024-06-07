@@ -43,6 +43,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
       logoFill: "fill-blue-darker",
       className: "",
       content: [blueberry, blueRaspberry],
+      nutritionalVal: ["209", "3g", "35g", "14g", "44mg"],
     },
     {
       src: greenBowl,
@@ -61,6 +62,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
       textColor: "text-green-darker",
       className: "md-tablet:px-8",
       content: [banana, cucumber, pineapple],
+      nutritionalVal: ["389", "1.4g", "96.6g", "4.8g", "17.2mg"],
     },
     {
       src: purpleBowl,
@@ -79,6 +81,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
       textColor: "text-purple-darker",
       className: "md-tablet:px-5",
       content: [banana, strawberry, dragonFruit],
+      nutritionalVal: ["209", "3g", "35g", "14g", "44mg"],
     },
     {
       src: yellowBowl,
@@ -97,6 +100,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
       textColor: "text-yellow-darker",
       className: "",
       content: [mango, pineapple, banana, coconut],
+      nutritionalVal: ["209", "3g", "35g", "14g", "44mg"],
     },
   ],
 
@@ -117,6 +121,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
     text: "Berry-Strawberry Smoothie",
     className: "",
     content: [strawberry, raspberry],
+    nutritionalVal: ["155", "0g", "35g", "5g", "54mg"],
   },
 
   selectSmoothie: (smoothie) => set({ selectedSmoothie: smoothie }),

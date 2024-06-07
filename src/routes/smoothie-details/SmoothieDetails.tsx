@@ -3,6 +3,7 @@ import { useState } from "react";
 import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
 import useSmoothiesStore from "@/store/store";
+import { Link } from "react-router-dom";
 export default function SmoothieDetails() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
 
@@ -24,21 +25,22 @@ export default function SmoothieDetails() {
 
   return (
     <>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="size-6 ml-4 cursor-pointer md-tablet:hidden"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5"
-        />
-      </svg>
-
+      <Link to={"/smoothie-bowls"}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="size-6 ml-4 cursor-pointer md-tablet:hidden"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5"
+          />
+        </svg>
+      </Link>
       <div className="s-phone:flex flex-col place-items-center px-8 md-tablet:px-12 s-laptop:grid grid-cols-2 s-laptop:mt-20 md-laptop:pl-20 md-laptop:pr-32">
         <CarouselDemo />
         <div className="flex flex-col gap-4 py-4 lg-phone:gap-12 s-laptop:px-8 md-desktop:px-16 lg-desktop:pr-40 lg-desktop:gap-20 ">
@@ -74,7 +76,7 @@ export default function SmoothieDetails() {
             </p>
             <div className="flex gap-2 md-tablet:text-2xl lg-desktop:text-3xl">
               <button
-                className="cursor-pointer disabled:opacity-25"
+                className="cursor-pointer disabled:opacity-25 disabled:cursor-default"
                 onClick={handleMinus}
                 disabled={count === 0}
               >

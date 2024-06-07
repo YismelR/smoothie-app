@@ -14,4 +14,5 @@ export type Smoothie = {
   textColor: string;
   className: string;
   content: string[];
+  nutritionalVal: string[];
 };
