@@ -72,7 +72,7 @@ export default function SmoothieDetails() {
           </p>
           <div className="lg-phone:flex flex-col gap-2">
             <p className="font-medium lg-phone:text-xl md-tablet:text-2xl md-desktop:text-3xl lg-desktop:text-4xl">
-              Price $18
+              Price ${selectedSmoothie.price}
             </p>
             <div className="flex gap-2 md-tablet:text-2xl lg-desktop:text-3xl">
               <button
