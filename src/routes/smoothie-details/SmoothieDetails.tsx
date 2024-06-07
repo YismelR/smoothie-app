@@ -61,7 +61,7 @@ export default function SmoothieDetails() {
               <img
                 src={isChecked ? heartChecked : heartUnchecked}
                 alt="heart favorite"
-                className="h-5 w-5"
+                className="h-5 w-5 md-tablet:h-8 md-tablet:w-8 lg-desktop:h-10 lg-desktop:w-10"
               />
             </label>
           </div>
