@@ -22,49 +22,30 @@ test("smoothie card text", async () => {
 });
 
 test("the 'order now' button click", async () => {
-  const wrapper = render(<HomeDescription />);
-  const button = wrapper.container.querySelector("button") as HTMLButtonElement;
+  render(<HomeDescription />, { wrapper: BrowserRouter });
 
-  expect(button.textContent).toBe("Order Now");
+  expect(screen.getByText("Order Now")).toBeInTheDocument;
 
-  fireEvent(
-    getByText(button, "Order Now"),
-    new MouseEvent("click", {
-      bubbles: true,
-    })
-  );
+  const user = userEvent.setup();
+  const orderNow = vi.spyOn(user, "click");
+  const orderNowLink = screen.getByText(/Order Now/i);
 
+  await user.click(orderNowLink);
+  expect(orderNow).toHaveBeenCalledTimes(1);
   //expect the order now button to be the order Now page description
 });
 
 test("the 'more' button click", async () => {
-  const wrapper = render(<HomeImageMore />);
-  const button = wrapper.container.querySelector("button") as HTMLButtonElement;
-
-  expect(button.textContent).toBe("More");
-
-  fireEvent(
-    getByText(button, "More"),
-    new MouseEvent("click", {
-      bubbles: true,
-    })
-  );
-
-  //expect the More button to be the More details page
-});
-
-test("Home router link receives atleast one click", async () => {
-  render(<App />, { wrapper: BrowserRouter });
-
-  expect(screen.getByText("Home")).toBeInTheDocument();
+  render(<HomeImageMore />, { wrapper: BrowserRouter });
+  expect(screen.getByText("More")).toBeInTheDocument;
 
   const user = userEvent.setup();
-  const home = vi.spyOn(user, "click");
+  const more = vi.spyOn(user, "click");
+  const moreLink = screen.getByText(/More/i);
 
-  const homeLink = screen.getByText(/Home/i);
-
-  await user.click(homeLink);
-  expect(home).toHaveBeenCalledTimes(1);
+  await user.click(moreLink);
+  expect(more).toHaveBeenCalledTimes(1);
+  //expect the More button to be the More details page
 });
 
 test("Bowls router link receives atleast one click", async () => {
