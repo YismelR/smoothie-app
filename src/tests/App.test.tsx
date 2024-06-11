@@ -1,12 +1,11 @@
-// import App from "@/routes/App";
-import App from "@/routes/home/App";
-import HomeFooter from "@/routes/home/HomeFooter";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { expect, test, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
-import HomeDescription from "@/routes/home/HomeDescription";
+import App from "@/routes/home/App";
+import HomeFooter from "@/routes/home/HomeFooter";
 import HomeImageMore from "@/routes/home/HomeImageMore";
+import HomeDescription from "@/routes/home/HomeDescription";
 
 test("the smoothie card", async () => {
   const wrapper = render(<HomeFooter />);

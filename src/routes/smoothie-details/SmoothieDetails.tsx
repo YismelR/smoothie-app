@@ -5,8 +5,8 @@ import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
 import useSmoothiesStore from "@/store/store";
 import { Link } from "react-router-dom";
 export default function SmoothieDetails() {
+  console.log("hi");
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
-
   const [isChecked, setIsChecked] = useState(false);
   const [count, setCount] = useState(0);
 
@@ -27,6 +27,7 @@ export default function SmoothieDetails() {
     <>
       <Link to={"/smoothie-bowls"}>
         <svg
+          data-testid="back-button"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -76,6 +77,7 @@ export default function SmoothieDetails() {
             </p>
             <div className="flex gap-2 md-tablet:text-2xl lg-desktop:text-3xl">
               <button
+                title="minus"
                 className="cursor-pointer disabled:opacity-25 disabled:cursor-default"
                 onClick={handleMinus}
                 disabled={count === 0}
@@ -95,8 +97,12 @@ export default function SmoothieDetails() {
                   />
                 </svg>
               </button>
-              <p>{count}</p>
-              <button className="cursor-pointer" onClick={handlePlus}>
+              <p data-testid="count">{count}</p>
+              <button
+                title="plus"
+                className="cursor-pointer"
+                onClick={handlePlus}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
