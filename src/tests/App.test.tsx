@@ -1,7 +1,7 @@
 // import App from "@/routes/App";
 import App from "@/routes/home/App";
 import HomeFooter from "@/routes/home/HomeFooter";
-import { fireEvent, getByText, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { expect, test, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
@@ -33,6 +33,7 @@ test("the 'order now' button click", async () => {
   await user.click(orderNowLink);
   expect(orderNow).toHaveBeenCalledTimes(1);
   //expect the order now button to be the order Now page description
+  expect(window.location.pathname).toBe("/details");
 });
 
 test("the 'more' button click", async () => {
@@ -46,6 +47,7 @@ test("the 'more' button click", async () => {
   await user.click(moreLink);
   expect(more).toHaveBeenCalledTimes(1);
   //expect the More button to be the More details page
+  // expect(window.location.pathname).toBe("/")
 });
 
 test("Bowls router link receives atleast one click", async () => {
