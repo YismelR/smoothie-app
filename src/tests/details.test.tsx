@@ -48,7 +48,8 @@ test("'Add to cart' button, (value count >= 1)", async () => {
 
   expect(screen.getByText("Add To Cart")).toBeInTheDocument();
 
-  //expect "added to cart successfully" message alert
+  //TODO
+  //**expect "added to cart successfully" message alert
 });
 
 test("'Add to cart' button, (value count < 1)", async () => {
@@ -56,7 +57,8 @@ test("'Add to cart' button, (value count < 1)", async () => {
 
   expect(screen.getByText("Add To Cart")).toBeInTheDocument();
 
-  //expect "The smoothie has not been added, please select amount of smoothies" message alert
+  //TODO
+  //**expect "The smoothie has not been added, please select amount of smoothies" message alert
 });
 
 test("double arrows back button", async () => {
@@ -78,5 +80,6 @@ test("heart checked or favorite action", async () => {
 
   expect(screen.getByRole("checkbox")).toBeInTheDocument();
 
-  //expect the smoothie to be added to favorite section
+  //TODO
+  //**expect the smoothie to be added to favorite section
 });
