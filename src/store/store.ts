@@ -84,7 +84,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
       className: "md-tablet:px-5",
       content: [banana, strawberry, dragonFruit],
       nutritionalVal: ["209", "3g", "35g", "14g", "44mg"],
-      price: "17.00",
+      price: "17.99",
     },
     {
       src: yellowBowl,
@@ -104,7 +104,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
       className: "",
       content: [mango, pineapple, banana, coconut],
       nutritionalVal: ["209", "3g", "35g", "14g", "44mg"],
-      price: "20.00",
+      price: "19.99",
     },
   ],
 
@@ -126,7 +126,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
     className: "",
     content: [strawberry, raspberry],
     nutritionalVal: ["155", "0g", "35g", "5g", "54mg"],
-    price: "18.00",
+    price: "18.99",
   },
 
   selectSmoothie: (smoothie) => set({ selectedSmoothie: smoothie }),

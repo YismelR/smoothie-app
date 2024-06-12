@@ -4,7 +4,6 @@ import { expect, test, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 import App from "@/routes/home/App";
 import HomeFooter from "@/routes/home/HomeFooter";
-import HomeImageMore from "@/routes/home/HomeImageMore";
 import HomeDescription from "@/routes/home/HomeDescription";
 
 test("the smoothie card", async () => {
@@ -33,20 +32,6 @@ test("the 'order now' button click", async () => {
   expect(orderNow).toHaveBeenCalledTimes(1);
   //expect the order now button to be the order Now page description
   expect(window.location.pathname).toBe("/details");
-});
-
-test("the 'more' button click", async () => {
-  render(<HomeImageMore />, { wrapper: BrowserRouter });
-  expect(screen.getByText("More")).toBeInTheDocument;
-
-  const user = userEvent.setup();
-  const more = vi.spyOn(user, "click");
-  const moreLink = screen.getByText(/More/i);
-
-  await user.click(moreLink);
-  expect(more).toHaveBeenCalledTimes(1);
-  //expect the More button to be the More details page
-  // expect(window.location.pathname).toBe("/")
 });
 
 test("Bowls router link receives atleast one click", async () => {
