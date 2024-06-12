@@ -5,7 +5,6 @@ import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
 import useSmoothiesStore from "@/store/store";
 import { Link } from "react-router-dom";
 export default function SmoothieDetails() {
-  console.log("hi");
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
   const [isChecked, setIsChecked] = useState(false);
   const [count, setCount] = useState(0);
