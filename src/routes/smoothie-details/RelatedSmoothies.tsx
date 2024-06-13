@@ -33,11 +33,11 @@ export default function RelatedSmoothies() {
             key={idx}
             className="s-phone:flex s-laptop:grid place-items-center bg-white s-phone:rounded-2xl shadow-cardShadow overflow-hidden cursor-pointer"
           >
-            <CardContent className="p-4 s-phone:w-full s-phone:flex s-phone:justify-center bg-grey-lightCard">
+            <CardContent className="p-4 lg-desktop:p-12 s-phone:w-full s-phone:flex s-phone:justify-center bg-grey-lightCard">
               <img
                 src={smoothie.src}
                 alt={smoothie.alt}
-                className="s-phone:max-w-28 md-laptop:max-w-36 md-desktop:max-w-44 lg-desktop:max-w-52"
+                className="s-phone:max-w-28 md-laptop:max-w-36 md-desktop:max-w-44 lg-desktop:max-w-60"
               />
             </CardContent>
             <CardHeader className="bg-white px-4 s-laptop:p-4 md-desktop:p-8  s-phone:w-full">
