@@ -24,7 +24,7 @@ export default function SmoothieDetails() {
   };
 
   return (
-    <main className="s-phone:pb-8">
+    <div className="s-phone:pb-8">
       <Link to={"/smoothie-bowls"}>
         <svg
           data-testid="back-button"
@@ -127,12 +127,12 @@ export default function SmoothieDetails() {
           </button>
         </div>
       </div>
-      <div className="s-phone:grid s-phone:gap-8 s-phone:pl-4 s-phone:pr-8 md-tablet:px-12 s-phone:mt-4 s-laptop:mt-12 md-desktop:mt-20 md-laptop:pl-20 md-laptop:pr-32">
+      <div className="s-phone:grid s-phone:gap-8 s-phone:pl-4 s-phone:pr-4 md-tablet:px-12 s-phone:mt-4 s-laptop:mt-12 md-desktop:mt-20 md-laptop:pl-20 md-laptop:pr-32">
         <h2 className="s-phone:text-base font-semibold lg-phone:text-lg md-tablet:text-2xl md-desktop:text-3xl lg-desktop:text-4xl">
           Related Products
         </h2>
         <RelatedSmoothies />
       </div>
-    </main>
+    </div>
   );
 }

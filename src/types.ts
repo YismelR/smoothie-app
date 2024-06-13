@@ -16,4 +16,5 @@ export type Smoothie = {
   content: string[];
   nutritionalVal: string[];
   price: string;
+  relatedSmoothies: Smoothie[];
 };

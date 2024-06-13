@@ -28,6 +28,7 @@ module.exports = {
       boxShadow: {
         "3xl": "0px 15px 20px -11px",
         cardShadow: "0px 6px 10px rgba(0, 0, 0, 0.1)",
+        headerShadow: "0px 4px 4px rgba(0, 0, 0, 0.06)",
       },
       colors: {
         pink: {
