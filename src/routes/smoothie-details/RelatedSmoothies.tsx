@@ -25,23 +25,23 @@ export default function RelatedSmoothies() {
   };
 
   return (
-    <>
+    <div className="s-phone:flex flex-col s-phone:gap-8 s-laptop:grid s-laptop:grid-cols-3">
       {selectedSmoothie.relatedSmoothies.map((smoothie, idx) => {
         const heartId = `heartChecked-${idx}`;
         return (
           <Card
             key={idx}
-            className="s-phone:flex place-items-center bg-white s-phone:rounded-2xl shadow-cardShadow"
+            className="s-phone:flex s-laptop:grid place-items-center bg-white s-phone:rounded-2xl shadow-cardShadow overflow-hidden cursor-pointer"
           >
-            <CardContent className="p-4 bg-grey-lightCard">
+            <CardContent className="p-4 s-phone:w-full s-phone:flex s-phone:justify-center bg-grey-lightCard">
               <img
                 src={smoothie.src}
                 alt={smoothie.alt}
                 className="s-phone:max-w-28"
               />
             </CardContent>
-            <CardHeader className="bg-white px-4 s-phone:w-full">
-              <CardTitle className="s-phone:text-sm md-phone:text-base md-tablet:text-xl s-phone:flex s-phone:place-items-center s-phone:gap-4 md-phone:gap-0 md-phone:justify-between">
+            <CardHeader className="bg-white px-4 s-laptop:p-4 s-phone:w-full">
+              <CardTitle className="s-phone:text-sm md-phone:text-base md-tablet:text-xl s-laptop:text-lg s-phone:flex s-phone:place-items-center s-phone:gap-4 md-phone:gap-0 md-phone:justify-between">
                 {smoothie.text}
                 <input
                   type="checkbox"
@@ -66,6 +66,6 @@ export default function RelatedSmoothies() {
           </Card>
         );
       })}
-    </>
+    </div>
   );
 }

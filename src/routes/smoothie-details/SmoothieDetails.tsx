@@ -62,7 +62,7 @@ export default function SmoothieDetails() {
               <img
                 src={isChecked ? heartChecked : heartUnchecked}
                 alt="heart favorite"
-                className="h-5 w-5 md-tablet:h-8 md-tablet:w-8 lg-desktop:h-10 lg-desktop:w-10"
+                className="h-5 w-5 md-tablet:h-8 md-tablet:w-8 s-laptop:w-6 md-laptop:w-8 lg-desktop:h-10 lg-desktop:w-10"
               />
             </label>
           </div>
@@ -121,7 +121,7 @@ export default function SmoothieDetails() {
             </div>
           </div>
           <button
-            className={`text-white ${selectedSmoothie.hoverColor}  ${selectedSmoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl lg-desktop:text-4xl lg-desktop:py-4`}
+            className={`text-white ${selectedSmoothie.hoverColor}  ${selectedSmoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-4`}
           >
             Add To Cart
           </button>
