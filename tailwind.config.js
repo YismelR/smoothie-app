@@ -27,6 +27,7 @@ module.exports = {
     extend: {
       boxShadow: {
         "3xl": "0px 15px 20px -11px",
+        cardShadow: "0px 6px 10px rgba(0, 0, 0, 0.1)",
       },
       colors: {
         pink: {
@@ -56,6 +57,7 @@ module.exports = {
         },
         grey: {
           lightest: "#F7F7F7",
+          lightCard: "#FBFBFB",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
