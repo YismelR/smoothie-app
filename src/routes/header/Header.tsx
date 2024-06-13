@@ -1,7 +1,9 @@
-// import topLogo from "../assets/logo/top-logo.svg";
 import MenuDropDown from "@/components/MenuDropDown";
 import useSmoothiesStore from "@/store/store";
 import { Link, Outlet } from "react-router-dom";
+import facebook from "@/assets/icons/facebook.svg";
+import twitter from "@/assets/icons/twitter.svg";
+import instagram from "@/assets/icons/instagram.svg";
 // import Curve from "@/components/Curve";
 
 export default function Header() {
@@ -57,13 +59,13 @@ export default function Header() {
       <main id="detail" className="z-20 relative pt-4">
         <Outlet />
       </main>
-      {/* <footer className="s-phone:px-4">
-        <div>
+      <footer className="s-phone:px-4 s-phone:grid s-phone:gap-8 s-phone:mt-8 shadow-footerShadow s-phone:py-8  md-tablet:grid-cols-2 md-tablet:px-12 md-laptop:px-32 lg-desktop:pt-12 lg-desktop:pb-20 lg-desktop:mt-16">
+        <div className="md-tablet:grid md-tablet:gap-24">
           <svg
             viewBox="0 0 216 63"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className={`${selectedSmoothie.logoFill} s-phone:max-w-24`}
+            className={`${selectedSmoothie.logoFill} s-phone:max-w-32 lg-desktop:max-w-52`}
           >
             <path
               d="M72.2192 0.134123C71.3495 0.730396 72.4366 10.6683 73.7579 14.1267C74.4436 15.9354 75.3133 17.4459 76.2499 18.4397C78.1901 20.5068 81.0501 21.9776 83.1407 21.9776C84.2111 21.9776 84.2947 21.9378 84.2947 21.5602C84.2947 20.6459 81.9365 15.6571 79.411 11.1851C78.8089 10.1316 78.6918 9.45586 79.0765 9.45586C79.2772 9.45586 80.1804 10.3701 82.6724 13.1329C84.5122 15.1403 85.4822 16.3726 86.9206 18.4795C87.8405 19.831 87.7401 15.6372 86.7701 12.3378C84.9972 6.35524 80.3476 1.94282 74.2262 0.432259C73.5405 0.253376 72.8547 0.0744953 72.7377 0.0148678C72.6039 -0.0248833 72.3697 0.0148678 72.2192 0.134123Z"
@@ -103,8 +105,40 @@ export default function Header() {
               fill="black"
             />
           </svg>
+
+          <div className=" hidden md-tablet:flex gap-4  ">
+            <img
+              src={facebook}
+              alt="facebook"
+              className="s-laptop:w-4 lg-desktop:w-8 md-laptop:w-4"
+            />
+            <img
+              src={twitter}
+              alt="twitter"
+              className="s-laptop:w-4 lg-desktop:w-8 md-laptop:w-4"
+            />
+            <img
+              src={instagram}
+              alt="instagram"
+              className="s-laptop:w-4 lg-desktop:w-8 md-laptop:w-4"
+            />
+          </div>
         </div>
-      </footer> */}
+        <div className=" s-phone:grid s-phone:gap-4 md-tablet:flex md-tablet:gap-24 md-laptop:justify-end">
+          <div className="s-phone:flex flex-col s-phone:gap-4 lg-desktop:text-2xl">
+            <Link to={"/about"}>
+              <h2 className="font-semibold">About:</h2>
+            </Link>
+            <p>Yismel Rodriguez</p>
+          </div>
+          <div className="s-phone:flex flex-col s-phone:gap-4 lg-desktop:text-2xl">
+            <Link to={"/contact-us"}>
+              <h2 className="font-semibold">Contact Us:</h2>
+            </Link>
+            <p>MyPage</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
