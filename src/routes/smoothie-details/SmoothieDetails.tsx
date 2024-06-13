@@ -42,7 +42,7 @@ export default function SmoothieDetails() {
           />
         </svg>
       </Link>
-      <div className="s-phone:flex flex-col md-tablet:gap-8 place-items-center px-8 md-tablet:px-12 s-laptop:grid grid-cols-2 s-laptop:mt-20 md-laptop:pl-20 md-laptop:pr-32">
+      <div className="s-phone:flex flex-col md-tablet:gap-8 place-items-center px-8 md-tablet:px-12 s-laptop:grid grid-cols-2 s-laptop:mt-20 md-laptop:px-32">
         <CarouselDemo />
         <div className="flex flex-col gap-4 py-4 lg-phone:gap-12 s-laptop:px-8 md-desktop:px-16 lg-desktop:pr-40 lg-desktop:gap-20 ">
           <div className="flex justify-between place-items-center">
@@ -127,7 +127,7 @@ export default function SmoothieDetails() {
           </button>
         </div>
       </div>
-      <div className="s-phone:flex s-phone:flex-col s-phone:gap-8 s-phone:pl-4 s-phone:pr-4 md-tablet:px-12 s-phone:mt-4 md-tablet:mt-8 s-laptop:mt-12 md-desktop:mt-20 md-laptop:pl-20 md-laptop:pr-32">
+      <div className="s-phone:flex s-phone:flex-col s-phone:gap-8 lg-desktop:gap-16 s-phone:pl-4 s-phone:pr-4 md-tablet:px-12 md-laptop:px-32 s-phone:mt-4 md-tablet:mt-8 s-laptop:mt-12 md-desktop:mt-20">
         <h2 className="s-phone:text-base font-semibold lg-phone:text-lg md-tablet:text-2xl md-desktop:text-3xl lg-desktop:text-4xl">
           Related Products
         </h2>
