@@ -41,8 +41,10 @@ export default function RelatedSmoothies() {
               />
             </CardContent>
             <CardHeader className="bg-white px-4 s-laptop:p-4 md-desktop:p-8  s-phone:w-full">
-              <CardTitle className="s-phone:text-sm md-phone:text-base md-tablet:text-xl s-laptop:text-lg md-desktop:text-2xl lg-desktop:text-3xl s-phone:flex s-phone:place-items-center s-phone:gap-4 md-tablet:gap-0 md-phone:justify-between">
-                {smoothie.text}
+              <div className="s-phone:flex s-phone:place-items-center s-phone:gap-4 md-tablet:gap-0 md-phone:justify-between">
+                <CardTitle className="s-phone:text-sm md-phone:text-base md-tablet:text-xl s-laptop:text-lg md-desktop:text-2xl lg-desktop:text-3xl ">
+                  {smoothie.text}
+                </CardTitle>
                 <input
                   type="checkbox"
                   id={heartId}
@@ -50,14 +52,17 @@ export default function RelatedSmoothies() {
                   checked={isHeartChecked[idx]}
                   onChange={() => handleCheckbox(idx)}
                 />
-                <label htmlFor={heartId} className="cursor-pointer">
+                <label
+                  htmlFor={heartId}
+                  className="cursor-pointer s-phone:flex-shrink-0 md-tablet:flex-shrink s-phone:h-5 s-phone:w-5 md-tablet:h-5 md-tablet:w-5 md-desktop:h-6 md-desktop:w-6 lg-desktop:h-10 lg-desktop:w-10 "
+                >
                   <img
                     src={isHeartChecked[idx] ? heartChecked : heartUnchecked}
                     alt="heart favorite"
-                    className="s-phone:h-8 s-phone:w-8 md-tablet:h-5 md-tablet:w-5 md-desktop:h-6 md-desktop:w-6 lg-desktop:h-8 lg-desktop:w-8 "
+                    className="lg-desktop:h-10 lg-desktop:w-10 "
                   />
                 </label>
-              </CardTitle>
+              </div>
 
               <CardDescription className="md-tablet:text-base md-desktop:text-xl lg-desktop:text-2xl">
                 ${smoothie.price}
