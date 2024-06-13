@@ -40,8 +40,8 @@ export default function RelatedSmoothies() {
                 className="s-phone:max-w-28"
               />
             </CardContent>
-            <CardHeader className="bg-white px-4">
-              <CardTitle className="s-phone:text-base s-phone:flex s-phone:place-items-center s-phone:gap-4">
+            <CardHeader className="bg-white px-4 s-phone:w-full">
+              <CardTitle className="s-phone:text-sm md-phone:text-base md-tablet:text-xl s-phone:flex s-phone:place-items-center s-phone:gap-4 md-phone:gap-0 md-phone:justify-between">
                 {smoothie.text}
                 <input
                   type="checkbox"
@@ -59,7 +59,9 @@ export default function RelatedSmoothies() {
                 </label>
               </CardTitle>
 
-              <CardDescription>${smoothie.price}</CardDescription>
+              <CardDescription className="md-tablet:text-base">
+                ${smoothie.price}
+              </CardDescription>
             </CardHeader>
           </Card>
         );
