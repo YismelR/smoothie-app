@@ -12,11 +12,18 @@ import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
 
 export default function RelatedSmoothies() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
-  const [isHeartChecked, setIsHeartChecked] = useState(false);
+  const [isHeartChecked, setHeartChecked] = useState(
+    selectedSmoothie.relatedSmoothies.map(() => false)
+  );
 
-  const handleCheckbox = () => {
-    setIsHeartChecked(!isHeartChecked);
+  const handleCheckbox = (idx: number) => {
+    setHeartChecked((prev: any) => {
+      const newCheckedStates = [...prev];
+      newCheckedStates[idx] = !newCheckedStates[idx];
+      return newCheckedStates;
+    });
   };
+
   return (
     <>
       {selectedSmoothie.relatedSmoothies.map((smoothie, idx) => {
@@ -24,33 +31,34 @@ export default function RelatedSmoothies() {
         return (
           <Card
             key={idx}
-            className="s-phone:flex place-items-center bg-grey-lightCard s-phone:rounded-2xl shadow-cardShadow"
+            className="s-phone:flex place-items-center bg-white s-phone:rounded-2xl shadow-cardShadow"
           >
-            <CardContent className="px-4">
+            <CardContent className="p-4 bg-grey-lightCard">
               <img
                 src={smoothie.src}
                 alt={smoothie.alt}
                 className="s-phone:max-w-28"
               />
             </CardContent>
-            <CardHeader className="bg-white">
-              <CardTitle className="s-phone:text-base">
+            <CardHeader className="bg-white px-4">
+              <CardTitle className="s-phone:text-base s-phone:flex s-phone:place-items-center s-phone:gap-4">
                 {smoothie.text}
-              </CardTitle>
-              <input
-                type="checkbox"
-                id={heartId}
-                className="hidden"
-                checked={isHeartChecked}
-                onChange={handleCheckbox}
-              />
-              <label htmlFor={heartId} className="cursor-pointer">
-                <img
-                  src={isHeartChecked ? heartChecked : heartUnchecked}
-                  alt="heart favorite"
-                  className="h-5 w-5 md-tablet:h-8 md-tablet:w-8 lg-desktop:h-10 lg-desktop:w-10"
+                <input
+                  type="checkbox"
+                  id={heartId}
+                  className="hidden"
+                  checked={isHeartChecked[idx]}
+                  onChange={() => handleCheckbox(idx)}
                 />
-              </label>
+                <label htmlFor={heartId} className="cursor-pointer">
+                  <img
+                    src={isHeartChecked[idx] ? heartChecked : heartUnchecked}
+                    alt="heart favorite"
+                    className="s-phone:max-h-5 s-phone:max-w-5 md-tablet:h-8 md-tablet:w-8 lg-desktop:h-10 lg-desktop:w-10 "
+                  />
+                </label>
+              </CardTitle>
+
               <CardDescription>${smoothie.price}</CardDescription>
             </CardHeader>
           </Card>
