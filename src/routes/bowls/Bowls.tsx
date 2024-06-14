@@ -26,14 +26,14 @@ export default function Bowls() {
     });
   };
   return (
-    <div className="md-tablet:mb-16">
-      <h1 className=" s-phone:text-2xl s-phone:flex s-phone:justify-center s-phone:my-8 s-phone:font-semibold md-tablet:text-3xl md-tablet:mb-16">
-        <div className="relative overflow-hidden">
+    <div className="md-tablet:mb-16 lg-desktop:mb-28">
+      <h1 className=" s-phone:text-2xl s-phone:flex s-phone:justify-center s-phone:my-8 s-phone:font-semibold md-tablet:text-3xl md-tablet:mb-16 md-desktop:text-4xl lg-desktop:text-5xl lg-desktop:my-20">
+        <div className="relative overflow-hidden lg-desktop:pb-4 s-phone:pb-2">
           Bowls
           <span className="absolute left-0 bottom-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 animate-underline"></span>
         </div>
       </h1>
-      <div className="s-phone:flex flex-col s-phone:px-4 s-phone:gap-8 lg-phone:px-8  md-tablet:grid md-tablet:grid-cols-2 md-tablet:gap-10 md-tablet:px-10 s-laptop:grid-cols-3 md-laptop:gap-12 md-desktop:gap-20 ">
+      <div className="s-phone:flex flex-col s-phone:px-4 s-phone:gap-8 lg-phone:px-8  md-tablet:grid md-tablet:grid-cols-2 md-tablet:gap-10 md-tablet:px-10 s-laptop:grid-cols-3 md-laptop:gap-12 md-laptop:px-32 md-desktop:gap-20 ">
         {smoothiesList.map((smoothie, idx) => {
           const heartId = `heartChecked-${idx}`;
           return (
