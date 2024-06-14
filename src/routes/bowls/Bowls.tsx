@@ -9,6 +9,7 @@ import useSmoothiesStore from "@/store/store";
 import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
 import { Smoothie } from "@/types";
+import { Link } from "react-router-dom";
 
 export default function Bowls() {
   const { smoothiesList, changeFavorite } = useSmoothiesStore((state) => state);
@@ -34,18 +35,22 @@ export default function Bowls() {
               key={idx}
               className="s-phone:flex md-tablet:grid place-items-center bg-white s-phone:rounded-2xl shadow-cardShadow overflow-hidden cursor-pointer"
             >
-              <CardContent className="p-4 md-desktop:p-8 lg-desktop:p-12 s-phone:w-full s-phone:flex s-phone:justify-center bg-grey-lightCard">
-                <img
-                  src={smoothie.src}
-                  alt={smoothie.alt}
-                  className="s-phone:max-w-28 md-laptop:max-w-36 md-desktop:max-w-44 lg-desktop:max-w-60"
-                />
-              </CardContent>
+              <Link to={`/details/${smoothie.id}`} className="w-full">
+                <CardContent className="p-4 md-desktop:p-8 lg-desktop:p-12 s-phone:w-full s-phone:flex s-phone:justify-center bg-grey-lightCard">
+                  <img
+                    src={smoothie.src}
+                    alt={smoothie.alt}
+                    className="s-phone:max-w-28 md-laptop:max-w-36 md-desktop:max-w-44 lg-desktop:max-w-60"
+                  />
+                </CardContent>
+              </Link>
               <CardHeader className="bg-white px-4 md-tablet:p-4 md-desktop:p-8  s-phone:w-full">
                 <div className="s-phone:flex s-phone:place-items-center s-phone:gap-4 md-tablet:gap-0 md-phone:justify-between">
-                  <CardTitle className="s-phone:text-sm md-phone:text-base md-tablet:text-xl s-laptop:text-lg md-desktop:text-2xl lg-desktop:text-3xl ">
-                    {smoothie.text}
-                  </CardTitle>
+                  <Link to={`/details/${smoothie.id}`} className="w-full">
+                    <CardTitle className="s-phone:text-sm md-phone:text-base md-tablet:text-xl s-laptop:text-lg md-desktop:text-2xl lg-desktop:text-3xl ">
+                      {smoothie.text}
+                    </CardTitle>
+                  </Link>
                   <input
                     type="checkbox"
                     id={heartId}
@@ -64,10 +69,11 @@ export default function Bowls() {
                     />
                   </label>
                 </div>
-
-                <CardDescription className="md-tablet:text-base md-desktop:text-xl lg-desktop:text-2xl">
-                  ${smoothie.price}
-                </CardDescription>
+                <Link to={`/details/${smoothie.id}`}>
+                  <CardDescription className="md-tablet:text-base md-desktop:text-xl lg-desktop:text-2xl">
+                    ${smoothie.price}
+                  </CardDescription>
+                </Link>
               </CardHeader>
             </Card>
           );
