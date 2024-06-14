@@ -1,4 +1,5 @@
 export type Smoothie = {
+  id: number;
   src: string;
   alt: string;
   borderColor: string;
@@ -14,7 +15,8 @@ export type Smoothie = {
   textColor: string;
   className: string;
   content: string[];
+  isFavorite: boolean;
   nutritionalVal: string[];
   price: string;
-  relatedSmoothies: Smoothie[];
+  relatedSmoothies: number[];
 };

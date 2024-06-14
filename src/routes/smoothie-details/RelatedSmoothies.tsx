@@ -9,11 +9,20 @@ import useSmoothiesStore from "@/store/store";
 import { useState } from "react";
 import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
+import { generateListOfSmoothies } from "@/store/store";
 
 export default function RelatedSmoothies() {
-  const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
+  const { selectedSmoothie, smoothiesList } = useSmoothiesStore(
+    (state) => state
+  );
+  const relatedSmoothieIDs = selectedSmoothie.relatedSmoothies;
   const [isHeartChecked, setHeartChecked] = useState(
     selectedSmoothie.relatedSmoothies.map(() => false)
+  );
+
+  const relatedSmoothies = generateListOfSmoothies(
+    smoothiesList,
+    relatedSmoothieIDs
   );
 
   const handleCheckbox = (idx: number) => {
@@ -26,7 +35,7 @@ export default function RelatedSmoothies() {
 
   return (
     <div className="s-phone:flex flex-col s-phone:gap-8 md-laptop:gap-12 md-desktop:gap-20 s-laptop:grid s-laptop:grid-cols-3">
-      {selectedSmoothie.relatedSmoothies.map((smoothie, idx) => {
+      {relatedSmoothies.map((smoothie, idx) => {
         const heartId = `heartChecked-${idx}`;
         return (
           <Card
