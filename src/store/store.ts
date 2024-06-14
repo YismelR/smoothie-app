@@ -7,10 +7,12 @@ import pinkBowl3 from "@/assets/images/strawberry-banana-smoothie.png";
 import strawberry from "@/assets/icons/strawberry.svg";
 import raspberry from "@/assets/icons/raspberry.svg";
 import { smoothies } from "@/store/smoothies";
+import { smoothiesList } from "./smoothiesList";
 
 type SmoothieStore = {
   selectedSmoothie: Smoothie;
   smoothies: Array<Smoothie>;
+  smoothiesList: Array<Smoothie>;
   selectSmoothie: (smoothie: Smoothie) => void;
   addSmoothie: (idx: number) => void;
   deleteSmoothie: (idx: number) => void;
@@ -18,6 +20,7 @@ type SmoothieStore = {
 
 const useSmoothiesStore = create<SmoothieStore>((set) => ({
   smoothies: smoothies,
+  smoothiesList: smoothiesList,
   selectedSmoothie: {
     src: pinkBowl,
     alt: "Berry Strawberry Smoothie",
