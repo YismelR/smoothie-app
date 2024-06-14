@@ -8,7 +8,6 @@ import Bowls from "./routes/bowls/Bowls.tsx";
 import ContactUs from "./routes/contact-us/ContactUs.tsx";
 import Header from "./routes/header/Header.tsx";
 import SmoothieDetails from "./routes/smoothie-details/SmoothieDetails.tsx";
-import SmoothieBowls from "./routes/smoothie-bowls-list/SmoothieBowls.tsx";
 
 const router = createBrowserRouter([
   {
@@ -34,10 +33,6 @@ const router = createBrowserRouter([
       {
         path: "/details",
         element: <SmoothieDetails />,
-      },
-      {
-        path: "/smoothie-bowls",
-        element: <SmoothieBowls />,
       },
     ],
   },

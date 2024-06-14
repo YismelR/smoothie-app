@@ -72,7 +72,7 @@ test("double arrows back button", async () => {
   expect(backButton).toHaveBeenCalledTimes(1);
 
   //smoothie bowl list page is render
-  expect(window.location.pathname).toBe("/smoothie-bowls");
+  expect(window.location.pathname).toBe("/bowls");
 });
 
 test("heart checked or favorite action", async () => {
