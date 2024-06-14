@@ -26,20 +26,20 @@ export default function Bowls() {
     });
   };
   return (
-    <div>
-      <h1 className=" s-phone:text-2xl s-phone:flex s-phone:justify-center s-phone:my-8 s-phone:font-semibold">
+    <div className="md-tablet:mb-16">
+      <h1 className=" s-phone:text-2xl s-phone:flex s-phone:justify-center s-phone:my-8 s-phone:font-semibold md-tablet:text-3xl md-tablet:mb-16">
         <div className="relative overflow-hidden">
           Bowls
           <span className="absolute left-0 bottom-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 animate-underline"></span>
         </div>
       </h1>
-      <div className="s-phone:flex flex-col s-phone:px-4 s-phone:gap-8 md-laptop:gap-12 md-desktop:gap-20 s-laptop:grid s-laptop:grid-cols-3">
+      <div className="s-phone:flex flex-col s-phone:px-4 s-phone:gap-8 lg-phone:px-8  md-tablet:grid md-tablet:grid-cols-2 md-tablet:gap-10 md-tablet:px-10 s-laptop:grid-cols-3 md-laptop:gap-12 md-desktop:gap-20 ">
         {smoothiesList.map((smoothie, idx) => {
           const heartId = `heartChecked-${idx}`;
           return (
             <Card
               key={idx}
-              className="s-phone:flex s-laptop:grid place-items-center bg-white s-phone:rounded-2xl shadow-cardShadow overflow-hidden cursor-pointer"
+              className="s-phone:flex md-tablet:grid place-items-center bg-white s-phone:rounded-2xl shadow-cardShadow overflow-hidden cursor-pointer"
             >
               <CardContent className="p-4 md-desktop:p-8 lg-desktop:p-12 s-phone:w-full s-phone:flex s-phone:justify-center bg-grey-lightCard">
                 <img
@@ -48,7 +48,7 @@ export default function Bowls() {
                   className="s-phone:max-w-28 md-laptop:max-w-36 md-desktop:max-w-44 lg-desktop:max-w-60"
                 />
               </CardContent>
-              <CardHeader className="bg-white px-4 s-laptop:p-4 md-desktop:p-8  s-phone:w-full">
+              <CardHeader className="bg-white px-4 md-tablet:p-4 md-desktop:p-8  s-phone:w-full">
                 <div className="s-phone:flex s-phone:place-items-center s-phone:gap-4 md-tablet:gap-0 md-phone:justify-between">
                   <CardTitle className="s-phone:text-sm md-phone:text-base md-tablet:text-xl s-laptop:text-lg md-desktop:text-2xl lg-desktop:text-3xl ">
                     {smoothie.text}
