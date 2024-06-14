@@ -6,25 +6,18 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import useSmoothiesStore from "@/store/store";
-import { useState } from "react";
 import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
+import { Smoothie } from "@/types";
 
 export default function Bowls() {
-  const { selectedSmoothie, smoothiesList } = useSmoothiesStore(
-    (state) => state
-  );
-  const [isHeartChecked, setHeartChecked] = useState(
-    selectedSmoothie.relatedSmoothies.map(() => false)
-  );
+  const { smoothiesList, changeFavorite } = useSmoothiesStore((state) => state);
 
-  const handleCheckbox = (idx: number) => {
-    setHeartChecked((prev: any) => {
-      const newCheckedStates = [...prev];
-      newCheckedStates[idx] = !newCheckedStates[idx];
-      return newCheckedStates;
-    });
+  const handleCheckbox = (smoothie: Smoothie) => {
+    let isFavorite = !smoothie.isFavorite;
+    changeFavorite(smoothie, isFavorite);
   };
+
   return (
     <div className="md-tablet:mb-16 lg-desktop:mb-28">
       <h1 className=" s-phone:text-2xl s-phone:flex s-phone:justify-center s-phone:my-8 s-phone:font-semibold md-tablet:text-3xl md-tablet:mb-16 md-desktop:text-4xl lg-desktop:text-5xl lg-desktop:my-20">
@@ -57,15 +50,15 @@ export default function Bowls() {
                     type="checkbox"
                     id={heartId}
                     className="hidden"
-                    checked={isHeartChecked[idx]}
-                    onChange={() => handleCheckbox(idx)}
+                    checked={smoothie.isFavorite}
+                    onChange={() => handleCheckbox(smoothie)}
                   />
                   <label
                     htmlFor={heartId}
                     className="cursor-pointer s-phone:flex-shrink-0 md-tablet:flex-shrink s-phone:h-5 s-phone:w-5 md-tablet:h-5 md-tablet:w-5 md-desktop:h-6 md-desktop:w-6 lg-desktop:h-10 lg-desktop:w-10 "
                   >
                     <img
-                      src={isHeartChecked[idx] ? heartChecked : heartUnchecked}
+                      src={smoothie.isFavorite ? heartChecked : heartUnchecked}
                       alt="heart favorite"
                       className="lg-desktop:h-10 lg-desktop:w-10 "
                     />

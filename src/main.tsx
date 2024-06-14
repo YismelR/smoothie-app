@@ -2,12 +2,30 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./routes/home/App.tsx";
 import "./index.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Params,
+  RouterProvider,
+  createBrowserRouter,
+  Navigate,
+} from "react-router-dom";
 import About from "./routes/about/About.tsx";
 import Bowls from "./routes/bowls/Bowls.tsx";
 import ContactUs from "./routes/contact-us/ContactUs.tsx";
 import Header from "./routes/header/Header.tsx";
 import SmoothieDetails from "./routes/smoothie-details/SmoothieDetails.tsx";
+import { smoothiesList } from "@/store/smoothiesList.ts";
+
+type DetailParams = { params: Params };
+
+async function detailsLoader({ params }: DetailParams) {
+  let id = parseInt(params.id || "1");
+
+  const smoothie =
+    smoothiesList.find((smoothie) => smoothie.id === id) ||
+    Navigate({ to: "/" });
+
+  return smoothie;
+}
 
 const router = createBrowserRouter([
   {
@@ -31,7 +49,8 @@ const router = createBrowserRouter([
         element: <ContactUs />,
       },
       {
-        path: "/details",
+        path: "/details/:id",
+        loader: detailsLoader,
         element: <SmoothieDetails />,
       },
     ],

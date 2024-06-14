@@ -13,6 +13,7 @@ type SmoothieStore = {
   selectSmoothie: (smoothie: Smoothie) => void;
   addSmoothie: (idx: number) => void;
   deleteSmoothie: (idx: number) => void;
+  changeFavorite: (smoothie: Smoothie, isFavorite: boolean) => void;
 };
 
 const ids = [1, 4, 10, 13];
@@ -71,6 +72,20 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
       state.smoothies.splice(idx + 1, 1);
       return {
         smoothies: state.smoothies,
+      };
+    }),
+
+  changeFavorite: (smoothie: Smoothie, isFavorite: boolean) =>
+    set((state) => {
+      return {
+        ...state,
+        smoothiesList: state.smoothiesList.map((stateSmoothie) => {
+          if (stateSmoothie.id === smoothie.id) {
+            stateSmoothie.isFavorite = isFavorite;
+          }
+
+          return stateSmoothie;
+        }),
       };
     }),
 

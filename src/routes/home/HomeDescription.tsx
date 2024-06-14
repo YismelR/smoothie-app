@@ -56,7 +56,7 @@ export default function HomeDescription() {
         extra fruit and veggies into your diet.
       </p>
       <div>
-        <Link to={"/details"}>
+        <Link to={`/details/${selectedSmoothie.id}`}>
           <button
             className={`${selectedSmoothie.backgroundColor} py-2 px-4 rounded-full text-white shadow-3xl ${selectedSmoothie.shadowBtnColor} ${selectedSmoothie.hoverColor} md-desktop:text-xl lg-desktop:text-3xl s-laptop:text-xs md-laptop:text-sm md-tablet:text-base lg-desktop:py-4 lg-desktop:px-6 lg-phone:text-sm md-phone:text-sm s-phone:text-xs`}
           >

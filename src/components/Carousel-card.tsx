@@ -6,10 +6,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import useSmoothiesStore from "@/store/store";
+import { Smoothie } from "@/types";
+import { useLoaderData } from "react-router-dom";
 
 export function CarouselDemo() {
-  const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
+  const smoothie = useLoaderData() as Smoothie;
 
   return (
     <Carousel className="w-full s-phone:max-w-56 md-phone:max-w-60 lg-phone:max-w-80  md-tablet:max-w-md md-laptop:max-w-xl md-desktop:max-w-2xl lg-desktop:max-w-4xl">
@@ -19,7 +20,7 @@ export function CarouselDemo() {
             <Card>
               <CardContent className="flex aspect-square items-center justify-center ">
                 <img
-                  src={selectedSmoothie.src}
+                  src={smoothie.src}
                   alt="pink bowl"
                   className="md-desktop:w-[39rem] lg-desktop:w-[53rem]"
                 />
@@ -36,7 +37,7 @@ export function CarouselDemo() {
                     <h2 className="md-desktop:text-3xl lg-desktop:text-4xl pb-8">
                       Content:
                     </h2>
-                    {selectedSmoothie.content.map((fruits, idx) => {
+                    {smoothie.content.map((fruits, idx) => {
                       return (
                         <div
                           key={idx}
@@ -57,9 +58,9 @@ export function CarouselDemo() {
                     </h2>
                     <div className="flex">
                       <div
-                        className={`grid s-phone:gap-2 s-phone:p-2 md-laptop:gap-4 md-laptop:p-4 md-desktop:gap-8 md-desktop:p-8 lg-desktop:gap-12 lg-desktop:p-12 place-items-center ${selectedSmoothie.backgroundColor} text-white rounded-l-lg`}
+                        className={`grid s-phone:gap-2 s-phone:p-2 md-laptop:gap-4 md-laptop:p-4 md-desktop:gap-8 md-desktop:p-8 lg-desktop:gap-12 lg-desktop:p-12 place-items-center ${smoothie.backgroundColor} text-white rounded-l-lg`}
                       >
-                        {selectedSmoothie.nutritionalVal.map((value, idx) => {
+                        {smoothie.nutritionalVal.map((value, idx) => {
                           return <p key={idx}>{value}</p>;
                         })}
                       </div>

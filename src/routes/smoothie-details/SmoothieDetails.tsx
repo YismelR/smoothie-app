@@ -2,16 +2,19 @@ import { CarouselDemo } from "@/components/Carousel-card";
 import { useState } from "react";
 import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
-import useSmoothiesStore from "@/store/store";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import RelatedSmoothies from "./RelatedSmoothies";
+import { Smoothie } from "@/types";
+import useSmoothiesStore from "@/store/store";
 export default function SmoothieDetails() {
-  const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
-  const [isChecked, setIsChecked] = useState(false);
   const [count, setCount] = useState(0);
+  const smoothie = useLoaderData() as Smoothie;
 
-  const handleCheckbox = () => {
-    setIsChecked(!isChecked);
+  const { changeFavorite } = useSmoothiesStore((state) => state);
+
+  const handleCheckbox = (smoothie: Smoothie) => {
+    let isFavorite = !smoothie.isFavorite;
+    changeFavorite(smoothie, isFavorite);
   };
   const handlePlus = () => {
     setCount(count + 1);
@@ -47,20 +50,20 @@ export default function SmoothieDetails() {
         <div className="flex flex-col gap-4 py-4 lg-phone:gap-12 s-laptop:px-8 md-desktop:px-16 lg-desktop:pr-40 lg-desktop:gap-20 ">
           <div className="flex justify-between place-items-center">
             <h1
-              className={`${selectedSmoothie.textColor} s-phone:text-lg font-semibold lg-phone:text-2xl md-tablet:text-3xl md-desktop:text-5xl lg-desktop:text-6xl`}
+              className={`${smoothie.textColor} s-phone:text-lg font-semibold lg-phone:text-2xl md-tablet:text-3xl md-desktop:text-5xl lg-desktop:text-6xl`}
             >
-              {selectedSmoothie.text}
+              {smoothie.text}
             </h1>
             <input
               type="checkbox"
               id="heartCheckbox"
               className="hidden"
-              checked={isChecked}
-              onChange={handleCheckbox}
+              checked={smoothie.isFavorite}
+              onChange={() => handleCheckbox(smoothie)}
             />
             <label htmlFor="heartCheckbox" className="cursor-pointer">
               <img
-                src={isChecked ? heartChecked : heartUnchecked}
+                src={smoothie.isFavorite ? heartChecked : heartUnchecked}
                 alt="heart favorite"
                 className="h-5 w-5 md-tablet:h-8 md-tablet:w-8 s-laptop:w-6 md-laptop:w-8 lg-desktop:h-10 lg-desktop:w-10"
               />
@@ -73,7 +76,7 @@ export default function SmoothieDetails() {
           </p>
           <div className="lg-phone:flex flex-col gap-2">
             <p className="font-medium lg-phone:text-xl md-tablet:text-2xl md-desktop:text-3xl lg-desktop:text-4xl">
-              Price ${selectedSmoothie.price}
+              Price ${smoothie.price}
             </p>
             <div className="flex gap-2 md-tablet:text-2xl lg-desktop:text-3xl">
               <button
@@ -121,7 +124,7 @@ export default function SmoothieDetails() {
             </div>
           </div>
           <button
-            className={`text-white ${selectedSmoothie.hoverColor}  ${selectedSmoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-4`}
+            className={`text-white ${smoothie.hoverColor}  ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-4`}
           >
             Add To Cart
           </button>
