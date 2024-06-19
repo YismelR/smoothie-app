@@ -72,14 +72,14 @@ export function ContactForm() {
             name="firstName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="md-tablet:text-base">
+                <FormLabel className="md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl">
                   First Name
                 </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Jane"
                     {...field}
-                    className="md-tablet:text-base"
+                    className="md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl"
                   />
                 </FormControl>
                 <FormMessage />
@@ -91,12 +91,14 @@ export function ContactForm() {
             name="lastName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="md-tablet:text-base">Last Name</FormLabel>
+                <FormLabel className="md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl">
+                  Last Name
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Doe"
                     {...field}
-                    className="md-tablet:text-base"
+                    className="md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl"
                   />
                 </FormControl>
                 <FormMessage />
@@ -109,14 +111,14 @@ export function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="md-tablet:text-base">
+              <FormLabel className="md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl">
                 Email Address
               </FormLabel>
               <FormControl>
                 <Input
                   placeholder="email@fakejanedomain.net"
                   {...field}
-                  className="md-tablet:text-base"
+                  className="md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl"
                 />
               </FormControl>
               <FormMessage />
@@ -128,14 +130,14 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="md-tablet:text-base">
+              <FormLabel className="md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl">
                 Your Message
               </FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Enter your question or message... "
                   {...field}
-                  className="md-tablet:text-base"
+                  className="md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl"
                 />
               </FormControl>
               <FormMessage />
@@ -144,7 +146,7 @@ export function ContactForm() {
         />
         <Button
           type="submit"
-          className={`${selectedSmoothie.backgroundColor} s-phone:rounded-full md-tablet:text-base`}
+          className={`${selectedSmoothie.backgroundColor} s-phone:rounded-full md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl`}
         >
           Submit
         </Button>
