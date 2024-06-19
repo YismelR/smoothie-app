@@ -66,46 +66,52 @@ export function ContactForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="s-phone:space-y-6 s-phone:grid "
       >
-        <FormField
-          control={form.control}
-          name="firstName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="md-tablet:text-base">First Name</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Jane"
-                  {...field}
-                  className="md-tablet:text-base"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="lastName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="md-tablet:text-base">Last Name</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Doe"
-                  {...field}
-                  className="md-tablet:text-base"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <div className="s-laptop:grid grid-cols-2 s-laptop:gap-8">
+          <FormField
+            control={form.control}
+            name="firstName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="md-tablet:text-base">
+                  First Name
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Jane"
+                    {...field}
+                    className="md-tablet:text-base"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="lastName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="md-tablet:text-base">Last Name</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Doe"
+                    {...field}
+                    className="md-tablet:text-base"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="md-tablet:text-base">Email</FormLabel>
+              <FormLabel className="md-tablet:text-base">
+                Email Address
+              </FormLabel>
               <FormControl>
                 <Input
                   placeholder="email@fakejanedomain.net"
@@ -122,7 +128,9 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="md-tablet:text-base">Message</FormLabel>
+              <FormLabel className="md-tablet:text-base">
+                Your Message
+              </FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Enter your question or message... "

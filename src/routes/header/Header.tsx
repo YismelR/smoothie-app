@@ -124,7 +124,7 @@ export default function Header() {
             />
           </div>
         </div>
-        <div className=" s-phone:grid s-phone:gap-4 md-tablet:flex md-tablet:gap-24 md-laptop:justify-end">
+        <div className=" s-phone:grid s-phone:gap-4 md-tablet:flex md-tablet:gap-24 s-laptop:justify-end">
           <div className="s-phone:flex flex-col s-phone:gap-4 lg-desktop:text-2xl">
             <Link to={"/about"}>
               <h2 className="font-semibold">About:</h2>
