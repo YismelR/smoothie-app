@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import useSmoothiesStore from "@/store/store";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { useForm } from "react-hook-form";
@@ -39,6 +40,8 @@ export const formSchema = z.object({
 });
 
 export function ContactForm() {
+  const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -59,7 +62,10 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="s-phone:space-y-6 s-phone:grid "
+      >
         <FormField
           control={form.control}
           name="firstName"
@@ -93,7 +99,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="email@fakejanedomain.com" {...field} />
+                <Input placeholder="email@fakejanedomain.net" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -115,7 +121,12 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button
+          type="submit"
+          className={`${selectedSmoothie.backgroundColor} s-phone:rounded-full`}
+        >
+          Submit
+        </Button>
       </form>
     </Form>
   );
