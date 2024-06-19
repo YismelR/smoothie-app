@@ -4,7 +4,7 @@ import contactImg from "@/assets/images/contact-image.svg";
 export default function ContactUs() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
   return (
-    <div className=" s-phone:px-4 s-phone:grid s-phone:gap-4 s-phone:mt-4 md-tablet:place-items-center md-tablet:px-16 s-laptop:grid-cols-2">
+    <div className=" s-phone:px-4 s-phone:grid s-phone:gap-4 s-phone:mt-4 md-tablet:place-items-center md-tablet:px-12 s-laptop:grid-cols-2">
       <div className="s-phone:grid s-phone:gap-4">
         <h1
           className={`${selectedSmoothie.textColor} s-phone:font-semibold s-phone:text-2xl lg-phone:text-3xl md-tablet:text-4xl`}

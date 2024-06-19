@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <div className="relative md-phone:h-screen">
       {/* <Curve /> */}
-      <header className="flex relative justify-between items-center md-tablet:pl-10 md-tablet:pr-16  lg-phone:pr-6 s-phone:pl-4 s-phone:pr-4 z-20 md-tablet:pt-8 md-laptop:px-32 shadow-headerShadow">
+      <header className="flex relative justify-between items-center md-tablet:px-12 lg-phone:pr-6 s-phone:pl-4 s-phone:pr-4 z-20 md-tablet:pt-8 md-laptop:px-32 shadow-headerShadow">
         <Link to="/">
           <svg
             viewBox="0 0 203 82"
