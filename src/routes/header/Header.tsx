@@ -59,7 +59,7 @@ export default function Header() {
       <main id="detail" className="z-20 relative pt-4">
         <Outlet />
       </main>
-      <footer className="s-phone:px-4 s-phone:grid s-phone:gap-8 s-phone:mt-8 shadow-footerShadow s-phone:py-8  md-tablet:grid-cols-2 md-tablet:px-12 md-laptop:px-32 lg-desktop:pt-12 lg-desktop:pb-20 lg-desktop:mt-16">
+      <footer className="s-phone:px-4 s-phone:grid s-phone:gap-8 shadow-footerShadow s-phone:py-8  md-tablet:grid-cols-2 md-tablet:px-12 md-laptop:px-32 lg-desktop:pt-12 lg-desktop:pb-20">
         <div className="md-tablet:grid md-tablet:gap-24">
           <svg
             viewBox="0 0 216 63"

@@ -20,7 +20,7 @@ export default function Bowls() {
   };
 
   return (
-    <div className="md-tablet:mb-16 lg-desktop:mb-28">
+    <div className="s-phone:pb-16 lg-desktop:pb-28">
       <h1 className=" s-phone:text-2xl s-phone:flex s-phone:justify-center s-phone:my-8 s-phone:font-bold md-tablet:text-3xl md-tablet:mb-16 md-desktop:text-4xl lg-desktop:text-5xl lg-desktop:my-20">
         <div className="relative overflow-hidden lg-desktop:pb-4 s-phone:pb-2">
           Bowls

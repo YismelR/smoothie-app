@@ -27,7 +27,7 @@ export default function SmoothieDetails() {
   };
 
   return (
-    <div className="s-phone:pb-8">
+    <div className="s-phone:pb-16 md-desktop:pb-24">
       <Link to={"/bowls"}>
         <svg
           data-testid="back-button"
