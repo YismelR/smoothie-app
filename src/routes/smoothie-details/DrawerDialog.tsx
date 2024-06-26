@@ -5,8 +5,10 @@ import useMediaQuery from "@/hooks/use-media-query";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -21,14 +23,14 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import useSmoothiesStore from "@/store/store";
+import { Link, useLoaderData } from "react-router-dom";
+import { Smoothie } from "@/types";
+import addedCart from "@/assets/icons/added-to-cart.svg";
 
 export function DrawerDialog() {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
+  const smoothie = useLoaderData() as Smoothie;
 
   if (isDesktop) {
     return (
@@ -36,19 +38,29 @@ export function DrawerDialog() {
         <DialogTrigger asChild>
           <Button
             variant="outline"
-            className={`text-white ${selectedSmoothie.hoverColor}  ${selectedSmoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-4`}
+            className={`text-white ${smoothie.hoverColor}  ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-8`}
           >
             Add To Cart
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>
-              Make changes to your profile here. Click save when you're done.
-            </DialogDescription>
+        <DialogContent className="sm:max-w-[425px] ">
+          <DialogHeader className=" flex flex-row gap-4">
+            <img src={addedCart} alt="added to cart" className="w-10" />
+            <div className="flex flex-col">
+              <DialogTitle>1 Item Added to the Cart</DialogTitle>
+              <DialogDescription>
+                (2) items in the cart for $40.99
+              </DialogDescription>
+            </div>
           </DialogHeader>
           <ProfileForm />
+          <DialogFooter className="sm:justify-start">
+            <DialogClose asChild>
+              <Button type="button" variant="secondary">
+                Continue Shopping
+              </Button>
+            </DialogClose>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
     );
@@ -59,17 +71,20 @@ export function DrawerDialog() {
       <DrawerTrigger asChild>
         <Button
           variant="outline"
-          className={`text-white ${selectedSmoothie.hoverColor}  ${selectedSmoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-4`}
+          className={`text-white ${smoothie.hoverColor}  ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-4`}
         >
           Add To Cart
         </Button>
       </DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader className="text-left">
-          <DrawerTitle>Edit profile</DrawerTitle>
-          <DrawerDescription>
-            Make changes to your profile here. Click save when you're done.
-          </DrawerDescription>
+        <DrawerHeader className="text-left flex gap-4">
+          <img src={addedCart} alt="added to cart" className="w-8" />
+          <div className="flex flex-col">
+            <DrawerTitle>1 Item Added to the Cart</DrawerTitle>
+            <DrawerDescription>
+              (2) items in the cart for $40.99
+            </DrawerDescription>
+          </div>
         </DrawerHeader>
         <ProfileForm className="px-4" />
         <DrawerFooter className="pt-2">
@@ -83,17 +98,25 @@ export function DrawerDialog() {
 }
 
 function ProfileForm({ className }: React.ComponentProps<"form">) {
+  const smoothie = useLoaderData() as Smoothie;
+
   return (
     <form className={cn("grid items-start gap-4", className)}>
-      <div className="grid gap-2">
-        <Label htmlFor="email">Email</Label>
-        <Input type="email" id="email" defaultValue="shadcn@example.com" />
+      <div className="flex gap-4">
+        <img src={smoothie.src} alt={smoothie.alt} className="max-w-28" />
+        <div className="flex flex-col gap-4 justify-center">
+          <p className="font-semibold">{smoothie.text}</p>
+          <p>${smoothie.price}</p>
+        </div>
       </div>
-      <div className="grid gap-2">
-        <Label htmlFor="username">Username</Label>
-        <Input id="username" defaultValue="@shadcn" />
-      </div>
-      <Button type="submit">View Cart</Button>
+      <Link to={"/shopping-cart"} className="flex">
+        <Button
+          type="submit"
+          className={`text-white w-full ${smoothie.hoverColor}  ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-4`}
+        >
+          View Cart (2)
+        </Button>
+      </Link>
     </form>
   );
 }

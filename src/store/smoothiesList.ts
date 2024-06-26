@@ -24,11 +24,11 @@ import cucumber from "@/assets/icons/cucumber.svg";
 import dragonFruit from "@/assets/icons/dragonfruit.svg";
 import mango from "@/assets/icons/mango.svg";
 import pineapple from "@/assets/icons/pineapple.svg";
-import apple from "@/assets/images/apple.svg";
-import avocado from "@/assets/images/avocado.svg";
-import grapefruit from "@/assets/images/grapefruit.svg";
-import berries from "@/assets/images/berries.svg";
-import kiwi from "@/assets/images/kiwi.svg";
+import apple from "@/assets/icons/apple.svg";
+import avocado from "@/assets/icons/avocado.svg";
+import grapefruit from "@/assets/icons/grapefruit.svg";
+import berries from "@/assets/icons/berries.svg";
+import kiwi from "@/assets/icons/kiwi.svg";
 
 export const smoothiesList = [
   {
