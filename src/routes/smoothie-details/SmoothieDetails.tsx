@@ -6,6 +6,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import RelatedSmoothies from "./RelatedSmoothies";
 import { Smoothie } from "@/types";
 import useSmoothiesStore from "@/store/store";
+import { DrawerDialog } from "./DrawerDialog";
 export default function SmoothieDetails() {
   const [count, setCount] = useState(0);
   const smoothie = useLoaderData() as Smoothie;
@@ -123,11 +124,7 @@ export default function SmoothieDetails() {
               </button>
             </div>
           </div>
-          <button
-            className={`text-white ${smoothie.hoverColor}  ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-4`}
-          >
-            Add To Cart
-          </button>
+          <DrawerDialog />
         </div>
       </div>
       <div className="s-phone:flex s-phone:flex-col s-phone:gap-8 lg-desktop:gap-16 s-phone:pl-4 s-phone:pr-4 md-tablet:px-12 md-laptop:px-32 s-phone:mt-4 md-tablet:mt-8 s-laptop:mt-12 md-desktop:mt-20">
