@@ -14,6 +14,7 @@ import ContactUs from "./routes/contact-us/ContactUs.tsx";
 import Header from "./routes/header/Header.tsx";
 import SmoothieDetails from "./routes/smoothie-details/SmoothieDetails.tsx";
 import { smoothiesList } from "@/store/smoothiesList.ts";
+import { ShoppingCart } from "./routes/cart/ShoppingCart.tsx";
 
 type DetailParams = { params: Params };
 
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         path: "/details/:id",
         loader: detailsLoader,
         element: <SmoothieDetails />,
+      },
+      {
+        path: "/shopping-cart",
+        element: <ShoppingCart />,
       },
     ],
   },
