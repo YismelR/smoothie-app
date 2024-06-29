@@ -5,22 +5,37 @@ export default function Curve() {
 
   return (
     <>
+      {/* laptop or desktop view, hidden < md-laptop(1440px) */}
       <svg
-        viewBox="300 0 1023 785"
+        viewBox="0 0 1023 785"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={`hidden s-laptop:flex max-md-laptop:w-[108%] absolute w-full h-full object-contain z-10 ${selectedSmoothie.bgFill}`}
+        className={`hidden md-laptop:flex  absolute  h-full object-contain z-10 ${selectedSmoothie.bgFill}`}
       >
         <path
           d="M-8.45335e-06 0H1022.12C1033.54 257.365 931.278 281.872 848.65 337.086C848.65 337.086 799.344 360.647 759.174 389.399C724.936 413.905 679.986 478.122 706.698 574.646C733.41 671.171 720.977 679.673 706.698 716.182C687.334 765.695 621.448 785 621.448 785H-8.45335e-06V0Z"
           fillOpacity="0.2"
         />
       </svg>
+      {/* small laptop view hidden from everything hidden < s-laptop(1024px) hidden >= md-laptop(1440px) */}
       <svg
-        viewBox="150 0 900 1425"
+        viewBox="0 0 1394 1485"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={`hidden s-laptop:hidden md-tablet:flex absolute w-full h-full object-contain ${selectedSmoothie.bgFill}`}
+        className={`hidden s-laptop:flex md-laptop:hidden absolute  h-full object-contain z-10 ${selectedSmoothie.bgFill}`}
+      >
+        <path
+          d="M0 0H1392.8C1408.36 486.863 1269.01 533.222 1156.42 637.672C1156.42 637.672 1089.23 682.243 1034.5 736.634C987.84 782.993 926.589 904.472 962.988 1087.07C999.387 1269.67 982.445 1285.75 962.988 1354.82C936.601 1448.48 846.822 1485 846.822 1485H0V0Z"
+          fill-opacity="0.2"
+        />
+      </svg>
+
+      {/* medium tablet view,  hidden < md-tablet(768px) && hidden >= s-laptop(1024px)  */}
+      <svg
+        viewBox="0 0 900 1425"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={`hidden s-laptop:hidden md-tablet:flex absolute h-full object-contain ${selectedSmoothie.bgFill}`}
       >
         <g clipPath="url(#clip0_98_2)">
           <path
@@ -29,11 +44,12 @@ export default function Curve() {
           />
         </g>
       </svg>
+      {/* smallest device,s hidden >= md-tablet(768px) */}
       <svg
-        viewBox="250 0 900 2095"
+        viewBox="0 0 900 2095"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={`md-tablet:hidden s-phone:flex absolute w-full h-full object-contain z-10 ${selectedSmoothie.bgFill}`}
+        className={`md-tablet:hidden s-phone:flex absolute h-full object-contain z-10 ${selectedSmoothie.bgFill}`}
       >
         <g clipPath="url(#clip0_122_171)">
           <path
