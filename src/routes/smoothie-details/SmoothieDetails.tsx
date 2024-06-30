@@ -8,7 +8,7 @@ import { Smoothie } from "@/types";
 import useSmoothiesStore from "@/store/store";
 import { DrawerDialog } from "./DrawerDialog";
 export default function SmoothieDetails() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const smoothie = useLoaderData() as Smoothie;
 
   const { changeFavorite } = useSmoothiesStore((state) => state);
@@ -21,7 +21,7 @@ export default function SmoothieDetails() {
     setCount(count + 1);
   };
   const handleMinus = () => {
-    if (count === 0) {
+    if (count === 1) {
       return;
     }
     setCount(count - 1);
@@ -84,7 +84,7 @@ export default function SmoothieDetails() {
                 title="minus"
                 className="cursor-pointer disabled:opacity-25 disabled:cursor-default"
                 onClick={handleMinus}
-                disabled={count === 0}
+                disabled={count === 1}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

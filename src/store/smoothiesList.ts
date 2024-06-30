@@ -143,7 +143,7 @@ export const smoothiesList = [
     className: "md-tablet:px-8",
     content: [banana, avocado, blueberry, raspberry],
     nutritionalVal: ["310", "15.6g", "41.5g", "7.9g", "171mg"],
-    price: "14.25",
+    price: "12.99",
     relatedSmoothies: [4, 6, 5],
   },
   {

@@ -1,6 +1,6 @@
 export function OrderSummary() {
   return (
-    <div className="bg-pink-darker bg-opacity-5 p-4 md-laptop:p-10">
+    <div className="bg-pink-darker bg-opacity-5 p-4 md-laptop:p-10 md-tablet:h-fit">
       <div className="flex flex-col gap-2 pb-4 border-b">
         <button className="bg-pink-darker text-white p-2 rounded-xl md-desktop:text-xl font-medium lg-desktop:p-3 lg-desktop:text-3xl">
           Proceed to Checkout
