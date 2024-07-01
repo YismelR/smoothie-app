@@ -10,7 +10,6 @@ type SmoothieStore = {
   selectedSmoothie: Smoothie;
   smoothies: Array<Smoothie>;
   smoothiesList: Array<Smoothie>;
-  smoothieCartList: Array<Smoothie>;
   selectSmoothie: (smoothie: Smoothie) => void;
   addSmoothie: (idx: number) => void;
   deleteSmoothie: (idx: number) => void;
@@ -42,7 +41,6 @@ export function generateListOfSmoothies(
 const useSmoothiesStore = create<SmoothieStore>((set) => ({
   smoothies: generateListOfSmoothies(smoothiesList, ids),
   smoothiesList: smoothiesList,
-  smoothieCartList: [],
   selectedSmoothie: {
     id: 7,
     src: pinkBowl,

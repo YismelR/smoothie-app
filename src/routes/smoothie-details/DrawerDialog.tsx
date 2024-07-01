@@ -26,11 +26,17 @@ import {
 import { Link, useLoaderData } from "react-router-dom";
 import { Smoothie } from "@/types";
 import addedCart from "@/assets/icons/added-to-cart.svg";
+import useShoppingCartStore from "@/store/itemConfirmation";
 
 export function DrawerDialog() {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const smoothie = useLoaderData() as Smoothie;
+  const addItems = useShoppingCartStore((state) => state.addItem);
+
+  const handleAddToCart = (smoothie: Smoothie) => {
+    addItems(smoothie);
+  };
 
   if (isDesktop) {
     return (
@@ -39,6 +45,7 @@ export function DrawerDialog() {
           <Button
             variant="outline"
             className={`text-white ${smoothie.hoverColor}  ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl md-desktop:py-7 lg-desktop:text-4xl lg-desktop:py-8`}
+            onClick={() => handleAddToCart(smoothie)}
           >
             Add To Cart
           </Button>

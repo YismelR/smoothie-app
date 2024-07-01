@@ -1,9 +1,18 @@
+import useShoppingCartStore from "@/store/itemConfirmation";
 import { ItemTable } from "./ItemTable";
 import { OrderSummary } from "./OrderSummary";
 
 export function ShoppingCart() {
+  const quantity = useShoppingCartStore((state) => state.quantity);
+  if (quantity === 0) {
+    return (
+      <h1 className="text-grey-dark flex place-items-center justify-center h-screen font-bold text-xl lg-desktop:text-3xl">
+        YOUR CART IS EMPTY
+      </h1>
+    );
+  }
   return (
-    <div className="flex flex-col  md-tablet:px-12 md-laptop:px-32">
+    <div className="flex flex-col  md-tablet:px-12 md-laptop:px-32 md-tablet:mb-20">
       <h1 className=" s-phone:text-2xl s-phone:flex s-phone:justify-center s-phone:my-2 md-tablet:my-8 s-phone:font-bold md-tablet:text-3xl md-tablet:mb-16 md-desktop:text-4xl md-desktop:my-12 lg-desktop:text-5xl lg-desktop:my-20">
         <div className="relative overflow-hidden lg-desktop:pb-4 s-phone:pb-2">
           Your Order

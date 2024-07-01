@@ -1,4 +1,13 @@
+import useShoppingCartStore from "@/store/itemConfirmation";
+
 export function OrderSummary() {
+  const { quantity, totalNumberItems, totalAmount } = useShoppingCartStore(
+    (state) => state
+  );
+
+  const shippingCost = 5.5;
+  const tax = 8.21;
+
   return (
     <div className="bg-pink-darker bg-opacity-5 p-4 md-laptop:p-10 md-tablet:h-fit">
       <div className="flex flex-col gap-2 pb-4 border-b">
@@ -18,22 +27,22 @@ export function OrderSummary() {
         </h1>
         <div className="text-sm grid grid-cols-2 text-grey-dark md-desktop:text-lg lg-desktop:text-2xl">
           <div className="grid auto-cols-max gap-2">
-            <p>Items(2)</p>
+            <p>Items({totalNumberItems})</p>
             <p>Shipping and handling:</p>
-            <p>Before tax:</p>
+            <p>Total Before tax:</p>
             <p>Tax Collected:</p>
           </div>
           <div className="grid place-items-end gap-2">
-            <p>68.99</p>
-            <p>5.50</p>
-            <p>74.48</p>
-            <p>8.21</p>
+            <p>{totalAmount}</p>
+            <p>{shippingCost + "0"}</p>
+            <p>{totalAmount}</p>
+            <p>{tax}</p>
           </div>
         </div>
       </div>
       <div className="flex justify-between pt-4 text-lg font-medium md-desktop:text-2xl lg-desktop:text-3xl">
         <h2>Order Total:</h2>
-        <p>82.69</p>
+        <p>{totalAmount}</p>
       </div>
     </div>
   );
