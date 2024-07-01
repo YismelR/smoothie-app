@@ -28,14 +28,22 @@ import { Smoothie } from "@/types";
 import addedCart from "@/assets/icons/added-to-cart.svg";
 import useShoppingCartStore from "@/store/itemConfirmation";
 
-export function DrawerDialog() {
+type DrawerProps = {
+  count: number;
+};
+
+export function DrawerDialog({ count }: DrawerProps) {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const smoothie = useLoaderData() as Smoothie;
-  const addItems = useShoppingCartStore((state) => state.addItem);
+  const { addItem, totalAmount, totalNumberItems } = useShoppingCartStore(
+    (state) => state
+  );
 
-  const handleAddToCart = (smoothie: Smoothie) => {
-    addItems(smoothie);
+  // Derived State
+  const totalString = totalAmount.toFixed(2);
+  const handleAddToCart = (smoothie: Smoothie, count: number) => {
+    addItem(smoothie, count);
   };
 
   if (isDesktop) {
@@ -45,7 +53,7 @@ export function DrawerDialog() {
           <Button
             variant="outline"
             className={`text-white ${smoothie.hoverColor}  ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl md-desktop:py-7 lg-desktop:text-4xl lg-desktop:py-8`}
-            onClick={() => handleAddToCart(smoothie)}
+            onClick={() => handleAddToCart(smoothie, count)}
           >
             Add To Cart
           </Button>
@@ -55,10 +63,10 @@ export function DrawerDialog() {
             <img src={addedCart} alt="added to cart" className="w-10" />
             <div className="flex flex-col">
               <DialogTitle className="lg-desktop:text-3xl">
-                1 Item Added to the Cart
+                {count} Item Added to the Cart
               </DialogTitle>
               <DialogDescription className="lg-desktop:text-2xl">
-                (2) items in the cart for $40.99
+                {totalNumberItems} items in the cart for ${totalString}
               </DialogDescription>
             </div>
           </DialogHeader>
@@ -112,7 +120,7 @@ export function DrawerDialog() {
 
 function ProfileForm({ className }: React.ComponentProps<"form">) {
   const smoothie = useLoaderData() as Smoothie;
-
+  const { quantity } = useShoppingCartStore((state) => state);
   return (
     <form
       className={cn(
@@ -140,7 +148,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
           type="submit"
           className={`text-white w-full ${smoothie.hoverColor}  ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl md-tablet:py-6 s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-7`}
         >
-          View Cart (2)
+          View Cart ({quantity})
         </Button>
       </Link>
     </form>

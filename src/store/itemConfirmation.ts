@@ -5,7 +5,7 @@ type ShoppingCartStore = {
   totalNumberItems: number;
   totalAmount: number;
   smoothiesInCart: Array<Smoothie>;
-  addItem: (smoothie: Smoothie) => void;
+  addItem: (smoothie: Smoothie, count: number) => void;
 };
 
 const useShoppingCartStore = create<ShoppingCartStore>((set) => ({
@@ -14,12 +14,13 @@ const useShoppingCartStore = create<ShoppingCartStore>((set) => ({
   totalAmount: 0,
   smoothiesInCart: [],
 
-  addItem: (smoothie: Smoothie) =>
+  addItem: (smoothie: Smoothie, count: number) =>
     set((state) => {
       const smoothiesList = [...state.smoothiesInCart, smoothie];
-      const quantity = state.quantity + 1;
-      const totalNumberItems = state.totalNumberItems + 1;
-      const totalAmount = state.totalAmount + parseFloat(smoothie.price);
+      const quantity = count;
+      const totalNumberItems = state.totalNumberItems + quantity;
+      const totalAmount = state.totalAmount + Number(smoothie.price);
+
       return {
         smoothiesInCart: smoothiesList,
         quantity: quantity,

@@ -15,9 +15,7 @@ import useShoppingCartStore from "@/store/itemConfirmation";
 export function ItemTable() {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const [count, setCount] = useState(1);
-  const smoothiesInCart = useShoppingCartStore(
-    (state) => state.smoothiesInCart
-  );
+  const { smoothiesInCart, quantity } = useShoppingCartStore((state) => state);
   const handlePlus = () => {
     setCount(count + 1);
   };

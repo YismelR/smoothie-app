@@ -1,7 +1,7 @@
 import useShoppingCartStore from "@/store/itemConfirmation";
 
 export function OrderSummary() {
-  const { quantity, totalNumberItems, totalAmount } = useShoppingCartStore(
+  const { totalNumberItems, totalAmount } = useShoppingCartStore(
     (state) => state
   );
 
