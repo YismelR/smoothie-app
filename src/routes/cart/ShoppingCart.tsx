@@ -3,8 +3,10 @@ import { ItemTable } from "./ItemTable";
 import { OrderSummary } from "./OrderSummary";
 
 export function ShoppingCart() {
-  const quantity = useShoppingCartStore((state) => state.quantity);
-  if (quantity === 0) {
+  const totalNumberOfItems = useShoppingCartStore(
+    (state) => state.totalNumberItems
+  );
+  if (totalNumberOfItems === 0) {
     return (
       <h1 className="text-grey-dark flex place-items-center justify-center h-screen font-bold text-xl lg-desktop:text-3xl">
         YOUR CART IS EMPTY

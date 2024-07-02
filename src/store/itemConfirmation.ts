@@ -1,29 +1,48 @@
 import { Smoothie } from "@/types";
 import { create } from "zustand";
-type ShoppingCartStore = {
+
+export type CartSmoothie = Smoothie & {
   quantity: number;
-  totalNumberItems: number;
-  totalAmount: number;
-  smoothiesInCart: Array<Smoothie>;
-  addItem: (smoothie: Smoothie, count: number) => void;
 };
 
+type ShoppingCartStore = {
+  totalNumberItems: number;
+  totalAmount: number;
+  smoothiesInCart: Array<CartSmoothie>;
+  addItem: (smoothie: CartSmoothie) => void;
+};
+
+function generateSmoothies(
+  stateSmoothies: Array<CartSmoothie>,
+  smoothie: CartSmoothie
+) {
+  const searched = stateSmoothies.findIndex(
+    (element) => element.id === smoothie.id
+  );
+
+  if (searched > -1) {
+    const item = stateSmoothies[searched];
+    item.quantity += smoothie.quantity;
+    return stateSmoothies;
+  }
+
+  return [...stateSmoothies, smoothie];
+}
+
 const useShoppingCartStore = create<ShoppingCartStore>((set) => ({
-  quantity: 0,
   totalNumberItems: 0,
   totalAmount: 0,
   smoothiesInCart: [],
 
-  addItem: (smoothie: Smoothie, count: number) =>
+  addItem: (smoothie: CartSmoothie) =>
     set((state) => {
-      const smoothiesList = [...state.smoothiesInCart, smoothie];
-      const quantity = count;
+      const smoothiesList = generateSmoothies(state.smoothiesInCart, smoothie);
+      const quantity = smoothie.quantity;
       const totalNumberItems = state.totalNumberItems + quantity;
       const totalAmount = state.totalAmount + Number(smoothie.price);
 
       return {
         smoothiesInCart: smoothiesList,
-        quantity: quantity,
         totalNumberItems: totalNumberItems,
         totalAmount: totalAmount,
       };

@@ -26,7 +26,7 @@ import {
 import { Link, useLoaderData } from "react-router-dom";
 import { Smoothie } from "@/types";
 import addedCart from "@/assets/icons/added-to-cart.svg";
-import useShoppingCartStore from "@/store/itemConfirmation";
+import useShoppingCartStore, { CartSmoothie } from "@/store/itemConfirmation";
 
 type DrawerProps = {
   count: number;
@@ -43,7 +43,8 @@ export function DrawerDialog({ count }: DrawerProps) {
   // Derived State
   const totalString = totalAmount.toFixed(2);
   const handleAddToCart = (smoothie: Smoothie, count: number) => {
-    addItem(smoothie, count);
+    const copy: CartSmoothie = { ...smoothie, quantity: count };
+    addItem(copy);
   };
 
   if (isDesktop) {
@@ -120,7 +121,7 @@ export function DrawerDialog({ count }: DrawerProps) {
 
 function ProfileForm({ className }: React.ComponentProps<"form">) {
   const smoothie = useLoaderData() as Smoothie;
-  const { quantity } = useShoppingCartStore((state) => state);
+  const { totalNumberItems } = useShoppingCartStore((state) => state);
   return (
     <form
       className={cn(
@@ -148,7 +149,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
           type="submit"
           className={`text-white w-full ${smoothie.hoverColor}  ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl md-tablet:py-6 s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-7`}
         >
-          View Cart ({quantity})
+          View Cart ({totalNumberItems})
         </Button>
       </Link>
     </form>

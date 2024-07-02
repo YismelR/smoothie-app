@@ -15,7 +15,7 @@ import useShoppingCartStore from "@/store/itemConfirmation";
 export function ItemTable() {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const [count, setCount] = useState(1);
-  const { smoothiesInCart, quantity } = useShoppingCartStore((state) => state);
+  const { smoothiesInCart } = useShoppingCartStore((state) => state);
   const handlePlus = () => {
     setCount(count + 1);
   };
@@ -56,7 +56,7 @@ export function ItemTable() {
                     title="minus"
                     className="cursor-pointer disabled:opacity-25 disabled:cursor-default"
                     onClick={handleMinus}
-                    disabled={count === 1}
+                    disabled={smoothie.quantity === 1}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ export function ItemTable() {
                     data-testid="count"
                     className="text-base md-desktop:text-lg lg-desktop:text-2xl"
                   >
-                    {count}
+                    {smoothie.quantity}
                   </p>
                   <button
                     title="plus"
