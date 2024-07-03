@@ -8,6 +8,16 @@ export function OrderSummary() {
   const shippingCost = 5.5;
   const tax = 8.21;
 
+  // Fix: Quantity of (Smoothies x Price) + totalSum
+  const totalAmountItem = totalAmount;
+  const totalAmountItemDisplay = totalAmountItem.toFixed(2);
+
+  const totalBeforeTax = totalAmountItem + shippingCost;
+  const totalBeforeTaxDisplay = totalBeforeTax.toFixed(2);
+
+  const totalAmountAfter = totalBeforeTax + tax;
+  const totalAmountAfterDisplay = totalAmountAfter.toFixed(2);
+
   return (
     <div className="bg-pink-darker bg-opacity-5 p-4 md-laptop:p-10 md-tablet:h-fit">
       <div className="flex flex-col gap-2 pb-4 border-b">
@@ -33,16 +43,16 @@ export function OrderSummary() {
             <p>Tax Collected:</p>
           </div>
           <div className="grid place-items-end gap-2">
-            <p>{totalAmount}</p>
+            <p>{totalAmountItemDisplay}</p>
             <p>{shippingCost + "0"}</p>
-            <p>{totalAmount}</p>
+            <p>{totalBeforeTaxDisplay}</p>
             <p>{tax}</p>
           </div>
         </div>
       </div>
       <div className="flex justify-between pt-4 text-lg font-medium md-desktop:text-2xl lg-desktop:text-3xl">
         <h2>Order Total:</h2>
-        <p>{totalAmount}</p>
+        <p>{totalAmountAfterDisplay}</p>
       </div>
     </div>
   );

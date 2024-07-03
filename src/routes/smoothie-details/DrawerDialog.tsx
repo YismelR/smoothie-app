@@ -67,7 +67,7 @@ export function DrawerDialog({ count }: DrawerProps) {
                 {count} Item Added to the Cart
               </DialogTitle>
               <DialogDescription className="lg-desktop:text-2xl">
-                {totalNumberItems} items in the cart for ${totalString}
+                ({totalNumberItems}) items in the cart for ${totalString}
               </DialogDescription>
             </div>
           </DialogHeader>
@@ -94,6 +94,7 @@ export function DrawerDialog({ count }: DrawerProps) {
         <Button
           variant="outline"
           className={`text-white ${smoothie.hoverColor} ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-4`}
+          onClick={() => handleAddToCart(smoothie, count)}
         >
           Add To Cart
         </Button>
@@ -102,9 +103,9 @@ export function DrawerDialog({ count }: DrawerProps) {
         <DrawerHeader className="text-left flex gap-4">
           <img src={addedCart} alt="added to cart" className="w-8" />
           <div className="flex flex-col">
-            <DrawerTitle>1 Item Added to the Cart</DrawerTitle>
+            <DrawerTitle>{count} Item Added to the Cart</DrawerTitle>
             <DrawerDescription>
-              (2) items in the cart for $40.99
+              ({totalNumberItems}) items in the cart for ${totalString}
             </DrawerDescription>
           </div>
         </DrawerHeader>

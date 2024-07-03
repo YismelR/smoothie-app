@@ -8,7 +8,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import useMediaQuery from "@/hooks/use-media-query";
-import fruit from "@/assets/images/berry-smoothie.png";
 import { useState } from "react";
 import useShoppingCartStore from "@/store/itemConfirmation";
 
@@ -139,79 +138,81 @@ export function ItemTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow key={1}>
-          <TableCell className="font-medium flex flex-col gap-2">
-            <img src={fruit} alt="fruit" />
-            <div className="flex gap-2 md-tablet:text-2xl lg-desktop:text-3xl place-items-center">
-              <button
-                title="minus"
-                className="cursor-pointer disabled:opacity-25 disabled:cursor-default"
-                onClick={handleMinus}
-                disabled={count === 0}
-              >
+        {smoothiesInCart.map((smoothie) => (
+          <TableRow key={smoothie.id}>
+            <TableCell className="font-medium flex flex-col gap-2">
+              <img src={smoothie.src} alt={smoothie.alt} />
+              <div className="flex gap-2 md-tablet:text-2xl lg-desktop:text-3xl place-items-center">
+                <button
+                  title="minus"
+                  className="cursor-pointer disabled:opacity-25 disabled:cursor-default"
+                  onClick={handleMinus}
+                  disabled={count === 0}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-6 md-desktop:size-8"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    />
+                  </svg>
+                </button>
+                <p data-testid="count" className="text-base">
+                  {smoothie.quantity}
+                </p>
+                <button
+                  title="plus"
+                  className="cursor-pointer"
+                  onClick={handlePlus}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-6 md-desktop:size-8"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </TableCell>
+            <TableCell className="p-0">
+              <p className="text-base font-medium">{smoothie.text}</p>
+              <p>${smoothie.price}</p>
+            </TableCell>
+            <TableCell>
+              <div className="flex h-24 justify-end">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="size-6 md-desktop:size-8"
+                  className="size-5"
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    d="M6 18 18 6M6 6l12 12"
                   />
                 </svg>
-              </button>
-              <p data-testid="count" className="text-base">
-                {count}
-              </p>
-              <button
-                title="plus"
-                className="cursor-pointer"
-                onClick={handlePlus}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-6 md-desktop:size-8"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </TableCell>
-          <TableCell className="p-0">
-            <p className="text-base font-medium">Berry Strawberry Smoothie</p>
-            <p>$18.75</p>
-          </TableCell>
-          <TableCell>
-            <div className="flex h-24 justify-end">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18 18 6M6 6l12 12"
-                />
-              </svg>
-            </div>
-          </TableCell>
-        </TableRow>
+              </div>
+            </TableCell>
+          </TableRow>
+        ))}
       </TableBody>
     </Table>
   );

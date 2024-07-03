@@ -39,7 +39,7 @@ const useShoppingCartStore = create<ShoppingCartStore>((set) => ({
       const smoothiesList = generateSmoothies(state.smoothiesInCart, smoothie);
       const quantity = smoothie.quantity;
       const totalNumberItems = state.totalNumberItems + quantity;
-      const totalAmount = state.totalAmount + Number(smoothie.price);
+      const totalAmount = state.totalAmount + quantity * Number(smoothie.price);
 
       return {
         smoothiesInCart: smoothiesList,
