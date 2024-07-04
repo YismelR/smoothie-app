@@ -10,6 +10,7 @@ import {
 import useMediaQuery from "@/hooks/use-media-query";
 import { useState } from "react";
 import useShoppingCartStore from "@/store/itemConfirmation";
+import { Link } from "react-router-dom";
 
 export function ItemTable() {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
@@ -39,16 +40,18 @@ export function ItemTable() {
         <TableBody>
           {smoothiesInCart.map((smoothie) => (
             <TableRow key={smoothie.id}>
-              <TableCell className="flex gap-3 place-items-center">
-                <img
-                  src={smoothie.src}
-                  alt={smoothie.alt}
-                  className="size-20 md-desktop:size-28 lg-desktop:size-36"
-                />
-                <p className="text-base font-medium s-laptop:max-w-48 md-desktop:text-xl lg-desktop:max-w-64 lg-desktop:text-3xl">
-                  {smoothie.text}
-                </p>
-              </TableCell>
+              <Link to={`/details/${smoothie.id}`}>
+                <TableCell className="flex gap-3 place-items-center">
+                  <img
+                    src={smoothie.src}
+                    alt={smoothie.alt}
+                    className="size-20 md-desktop:size-28 lg-desktop:size-36"
+                  />
+                  <p className="text-base font-medium s-laptop:max-w-48 md-desktop:text-xl lg-desktop:max-w-64 lg-desktop:text-3xl">
+                    {smoothie.text}
+                  </p>
+                </TableCell>
+              </Link>
               <TableCell className="p-0">
                 <div className="flex justify-center gap-2 md-tablet:text-2xl lg-desktop:text-3xl place-items-center">
                   <button
@@ -141,7 +144,9 @@ export function ItemTable() {
         {smoothiesInCart.map((smoothie) => (
           <TableRow key={smoothie.id}>
             <TableCell className="font-medium flex flex-col gap-2">
-              <img src={smoothie.src} alt={smoothie.alt} />
+              <Link to={`/details/${smoothie.id}`}>
+                <img src={smoothie.src} alt={smoothie.alt} />
+              </Link>
               <div className="flex gap-2 md-tablet:text-2xl lg-desktop:text-3xl place-items-center">
                 <button
                   title="minus"
@@ -190,8 +195,10 @@ export function ItemTable() {
               </div>
             </TableCell>
             <TableCell className="p-0">
-              <p className="text-base font-medium">{smoothie.text}</p>
-              <p>${smoothie.price}</p>
+              <Link to={`/details/${smoothie.id}`}>
+                <p className="text-base font-medium">{smoothie.text}</p>
+                <p>${smoothie.price}</p>
+              </Link>
             </TableCell>
             <TableCell>
               <div className="flex h-24 justify-end">

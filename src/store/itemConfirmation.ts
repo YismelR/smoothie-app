@@ -22,7 +22,7 @@ function generateSmoothies(
 
   if (searched > -1) {
     const item = stateSmoothies[searched];
-    item.quantity += smoothie.quantity;
+    item.quantity = smoothie.quantity;
     return stateSmoothies;
   }
 
@@ -37,9 +37,14 @@ const useShoppingCartStore = create<ShoppingCartStore>((set) => ({
   addItem: (smoothie: CartSmoothie) =>
     set((state) => {
       const smoothiesList = generateSmoothies(state.smoothiesInCart, smoothie);
-      const quantity = smoothie.quantity;
-      const totalNumberItems = state.totalNumberItems + quantity;
-      const totalAmount = state.totalAmount + quantity * Number(smoothie.price);
+      const totalNumberItems = smoothiesList.reduce(
+        (prev, curr) => prev + curr.quantity,
+        0
+      );
+      const totalAmount = smoothiesList.reduce(
+        (prev, curr) => prev + curr.quantity * Number(curr.price),
+        0
+      );
 
       return {
         smoothiesInCart: smoothiesList,
