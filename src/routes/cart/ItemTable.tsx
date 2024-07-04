@@ -8,22 +8,22 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import useMediaQuery from "@/hooks/use-media-query";
-import { useState } from "react";
-import useShoppingCartStore from "@/store/itemConfirmation";
+import useShoppingCartStore, { CartSmoothie } from "@/store/itemConfirmation";
 import { Link } from "react-router-dom";
 
 export function ItemTable() {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
-  const [count, setCount] = useState(1);
-  const { smoothiesInCart } = useShoppingCartStore((state) => state);
-  const handlePlus = () => {
-    setCount(count + 1);
+
+  const { smoothiesInCart, incrementSmoothie, decrementSmoothie } =
+    useShoppingCartStore((state) => state);
+
+  const handlePlus = (smoothie: CartSmoothie) => {
+    incrementSmoothie(smoothie);
   };
-  const handleMinus = () => {
-    if (count === 1) {
-      return;
+  const handleMinus = (smoothie: CartSmoothie) => {
+    if (smoothie.quantity > 1) {
+      decrementSmoothie(smoothie);
     }
-    setCount(count - 1);
   };
 
   if (isDesktop) {
@@ -40,8 +40,11 @@ export function ItemTable() {
         <TableBody>
           {smoothiesInCart.map((smoothie) => (
             <TableRow key={smoothie.id}>
-              <Link to={`/details/${smoothie.id}`}>
-                <TableCell className="flex gap-3 place-items-center">
+              <TableCell className="flex gap-3 place-items-center">
+                <Link
+                  to={`/details/${smoothie.id}`}
+                  className="flex gap-3 place-items-center"
+                >
                   <img
                     src={smoothie.src}
                     alt={smoothie.alt}
@@ -50,14 +53,14 @@ export function ItemTable() {
                   <p className="text-base font-medium s-laptop:max-w-48 md-desktop:text-xl lg-desktop:max-w-64 lg-desktop:text-3xl">
                     {smoothie.text}
                   </p>
-                </TableCell>
-              </Link>
+                </Link>
+              </TableCell>
               <TableCell className="p-0">
                 <div className="flex justify-center gap-2 md-tablet:text-2xl lg-desktop:text-3xl place-items-center">
                   <button
                     title="minus"
                     className="cursor-pointer disabled:opacity-25 disabled:cursor-default"
-                    onClick={handleMinus}
+                    onClick={() => handleMinus(smoothie)}
                     disabled={smoothie.quantity === 1}
                   >
                     <svg
@@ -84,7 +87,7 @@ export function ItemTable() {
                   <button
                     title="plus"
                     className="cursor-pointer"
-                    onClick={handlePlus}
+                    onClick={() => handlePlus(smoothie)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -151,8 +154,8 @@ export function ItemTable() {
                 <button
                   title="minus"
                   className="cursor-pointer disabled:opacity-25 disabled:cursor-default"
-                  onClick={handleMinus}
-                  disabled={count === 0}
+                  onClick={() => handleMinus(smoothie)}
+                  disabled={smoothie.quantity === 0}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +178,7 @@ export function ItemTable() {
                 <button
                   title="plus"
                   className="cursor-pointer"
-                  onClick={handlePlus}
+                  onClick={() => handlePlus(smoothie)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

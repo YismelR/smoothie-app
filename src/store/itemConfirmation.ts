@@ -10,6 +10,8 @@ type ShoppingCartStore = {
   totalAmount: number;
   smoothiesInCart: Array<CartSmoothie>;
   addItem: (smoothie: CartSmoothie) => void;
+  incrementSmoothie: (Smoothie: CartSmoothie) => void;
+  decrementSmoothie: (Smoothie: CartSmoothie) => void;
 };
 
 function generateSmoothies(
@@ -23,6 +25,39 @@ function generateSmoothies(
   if (searched > -1) {
     const item = stateSmoothies[searched];
     item.quantity = smoothie.quantity;
+    return stateSmoothies;
+  }
+
+  return [...stateSmoothies, smoothie];
+}
+
+function incrementSmoothies(
+  stateSmoothies: Array<CartSmoothie>,
+  smoothie: CartSmoothie
+) {
+  const searched = stateSmoothies.findIndex(
+    (element) => element.id === smoothie.id
+  );
+
+  if (searched > -1) {
+    const item = stateSmoothies[searched];
+    item.quantity++;
+    return stateSmoothies;
+  }
+
+  return [...stateSmoothies, smoothie];
+}
+function decrementSmoothies(
+  stateSmoothies: Array<CartSmoothie>,
+  smoothie: CartSmoothie
+) {
+  const searched = stateSmoothies.findIndex(
+    (element) => element.id === smoothie.id
+  );
+
+  if (searched > -1) {
+    const item = stateSmoothies[searched];
+    item.quantity--;
     return stateSmoothies;
   }
 
@@ -48,6 +83,48 @@ const useShoppingCartStore = create<ShoppingCartStore>((set) => ({
 
       return {
         smoothiesInCart: smoothiesList,
+        totalNumberItems: totalNumberItems,
+        totalAmount: totalAmount,
+      };
+    }),
+
+  incrementSmoothie: (smoothie: CartSmoothie) =>
+    set((state) => {
+      const incrementedSmoothie = incrementSmoothies(
+        state.smoothiesInCart,
+        smoothie
+      );
+      const totalNumberItems = incrementedSmoothie.reduce(
+        (prev, curr) => prev + curr.quantity,
+        0
+      );
+      const totalAmount = incrementedSmoothie.reduce(
+        (prev, curr) => prev + curr.quantity * Number(curr.price),
+        0
+      );
+      return {
+        smoothiesInCart: incrementedSmoothie,
+        totalNumberItems: totalNumberItems,
+        totalAmount: totalAmount,
+      };
+    }),
+
+  decrementSmoothie: (smoothie: CartSmoothie) =>
+    set((state) => {
+      const decrementedSmoothie = decrementSmoothies(
+        state.smoothiesInCart,
+        smoothie
+      );
+      const totalNumberItems = decrementedSmoothie.reduce(
+        (prev, curr) => prev + curr.quantity,
+        0
+      );
+      const totalAmount = decrementedSmoothie.reduce(
+        (prev, curr) => prev + curr.quantity * Number(curr.price),
+        0
+      );
+      return {
+        smoothiesInCart: decrementedSmoothie,
         totalNumberItems: totalNumberItems,
         totalAmount: totalAmount,
       };
