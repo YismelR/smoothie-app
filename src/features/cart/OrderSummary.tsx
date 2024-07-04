@@ -1,4 +1,4 @@
-import useShoppingCartStore from "@/store/itemConfirmation";
+import useShoppingCartStore from "@/store/cartConfirmation";
 
 export function OrderSummary() {
   const { totalNumberItems, totalAmount } = useShoppingCartStore(

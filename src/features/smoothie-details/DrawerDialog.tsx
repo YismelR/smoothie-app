@@ -26,7 +26,7 @@ import {
 import { Link, useLoaderData } from "react-router-dom";
 import { Smoothie } from "@/types";
 import addedCart from "@/assets/icons/added-to-cart.svg";
-import useShoppingCartStore, { CartSmoothie } from "@/store/itemConfirmation";
+import useShoppingCartStore, { CartSmoothie } from "@/store/cartConfirmation";
 
 type DrawerProps = {
   count: number;

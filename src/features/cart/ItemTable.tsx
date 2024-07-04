@@ -8,14 +8,18 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import useMediaQuery from "@/hooks/use-media-query";
-import useShoppingCartStore, { CartSmoothie } from "@/store/itemConfirmation";
+import useShoppingCartStore, { CartSmoothie } from "@/store/cartConfirmation";
 import { Link } from "react-router-dom";
 
 export function ItemTable() {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
 
-  const { smoothiesInCart, incrementSmoothie, decrementSmoothie } =
-    useShoppingCartStore((state) => state);
+  const {
+    smoothiesInCart,
+    incrementSmoothie,
+    decrementSmoothie,
+    removeSmoothie,
+  } = useShoppingCartStore((state) => state);
 
   const handlePlus = (smoothie: CartSmoothie) => {
     incrementSmoothie(smoothie);
@@ -24,6 +28,10 @@ export function ItemTable() {
     if (smoothie.quantity > 1) {
       decrementSmoothie(smoothie);
     }
+  };
+
+  const handleRemove = (smoothie: CartSmoothie) => {
+    removeSmoothie(smoothie);
   };
 
   if (isDesktop) {
@@ -110,7 +118,11 @@ export function ItemTable() {
                 ${smoothie.price}
               </TableCell>
               <TableCell className="text-center">
-                <div className="flex justify-center">
+                <div
+                  className="flex justify-center"
+                  title="delete-button"
+                  onClick={() => handleRemove(smoothie)}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -204,7 +216,11 @@ export function ItemTable() {
               </Link>
             </TableCell>
             <TableCell>
-              <div className="flex h-24 justify-end">
+              <div
+                className="flex h-24 justify-end"
+                title="delete-button"
+                onClick={() => handleRemove(smoothie)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

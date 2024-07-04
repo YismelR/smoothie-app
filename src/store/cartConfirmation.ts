@@ -12,6 +12,7 @@ type ShoppingCartStore = {
   addItem: (smoothie: CartSmoothie) => void;
   incrementSmoothie: (Smoothie: CartSmoothie) => void;
   decrementSmoothie: (Smoothie: CartSmoothie) => void;
+  removeSmoothie: (Smoothie: CartSmoothie) => void;
 };
 
 function generateSmoothies(
@@ -62,6 +63,24 @@ function decrementSmoothies(
   }
 
   return [...stateSmoothies, smoothie];
+}
+
+function removeSmoothies(
+  stateSmoothies: Array<CartSmoothie>,
+  smoothie: CartSmoothie
+) {
+  const searched = stateSmoothies.findIndex(
+    (element) => element.id === smoothie.id
+  );
+
+  if (searched > -1) {
+    const item = stateSmoothies[searched];
+    item.quantity = 0;
+    stateSmoothies.splice(searched, 1);
+    return stateSmoothies;
+  }
+
+  return stateSmoothies;
 }
 
 const useShoppingCartStore = create<ShoppingCartStore>((set) => ({
@@ -125,6 +144,25 @@ const useShoppingCartStore = create<ShoppingCartStore>((set) => ({
       );
       return {
         smoothiesInCart: decrementedSmoothie,
+        totalNumberItems: totalNumberItems,
+        totalAmount: totalAmount,
+      };
+    }),
+
+  removeSmoothie: (smoothie: CartSmoothie) =>
+    set((state) => {
+      const removedSmoothie = removeSmoothies(state.smoothiesInCart, smoothie);
+
+      const totalNumberItems = removedSmoothie.reduce(
+        (prev, curr) => prev + curr.quantity,
+        0
+      );
+      const totalAmount = removedSmoothie.reduce(
+        (prev, curr) => prev + curr.quantity * Number(curr.price),
+        0
+      );
+      return {
+        smoothiesInCart: removedSmoothie,
         totalNumberItems: totalNumberItems,
         totalAmount: totalAmount,
       };
