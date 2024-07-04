@@ -129,7 +129,7 @@ export function ItemTable() {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="size-4 md-desktop:size-6 lg-desktop:start-8"
+                    className="size-4 md-desktop:size-6 lg-desktop:start-8 cursor-pointer"
                   >
                     <path
                       strokeLinecap="round"
@@ -227,7 +227,7 @@ export function ItemTable() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="size-5"
+                  className="size-5 cursor-pointer"
                 >
                   <path
                     strokeLinecap="round"
