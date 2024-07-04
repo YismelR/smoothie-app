@@ -4,10 +4,29 @@ import facebook from "@/assets/icons/facebook.svg";
 import twitter from "@/assets/icons/twitter.svg";
 import instagram from "@/assets/icons/instagram.svg";
 import SidebarMenu from "@/components/SidebarMenu";
+import useShoppingCartStore from "@/store/cartConfirmation";
 // import Curve from "@/components/Curve";
 
 export default function Root() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
+  const totalNumberOfItems = useShoppingCartStore(
+    (state) => state.totalNumberItems
+  );
+
+  function displayActiveCart() {
+    if (totalNumberOfItems > 0) {
+      return (
+        <span className="relative flex h-2 w-2 -top-2 right-1 lg-desktop:h-4 lg-desktop:w-4 lg-desktop:right-2 lg-desktop:-top-3">
+          <span
+            className={`animate-ping absolute inline-flex h-full w-full rounded-full ${selectedSmoothie.backgroundColor} opacity-75`}
+          ></span>
+          <span
+            className={`relative inline-flex rounded-full h-2 w-2 ${selectedSmoothie.backgroundColor} lg-desktop:h-4 lg-desktop:w-4`}
+          ></span>
+        </span>
+      );
+    }
+  }
 
   return (
     <div className="relative md-phone:h-screen flex flex-col">
@@ -55,6 +74,7 @@ export default function Root() {
               />
             </svg>
           </Link>
+          <div>{displayActiveCart()}</div>
         </div>
       </header>
       <main id="detail" className="z-20 relative pt-4">
