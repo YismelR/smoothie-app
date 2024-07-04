@@ -2,7 +2,7 @@ import { Menubar, MenubarMenu } from "@/components/ui/menubar";
 import useSmoothiesStore from "@/store/store";
 import { Link } from "react-router-dom";
 
-export function MenubarDemo() {
+export function MenubarDesktop() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
 
   return (

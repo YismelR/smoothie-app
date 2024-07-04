@@ -6,7 +6,7 @@
 import { Button } from "@/components/ui/button";
 import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
-import { MenubarDemo } from "./MenubarDemo";
+import { MenubarDesktop } from "./Menubar";
 import facebook from "../assets/icons/facebook.svg";
 import twitter from "../assets/icons/twitter.svg";
 import instagram from "../assets/icons/instagram.svg";
@@ -73,7 +73,7 @@ export default function Component() {
         <span className="sr-only">Acme Inc</span>
       </Link>
       <nav className=" hidden md-tablet:flex">
-        <MenubarDemo />
+        <MenubarDesktop />
       </nav>
     </header>
   );
