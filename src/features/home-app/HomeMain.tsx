@@ -1,5 +1,5 @@
-import HomeDescription from "@/routes/home/HomeDescription";
-import HomeImage from "@/routes/home/HomeImage";
+import HomeDescription from "@/features/home-app/HomeDescription";
+import HomeImage from "@/features/home-app/HomeImage";
 
 export default function HomeMain() {
   return (

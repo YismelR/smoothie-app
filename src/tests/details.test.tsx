@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { expect, test, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
-import SmoothieDetails from "@/routes/smoothie-details/SmoothieDetails";
+import SmoothieDetails from "@/features/smoothie-details/SmoothieDetails";
 
 Object.defineProperty(window, "IntersectionObserver", {
   writable: true,

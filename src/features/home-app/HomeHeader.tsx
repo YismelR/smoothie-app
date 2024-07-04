@@ -1,5 +1,5 @@
 // import topLogo from "../assets/logo/top-logo.svg";
-import MenuDropDown from "@/components/MenuDropDown";
+import SideBarMenu from "@/components/SidebarMenu";
 import useSmoothiesStore from "@/store/store";
 import { Link } from "react-router-dom";
 
@@ -35,7 +35,7 @@ export default function HomeHeader() {
           </svg>
         </Link>
 
-        <MenuDropDown />
+        <SideBarMenu />
       </header>
     </>
   );

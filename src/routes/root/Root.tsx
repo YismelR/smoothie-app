@@ -1,12 +1,12 @@
-import MenuDropDown from "@/components/MenuDropDown";
 import useSmoothiesStore from "@/store/store";
 import { Link, Outlet } from "react-router-dom";
 import facebook from "@/assets/icons/facebook.svg";
 import twitter from "@/assets/icons/twitter.svg";
 import instagram from "@/assets/icons/instagram.svg";
+import SidebarMenu from "@/components/SidebarMenu";
 // import Curve from "@/components/Curve";
 
-export default function Header() {
+export default function Root() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
 
   return (
@@ -38,7 +38,7 @@ export default function Header() {
           </svg>
         </Link>
         <div className="flex justify-center place-items-center">
-          <MenuDropDown />
+          <SidebarMenu />
           <Link to={"/shopping-cart"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

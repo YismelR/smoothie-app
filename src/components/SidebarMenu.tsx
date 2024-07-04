@@ -11,6 +11,8 @@ import facebook from "../assets/icons/facebook.svg";
 import twitter from "../assets/icons/twitter.svg";
 import instagram from "../assets/icons/instagram.svg";
 import useSmoothiesStore from "@/store/store";
+import { DialogTitle } from "./ui/dialog";
+import { Description } from "@radix-ui/react-dialog";
 
 export default function Component() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
@@ -25,10 +27,8 @@ export default function Component() {
           </Button>
         </SheetTrigger>
         <SheetContent side="left">
-          <Link className="mr-6 hidden lg:flex" to="#">
-            <MountainIcon className="h-6 w-6" />
-            <span className="sr-only">Acme Inc</span>
-          </Link>
+          <DialogTitle></DialogTitle>
+          <Description></Description>
           <div className="flex flex-col h-full gap-2 py-6">
             <Link
               className="flex w-full items-center py-2 text-lg font-semibold"
@@ -68,10 +68,6 @@ export default function Component() {
           </div>
         </SheetContent>
       </Sheet>
-      <Link className="mr-6 hidden lg:flex" to="#">
-        <MountainIcon className="h-6 w-6" />
-        <span className="sr-only">Acme Inc</span>
-      </Link>
       <nav className=" hidden md-tablet:flex">
         <MenubarDesktop />
       </nav>
@@ -96,25 +92,6 @@ function MenuIcon(props: any) {
       <line x1="4" x2="20" y1="12" y2="12" />
       <line x1="4" x2="20" y1="6" y2="6" />
       <line x1="4" x2="20" y1="18" y2="18" />
-    </svg>
-  );
-}
-
-function MountainIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
     </svg>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./routes/home/App.tsx";
+import App from "./routes/homePage/App.tsx";
 import "./index.css";
 import {
   Params,
@@ -8,13 +8,13 @@ import {
   createBrowserRouter,
   Navigate,
 } from "react-router-dom";
-import About from "./routes/about/About.tsx";
-import Bowls from "./routes/bowls/Bowls.tsx";
-import ContactUs from "./routes/contact-us/ContactUs.tsx";
-import Header from "./routes/header/Header.tsx";
-import SmoothieDetails from "./routes/smoothie-details/SmoothieDetails.tsx";
+import About from "./features/about/About.tsx";
+import Bowls from "./features/bowls/Bowls.tsx";
+import ContactUs from "./features/contact-us/ContactUs.tsx";
+import Root from "./routes/root/Root.tsx";
+import SmoothieDetails from "./features/smoothie-details/SmoothieDetails.tsx";
 import { smoothiesList } from "@/store/smoothiesList.ts";
-import { ShoppingCart } from "./routes/cart/ShoppingCart.tsx";
+import { ShoppingCart } from "./features/cart/ShoppingCart.tsx";
 
 type DetailParams = { params: Params };
 
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Header />,
+    element: <Root />,
     children: [
       {
         path: "/about",

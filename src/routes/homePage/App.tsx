@@ -1,6 +1,6 @@
 import useSmoothiesStore from "@/store/store";
-import HomeCard from "./HomeCard";
-import HomeFooter from "@/routes/home/HomeFooter";
+import HomeCard from "../../features/home-app/HomeCard";
+import HomeFooter from "@/features/home-app/HomeFooter";
 
 function App() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);

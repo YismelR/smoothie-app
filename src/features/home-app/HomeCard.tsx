@@ -1,5 +1,5 @@
-import HomeHeader from "@/routes/home/HomeHeader";
-import HomeMain from "@/routes/home/HomeMain";
+import HomeHeader from "@/features/home-app/HomeHeader";
+import HomeMain from "@/features/home-app/HomeMain";
 import Curve from "@/components/Curve";
 
 export default function HomeCard() {

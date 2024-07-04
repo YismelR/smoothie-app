@@ -8,7 +8,6 @@ export function OrderSummary() {
   const shippingCost = 5.5;
   const tax = 8.21;
 
-  // Fix: Quantity of (Smoothies x Price) + totalSum
   const totalAmountItem = totalAmount;
   const totalAmountItemDisplay = totalAmountItem.toFixed(2);
 
