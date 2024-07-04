@@ -11,7 +11,6 @@ export default function Header() {
 
   return (
     <div className="relative md-phone:h-screen flex flex-col">
-      {/* <Curve /> */}
       <header className="flex relative justify-between items-center md-tablet:px-12 lg-phone:pr-6 s-phone:pl-4 s-phone:pr-4 z-20 md-tablet:pt-8 md-laptop:px-32 lg-desktop:pb-8 shadow-headerShadow">
         <Link to="/">
           <svg
