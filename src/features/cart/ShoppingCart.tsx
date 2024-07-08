@@ -1,6 +1,7 @@
 import useShoppingCartStore from "@/store/cartConfirmation";
 import { ItemTable } from "./ItemTable";
 import { OrderSummary } from "./OrderSummary";
+import emptyCart from "@/assets/icons/empty-cart.svg";
 
 export function ShoppingCart() {
   const totalNumberOfItems = useShoppingCartStore(
@@ -8,9 +9,12 @@ export function ShoppingCart() {
   );
   if (totalNumberOfItems === 0) {
     return (
-      <h1 className="text-grey-dark flex place-items-center justify-center h-screen font-bold text-xl lg-desktop:text-3xl">
-        YOUR CART IS EMPTY
-      </h1>
+      <div className="flex flex-col justify-center place-items-center gap-8 h-screen">
+        <h1 className="text-grey-dark font-bold text-xl lg-desktop:text-3xl">
+          YOUR CART IS EMPTY
+        </h1>
+        <img src={emptyCart} alt="empty cart" />
+      </div>
     );
   }
   return (
