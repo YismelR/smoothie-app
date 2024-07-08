@@ -7,21 +7,31 @@ import {
 } from "@/components/ui/card";
 import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
-
 import { Link } from "react-router-dom";
 import useSmoothiesStore from "@/store/store";
 import { Smoothie } from "@/types";
 
 export default function BowlsList() {
-  const { smoothiesList, changeFavorite } = useSmoothiesStore((state) => state);
+  const {
+    smoothiesList,
+    changeFavorite,
+    filterFavoriteSmoothie,
+    currentFilter,
+    favoriteSmoothiesList,
+  } = useSmoothiesStore((state) => state);
 
   const handleCheckbox = (smoothie: Smoothie) => {
     let isFavorite = !smoothie.isFavorite;
     changeFavorite(smoothie, isFavorite);
+    filterFavoriteSmoothie();
   };
+
+  const smoothiesDisplay =
+    currentFilter === "favorite" ? favoriteSmoothiesList : smoothiesList;
+
   return (
     <div className="s-phone:flex flex-col s-phone:px-4 s-phone:gap-8 lg-phone:px-8  md-tablet:grid md-tablet:grid-cols-2 md-tablet:gap-10 md-tablet:px-10 s-laptop:grid-cols-3 md-laptop:gap-12 md-laptop:px-32 md-desktop:gap-20 ">
-      {smoothiesList.map((smoothie, idx) => {
+      {smoothiesDisplay.map((smoothie, idx) => {
         const heartId = `heartChecked-${idx}`;
         return (
           <Card

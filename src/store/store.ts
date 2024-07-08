@@ -10,10 +10,14 @@ type SmoothieStore = {
   selectedSmoothie: Smoothie;
   smoothies: Array<Smoothie>;
   smoothiesList: Array<Smoothie>;
+  favoriteSmoothiesList: Array<Smoothie>;
+  currentFilter: string;
+  filterFavoriteSmoothie: () => void;
   selectSmoothie: (smoothie: Smoothie) => void;
   addSmoothie: (idx: number) => void;
   deleteSmoothie: (idx: number) => void;
   changeFavorite: (smoothie: Smoothie, isFavorite: boolean) => void;
+  setFilter: (filter: string) => void;
 };
 
 const ids = [1, 4, 10, 13];
@@ -41,6 +45,10 @@ export function generateListOfSmoothies(
 const useSmoothiesStore = create<SmoothieStore>((set) => ({
   smoothies: generateListOfSmoothies(smoothiesList, ids),
   smoothiesList: smoothiesList,
+  favoriteSmoothiesList: smoothiesList.filter(
+    (smoothies) => smoothies.isFavorite
+  ),
+  currentFilter: "all bowls",
   selectedSmoothie: {
     id: 7,
     src: pinkBowl,
@@ -83,10 +91,30 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
           if (stateSmoothie.id === smoothie.id) {
             stateSmoothie.isFavorite = isFavorite;
           }
-
           return stateSmoothie;
         }),
       };
+    }),
+
+  setFilter: (filter: string) =>
+    set((state) => {
+      return { ...state, currentFilter: filter };
+    }),
+
+  filterFavoriteSmoothie: () =>
+    set((state) => {
+      if (state.currentFilter === "favorite") {
+        const filteredSmoothie = state.smoothiesList.filter((statesmoothie) => {
+          return statesmoothie.isFavorite;
+        });
+        return {
+          favoriteSmoothiesList: filteredSmoothie,
+        };
+      } else {
+        return {
+          favoriteSmoothiesList: state.smoothiesList,
+        };
+      }
     }),
 
   addSmoothie: (idx: number) =>

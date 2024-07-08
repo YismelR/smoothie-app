@@ -6,11 +6,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import useSmoothiesStore from "@/store/store";
 export default function Favorite() {
+  const { setFilter, filterFavoriteSmoothie } = useSmoothiesStore(
+    (state) => state
+  );
+
+  function handleChange(value: string) {
+    setFilter(value);
+    filterFavoriteSmoothie();
+  }
   {
     return (
       <div className="flex justify-end px-4 lg-phone:px-8 md-tablet:px-10 md-laptop:px-32 mb-8 ">
-        <Select>
+        <Select onValueChange={handleChange}>
           <SelectTrigger className="max-w-36 md-tablet:max-w-[180px] bg-grey-lightCard lg-desktop:max-w-56">
             <SelectValue placeholder="Filter Favorites" />
           </SelectTrigger>
