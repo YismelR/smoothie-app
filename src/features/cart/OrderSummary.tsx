@@ -1,9 +1,11 @@
 import useShoppingCartStore from "@/store/cartConfirmation";
+import useSmoothiesStore from "@/store/store";
 
 export function OrderSummary() {
   const { totalNumberItems, totalAmount } = useShoppingCartStore(
     (state) => state
   );
+  const smoothie = useSmoothiesStore((state) => state.selectedSmoothie);
 
   const shippingCost = 5.5;
   const tax = 8.21;
@@ -18,9 +20,13 @@ export function OrderSummary() {
   const totalAmountAfterDisplay = totalAmountAfter.toFixed(2);
 
   return (
-    <div className="bg-pink-darker bg-opacity-5 p-4 md-laptop:p-10 md-tablet:h-fit">
+    <div
+      className={`${smoothie.backgroundColor} bg-opacity-5 p-4 md-laptop:p-10 md-tablet:h-fit`}
+    >
       <div className="flex flex-col gap-2 pb-4 border-b">
-        <button className="bg-pink-darker text-white p-2 rounded-xl md-desktop:text-xl font-medium lg-desktop:p-3 lg-desktop:text-3xl">
+        <button
+          className={`${smoothie.backgroundColor} ${smoothie.hoverColor} text-white p-2 rounded-xl md-desktop:text-xl font-medium lg-desktop:p-3 lg-desktop:text-3xl`}
+        >
           Proceed to Checkout
         </button>
         <p className="text-xs text-center text-grey-dark md-desktop:text-sm lg-desktop:text-base">
