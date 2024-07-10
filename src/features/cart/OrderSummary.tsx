@@ -1,5 +1,6 @@
 import useShoppingCartStore from "@/store/cartConfirmation";
 import useSmoothiesStore from "@/store/store";
+import { Link } from "react-router-dom";
 
 export function OrderSummary() {
   const { totalNumberItems, totalAmount } = useShoppingCartStore(
@@ -24,11 +25,13 @@ export function OrderSummary() {
       className={`${smoothie.backgroundColor} bg-opacity-5 p-4 md-laptop:p-10 md-tablet:h-fit`}
     >
       <div className="flex flex-col gap-2 pb-4 border-b">
-        <button
-          className={`${smoothie.backgroundColor} ${smoothie.hoverColor} text-white p-2 rounded-xl md-desktop:text-xl font-medium lg-desktop:p-3 lg-desktop:text-3xl`}
-        >
-          Proceed to Checkout
-        </button>
+        <Link to="/check-out" className="flex">
+          <button
+            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} w-full text-white p-2 rounded-xl md-desktop:text-xl font-medium lg-desktop:p-3 lg-desktop:text-3xl`}
+          >
+            Proceed to Checkout
+          </button>
+        </Link>
         <p className="text-xs text-center text-grey-dark md-desktop:text-sm lg-desktop:text-base">
           By placing your order, you agree to our company{" "}
           <a className="text-black">Privacy policy </a>
