@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import useSmoothiesStore from "@/store/store";
+import bulletPoint from "@/assets/icons/bullet-point.svg";
 
 const FormSchema = z.object({
   firstName: z
@@ -95,6 +96,14 @@ export function AddressForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-6 w-full border flex flex-col p-4 border-grey-dark rounded-sm s-laptop:p-7 md-laptop:p-8 md-desktop:py-12"
       >
+        <div className="flex gap-3 md-laptop:text-lg md-desktop:text-2xl lg-desktop:text-3xl">
+          <img
+            src={bulletPoint}
+            alt="bullet point"
+            className="lg-desktop:size-8"
+          />
+          <h1>Add New Address</h1>
+        </div>
         <div className="flex gap-4 s-laptop:grid grid-cols-2">
           <FormField
             control={form.control}
@@ -105,7 +114,10 @@ export function AddressForm() {
                   First Name
                 </FormLabel>
                 <FormControl>
-                  <Input {...field} className="lg-desktop:h-14" />
+                  <Input
+                    {...field}
+                    className="md-desktop:h-12 lg-desktop:h-14"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -120,7 +132,10 @@ export function AddressForm() {
                   Last Name
                 </FormLabel>
                 <FormControl>
-                  <Input {...field} className="lg-desktop:h-14" />
+                  <Input
+                    {...field}
+                    className="md-desktop:h-12 lg-desktop:h-14"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -136,7 +151,7 @@ export function AddressForm() {
                 Street Address
               </FormLabel>
               <FormControl>
-                <Input {...field} className="lg-desktop:h-14" />
+                <Input {...field} className="md-desktop:h-12 lg-desktop:h-14" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -152,7 +167,10 @@ export function AddressForm() {
                   Apt#
                 </FormLabel>
                 <FormControl>
-                  <Input {...field} className="lg-desktop:h-14" />
+                  <Input
+                    {...field}
+                    className="md-desktop:h-12 lg-desktop:h-14"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -167,7 +185,10 @@ export function AddressForm() {
                   State
                 </FormLabel>
                 <FormControl>
-                  <Input {...field} className="lg-desktop:h-14" />
+                  <Input
+                    {...field}
+                    className="md-desktop:h-12 lg-desktop:h-14"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -182,7 +203,10 @@ export function AddressForm() {
                   Zip Code
                 </FormLabel>
                 <FormControl>
-                  <Input {...field} className="lg-desktop:h-14" />
+                  <Input
+                    {...field}
+                    className="md-desktop:h-12 lg-desktop:h-14"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -190,12 +214,12 @@ export function AddressForm() {
           />
         </div>
         <div className="flex justify-between gap-4">
-          <Button className="bg-transparent border border-grey-dark text-black md-phone:w-32 lg-phone:w-36 s-laptop:w-48 md-laptop:w-64 md-desktop:text-lg lg-desktop:text-2xl lg-desktop:py-8">
+          <Button className="bg-transparent border border-grey-dark hover:bg-gray-300 hover:border-gray-300 text-black md-phone:w-32 lg-phone:w-36 s-laptop:w-48 md-laptop:w-64 md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8">
             Cancel
           </Button>
           <Button
             type="submit"
-            className={`${smoothie.backgroundColor} w-full md-desktop:text-lg lg-desktop:text-2xl lg-desktop:py-8`}
+            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} w-full md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
           >
             Save This Address
           </Button>
