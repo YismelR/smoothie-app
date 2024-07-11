@@ -5,7 +5,6 @@ import twitter from "@/assets/icons/twitter.svg";
 import instagram from "@/assets/icons/instagram.svg";
 import SidebarMenu from "@/components/SidebarMenu";
 import useShoppingCartStore from "@/store/cartConfirmation";
-// import Curve from "@/components/Curve";
 
 export default function Root() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
