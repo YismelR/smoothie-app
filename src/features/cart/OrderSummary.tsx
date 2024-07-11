@@ -1,37 +1,31 @@
+import { useOrderSummary } from "@/hooks/useOrderSummary";
 import useShoppingCartStore from "@/store/cartConfirmation";
 import useSmoothiesStore from "@/store/store";
-import { Link } from "react-router-dom";
+import { ReactNode } from "react";
 
-export function OrderSummary() {
-  const { totalNumberItems, totalAmount } = useShoppingCartStore(
-    (state) => state
+type OrderSummaryProps = {
+  CheckoutButton: ReactNode;
+};
+
+export function OrderSummary({ CheckoutButton }: OrderSummaryProps) {
+  const totalNumberItems = useShoppingCartStore(
+    (state) => state.totalNumberItems
   );
   const smoothie = useSmoothiesStore((state) => state.selectedSmoothie);
-
-  const shippingCost = 5.5;
-  const tax = 8.21;
-
-  const totalAmountItem = totalAmount;
-  const totalAmountItemDisplay = totalAmountItem.toFixed(2);
-
-  const totalBeforeTax = totalAmountItem + shippingCost;
-  const totalBeforeTaxDisplay = totalBeforeTax.toFixed(2);
-
-  const totalAmountAfter = totalBeforeTax + tax;
-  const totalAmountAfterDisplay = totalAmountAfter.toFixed(2);
+  const {
+    totalAmountAfterDisplay,
+    totalBeforeTaxDisplay,
+    shippingCost,
+    tax,
+    totalAmountItemDisplay,
+  } = useOrderSummary();
 
   return (
     <div
-      className={`${smoothie.backgroundColor} bg-opacity-5 p-4 md-laptop:p-10 md-tablet:h-fit`}
+      className={`${smoothie.backgroundColor} bg-opacity-5 p-4 md-laptop:p-10 md-tablet:h-fit rounded-md`}
     >
       <div className="flex flex-col gap-2 pb-4 border-b">
-        <Link to="/check-out" className="flex">
-          <button
-            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} w-full text-white p-2 rounded-xl md-desktop:text-xl font-medium lg-desktop:p-3 lg-desktop:text-3xl`}
-          >
-            Proceed to Checkout
-          </button>
-        </Link>
+        {CheckoutButton}
         <p className="text-xs text-center text-grey-dark md-desktop:text-sm lg-desktop:text-base">
           By placing your order, you agree to our company{" "}
           <a className="text-black">Privacy policy </a>

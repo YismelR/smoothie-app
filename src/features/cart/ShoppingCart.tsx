@@ -2,6 +2,7 @@ import useShoppingCartStore from "@/store/cartConfirmation";
 import { ItemTable } from "./ItemTable";
 import { OrderSummary } from "./OrderSummary";
 import emptyCart from "@/assets/icons/empty-cart.svg";
+import CartButton from "./CartButton";
 
 export function ShoppingCart() {
   const totalNumberOfItems = useShoppingCartStore(
@@ -27,7 +28,7 @@ export function ShoppingCart() {
       </h1>
       <div className="flex flex-col gap-8 md-tablet:flex-row">
         <ItemTable />
-        <OrderSummary />
+        <OrderSummary CheckoutButton={<CartButton />} />
       </div>
     </div>
   );

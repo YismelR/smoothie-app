@@ -1,4 +1,5 @@
 import { OrderSummary } from "../cart/OrderSummary";
+import CheckoutButton from "./CheckoutButton";
 import PaymentMethod from "./PaymentMethod";
 import ShippingAddress from "./ShippingAddress";
 
@@ -10,7 +11,7 @@ export default function CheckOut() {
         <PaymentMethod />
       </div>
       <div className="mt-4 md-tablet:mt-11 lg-desktop:mt-16">
-        <OrderSummary />
+        <OrderSummary CheckoutButton={<CheckoutButton />} />
       </div>
     </div>
   );
