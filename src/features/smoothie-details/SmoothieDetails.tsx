@@ -1,4 +1,4 @@
-import { CarouselDemo } from "@/components/Carousel-card";
+import { CarouselCard } from "@/features/smoothie-details/CarouselCard";
 import { useState } from "react";
 import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
@@ -46,7 +46,7 @@ export default function SmoothieDetails() {
         </svg>
       </Link>
       <div className="s-phone:flex flex-col md-tablet:gap-8 place-items-center px-8 md-tablet:px-12 s-laptop:grid grid-cols-2 s-laptop:mt-20 md-laptop:px-32">
-        <CarouselDemo />
+        <CarouselCard />
         <div className="flex flex-col gap-4 py-4 lg-phone:gap-12 s-laptop:px-8 md-desktop:px-16 lg-desktop:pr-40 lg-desktop:gap-20 ">
           <div className="flex justify-between place-items-center">
             <h1

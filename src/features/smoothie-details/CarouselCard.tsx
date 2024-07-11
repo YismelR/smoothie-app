@@ -9,7 +9,7 @@ import {
 import { Smoothie } from "@/types";
 import { useLoaderData } from "react-router-dom";
 
-export function CarouselDemo() {
+export function CarouselCard() {
   const smoothie = useLoaderData() as Smoothie;
 
   return (
