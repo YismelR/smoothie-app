@@ -6,13 +6,13 @@
 import { Button } from "@/components/ui/button";
 import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
-import { MenubarDesktop } from "./Menubar";
-import facebook from "../assets/icons/facebook.svg";
-import twitter from "../assets/icons/twitter.svg";
-import instagram from "../assets/icons/instagram.svg";
+import facebook from "@/assets/icons/facebook.svg";
+import twitter from "@/assets/icons/twitter.svg";
+import instagram from "@/assets/icons/instagram.svg";
 import useSmoothiesStore from "@/store/store";
-import { DialogTitle } from "./ui/dialog";
 import { Description } from "@radix-ui/react-dialog";
+import { DialogTitle } from "@/components/ui/dialog";
+import { MenubarDesktop } from "@/features/header-menu/MenubarDesktop";
 
 export default function Component() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);

@@ -1,5 +1,5 @@
 // import topLogo from "../assets/logo/top-logo.svg";
-import SideBarMenu from "@/components/SidebarMenu";
+import SideBarMenu from "@/features/header-menu/SidebarMenu";
 import useSmoothiesStore from "@/store/store";
 import { Link } from "react-router-dom";
 

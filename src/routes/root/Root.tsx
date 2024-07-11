@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import facebook from "@/assets/icons/facebook.svg";
 import twitter from "@/assets/icons/twitter.svg";
 import instagram from "@/assets/icons/instagram.svg";
-import SidebarMenu from "@/components/SidebarMenu";
+import SidebarMenu from "@/features/header-menu/SidebarMenu";
 import useShoppingCartStore from "@/store/cartConfirmation";
 
 export default function Root() {
