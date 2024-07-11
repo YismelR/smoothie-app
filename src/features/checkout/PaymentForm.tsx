@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import useSmoothiesStore from "@/store/store";
 import bulletPoint from "@/assets/icons/bullet-point.svg";
+import { CheckBox } from "./CheckBox";
 
 const FormSchema = z.object({
   cardNumber: z
@@ -193,6 +194,7 @@ export function PaymentForm() {
             )}
           />
         </div>
+        <CheckBox />
         <FormField
           control={form.control}
           name="streetAddress"
