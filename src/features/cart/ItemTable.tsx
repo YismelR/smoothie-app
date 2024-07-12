@@ -150,99 +150,101 @@ export function ItemTable() {
   }
 
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[100px]">Product</TableHead>
-          <TableHead></TableHead>
-          <TableHead>Remove</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {smoothiesInCart.map((smoothie) => (
-          <TableRow key={smoothie.id}>
-            <TableCell className="font-medium flex flex-col gap-2">
-              <Link to={`/details/${smoothie.id}`}>
-                <img src={smoothie.src} alt={smoothie.alt} />
-              </Link>
-              <div className="flex gap-2 md-tablet:text-2xl lg-desktop:text-3xl place-items-center">
-                <button
-                  title="minus"
-                  className="cursor-pointer disabled:opacity-25 disabled:cursor-default"
-                  onClick={() => handleMinus(smoothie)}
-                  disabled={smoothie.quantity === 0}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="size-6 md-desktop:size-8"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                    />
-                  </svg>
-                </button>
-                <p data-testid="count" className="text-base">
-                  {smoothie.quantity}
-                </p>
-                <button
-                  title="plus"
-                  className="cursor-pointer"
-                  onClick={() => handlePlus(smoothie)}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="size-6 md-desktop:size-8"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </TableCell>
-            <TableCell className="p-0">
-              <Link to={`/details/${smoothie.id}`}>
-                <p className="text-base font-medium">{smoothie.text}</p>
-                <p>${smoothie.price}</p>
-              </Link>
-            </TableCell>
-            <TableCell>
-              <div
-                className="flex h-24 justify-end"
-                title="delete-button"
-                onClick={() => handleRemove(smoothie)}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-5 cursor-pointer"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18 18 6M6 6l12 12"
-                  />
-                </svg>
-              </div>
-            </TableCell>
+    <ScrollArea className="h-[600px] w-full rounded-md border">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[100px]">Product</TableHead>
+            <TableHead></TableHead>
+            <TableHead>Remove</TableHead>
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHeader>
+        <TableBody>
+          {smoothiesInCart.map((smoothie) => (
+            <TableRow key={smoothie.id}>
+              <TableCell className="font-medium flex flex-col gap-2">
+                <Link to={`/details/${smoothie.id}`}>
+                  <img src={smoothie.src} alt={smoothie.alt} />
+                </Link>
+                <div className="flex gap-2 md-tablet:text-2xl lg-desktop:text-3xl place-items-center">
+                  <button
+                    title="minus"
+                    className="cursor-pointer disabled:opacity-25 disabled:cursor-default"
+                    onClick={() => handleMinus(smoothie)}
+                    disabled={smoothie.quantity === 0}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="size-6 md-desktop:size-8"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                      />
+                    </svg>
+                  </button>
+                  <p data-testid="count" className="text-base">
+                    {smoothie.quantity}
+                  </p>
+                  <button
+                    title="plus"
+                    className="cursor-pointer"
+                    onClick={() => handlePlus(smoothie)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="size-6 md-desktop:size-8"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </TableCell>
+              <TableCell className="p-0">
+                <Link to={`/details/${smoothie.id}`}>
+                  <p className="text-base font-medium">{smoothie.text}</p>
+                  <p>${smoothie.price}</p>
+                </Link>
+              </TableCell>
+              <TableCell>
+                <div
+                  className="flex h-24 justify-end"
+                  title="delete-button"
+                  onClick={() => handleRemove(smoothie)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-5 cursor-pointer"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18 18 6M6 6l12 12"
+                    />
+                  </svg>
+                </div>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </ScrollArea>
   );
 }
