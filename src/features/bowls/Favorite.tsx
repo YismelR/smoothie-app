@@ -20,7 +20,7 @@ export default function Favorite() {
     return (
       <div className="flex justify-end px-4 lg-phone:px-8 md-tablet:px-10 md-laptop:px-32 mb-8 ">
         <Select onValueChange={handleChange}>
-          <SelectTrigger className="max-w-36 md-tablet:max-w-[180px] bg-grey-lightCard lg-desktop:max-w-56">
+          <SelectTrigger className="max-w-36 md-tablet:max-w-[180px] bg-grey-lightCard lg-desktop:max-w-72">
             <SelectValue placeholder="Filter Favorites" />
           </SelectTrigger>
           <SelectContent>
