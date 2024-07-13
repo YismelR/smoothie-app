@@ -10,6 +10,8 @@ import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
 import { Link } from "react-router-dom";
 import useSmoothiesStore from "@/store/store";
 import { Smoothie } from "@/types";
+import { DrawerDialog } from "../smoothie-details/DrawerDialog";
+import BowlCartButton from "./BowlCartButton";
 
 export default function BowlsList() {
   const {
@@ -77,6 +79,11 @@ export default function BowlsList() {
                   ${smoothie.price}
                 </CardDescription>
               </Link>
+              <DrawerDialog
+                count={1}
+                ButtonTrigger={<BowlCartButton count={1} id={smoothie.id} />}
+                smoothieId={smoothie.id}
+              />
             </CardHeader>
           </Card>
         );

@@ -7,6 +7,7 @@ import RelatedSmoothies from "./RelatedSmoothies";
 import { Smoothie } from "@/types";
 import useSmoothiesStore from "@/store/store";
 import { DrawerDialog } from "./DrawerDialog";
+import DetailsCartButton from "./DetailsCartButton";
 export default function SmoothieDetails() {
   const [count, setCount] = useState(1);
   const smoothie = useLoaderData() as Smoothie;
@@ -123,7 +124,11 @@ export default function SmoothieDetails() {
               </button>
             </div>
           </div>
-          <DrawerDialog count={count} />
+          <DrawerDialog
+            count={count}
+            ButtonTrigger={<DetailsCartButton count={count} />}
+            smoothieId={smoothie.id}
+          />
         </div>
       </div>
       <div className="s-phone:flex s-phone:flex-col s-phone:gap-8 lg-desktop:gap-16 s-phone:pl-4 s-phone:pr-4 md-tablet:px-12 md-laptop:px-32 s-phone:mt-4 md-tablet:mt-8 s-laptop:mt-12 md-desktop:mt-20">

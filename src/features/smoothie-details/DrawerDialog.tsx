@@ -22,30 +22,36 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { Link, useLoaderData } from "react-router-dom";
-import { Smoothie } from "@/types";
+import { Link } from "react-router-dom";
 import addedCart from "@/assets/icons/added-to-cart.svg";
 import useShoppingCartStore from "@/store/cartConfirmation";
-import DetailsCartButton from "./DetailsCartButton";
+import useSmoothiesStore from "@/store/store";
 
 type DrawerProps = {
   count: number;
+  ButtonTrigger: React.ReactNode;
+  smoothieId: number;
 };
 
-export function DrawerDialog({ count }: DrawerProps) {
+export function DrawerDialog({
+  count,
+  ButtonTrigger,
+  smoothieId,
+}: DrawerProps) {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const { totalAmount, totalNumberItems } = useShoppingCartStore(
     (state) => state
   );
+
   // Derived State
   const totalString = totalAmount.toFixed(2);
 
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DetailsCartButton count={count} />
+        {ButtonTrigger}
         <DialogContent className="sm:max-w-[425px] gap-6 lg-desktop:gap-8 lg-desktop:max-w-[700px]">
           <DialogHeader className=" flex flex-row gap-4">
             <img src={addedCart} alt="added to cart" className="w-10" />
@@ -58,7 +64,7 @@ export function DrawerDialog({ count }: DrawerProps) {
               </DialogDescription>
             </div>
           </DialogHeader>
-          <ProfileForm />
+          <ProfileForm smoothieId={smoothieId} />
           <DialogFooter className="sm:justify-start">
             <DialogClose asChild>
               <Button
@@ -77,9 +83,7 @@ export function DrawerDialog({ count }: DrawerProps) {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
-        <DetailsCartButton count={count} />
-      </DrawerTrigger>
+      <DrawerTrigger asChild>{ButtonTrigger}</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left flex gap-4">
           <img src={addedCart} alt="added to cart" className="w-8" />
@@ -90,7 +94,7 @@ export function DrawerDialog({ count }: DrawerProps) {
             </DrawerDescription>
           </div>
         </DrawerHeader>
-        <ProfileForm className="px-4" />
+        <ProfileForm className="px-4" smoothieId={smoothieId} />
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button variant="outline">Continue Shopping</Button>
@@ -100,10 +104,19 @@ export function DrawerDialog({ count }: DrawerProps) {
     </Drawer>
   );
 }
+type ProfileFormProps = {
+  className?: string;
+  smoothieId: number;
+};
 
-function ProfileForm({ className }: React.ComponentProps<"form">) {
-  const smoothie = useLoaderData() as Smoothie;
+function ProfileForm({ className, smoothieId }: ProfileFormProps) {
   const { totalNumberItems } = useShoppingCartStore((state) => state);
+  const smoothie = useSmoothiesStore((state) =>
+    state.smoothiesList.find((smoothie) => smoothie.id === smoothieId)
+  );
+  if (smoothie === undefined) {
+    return;
+  }
   return (
     <form
       className={cn(

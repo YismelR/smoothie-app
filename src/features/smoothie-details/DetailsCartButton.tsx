@@ -3,13 +3,13 @@ import { Button } from "@/components/ui/button";
 import useShoppingCartStore, { CartSmoothie } from "@/store/cartConfirmation";
 import { Smoothie } from "@/types";
 import { useLoaderData } from "react-router-dom";
-import { DialogTrigger } from "@radix-ui/react-dialog";
-type DrawerProps = {
+import { DialogTrigger } from "@/components/ui/dialog";
+type DetailsButtonProps = {
   count: number;
 };
 
 export default forwardRef(function DetailsCartButton(
-  { count }: DrawerProps,
+  { count }: DetailsButtonProps,
   ref: LegacyRef<HTMLButtonElement>
 ) {
   const addItem = useShoppingCartStore((state) => state.addItem);
