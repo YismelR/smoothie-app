@@ -11,7 +11,6 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import {
   Drawer,
@@ -26,7 +25,8 @@ import {
 import { Link, useLoaderData } from "react-router-dom";
 import { Smoothie } from "@/types";
 import addedCart from "@/assets/icons/added-to-cart.svg";
-import useShoppingCartStore, { CartSmoothie } from "@/store/cartConfirmation";
+import useShoppingCartStore from "@/store/cartConfirmation";
+import DetailsCartButton from "./DetailsCartButton";
 
 type DrawerProps = {
   count: number;
@@ -35,31 +35,19 @@ type DrawerProps = {
 export function DrawerDialog({ count }: DrawerProps) {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const smoothie = useLoaderData() as Smoothie;
-  const { addItem, totalAmount, totalNumberItems } = useShoppingCartStore(
+
+  const { totalAmount, totalNumberItems } = useShoppingCartStore(
     (state) => state
   );
 
   // Derived State
   const totalString = totalAmount.toFixed(2);
-  const handleAddToCart = (smoothie: Smoothie, count: number) => {
-    const copy: CartSmoothie = { ...smoothie, quantity: count };
-    addItem(copy);
-  };
 
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
-          <Button
-            variant="outline"
-            className={`text-white ${smoothie.hoverColor}  ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl md-desktop:py-7 lg-desktop:text-4xl lg-desktop:py-8`}
-            onClick={() => handleAddToCart(smoothie, count)}
-          >
-            Add To Cart
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px] gap-6 lg-desktop:gap-8">
+        <DetailsCartButton count={count} />
+        <DialogContent className="sm:max-w-[425px] gap-6 lg-desktop:gap-8 lg-desktop:max-w-[700px]">
           <DialogHeader className=" flex flex-row gap-4">
             <img src={addedCart} alt="added to cart" className="w-10" />
             <div className="flex flex-col">
@@ -91,13 +79,7 @@ export function DrawerDialog({ count }: DrawerProps) {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button
-          variant="outline"
-          className={`text-white ${smoothie.hoverColor} ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-4`}
-          onClick={() => handleAddToCart(smoothie, count)}
-        >
-          Add To Cart
-        </Button>
+        <DetailsCartButton count={count} />
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left flex gap-4">
