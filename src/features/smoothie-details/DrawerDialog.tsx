@@ -39,7 +39,6 @@ export function DrawerDialog({ count }: DrawerProps) {
   const { totalAmount, totalNumberItems } = useShoppingCartStore(
     (state) => state
   );
-
   // Derived State
   const totalString = totalAmount.toFixed(2);
 
