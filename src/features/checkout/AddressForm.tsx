@@ -104,7 +104,7 @@ export function AddressForm() {
           />
           <h1>Add New Address</h1>
         </div>
-        <div className="flex gap-4 s-laptop:grid grid-cols-2">
+        <div className=" gap-4 grid grid-cols-2">
           <FormField
             control={form.control}
             name="firstName"
@@ -157,7 +157,7 @@ export function AddressForm() {
             </FormItem>
           )}
         />
-        <div className="flex gap-4">
+        <div className="grid grid-cols-3 gap-4">
           <FormField
             control={form.control}
             name="aptNumber"
@@ -213,13 +213,13 @@ export function AddressForm() {
             )}
           />
         </div>
-        <div className="flex justify-between gap-4">
-          <Button className="bg-transparent border border-grey-dark rounded-xl hover:bg-gray-300 hover:border-gray-300 text-black md-phone:w-32 lg-phone:w-36 s-laptop:w-48 md-laptop:w-64 md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8">
+        <div className="grid grid-cols-3 gap-4 ">
+          <Button className="bg-transparent border border-grey-dark rounded-xl hover:bg-gray-300 hover:border-gray-300 text-black  md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8">
             Cancel
           </Button>
           <Button
             type="submit"
-            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} w-full rounded-xl md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
+            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} col-span-2 w-full rounded-xl md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
           >
             Save This Address
           </Button>

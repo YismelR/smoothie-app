@@ -144,7 +144,7 @@ export function PaymentForm() {
             </FormItem>
           )}
         />
-        <div className="flex gap-4 s-laptop:grid grid-cols-3">
+        <div className=" gap-4 grid grid-cols-3">
           <FormField
             control={form.control}
             name="expirationDate"
@@ -269,13 +269,13 @@ export function PaymentForm() {
             )}
           />
         </div>
-        <div className="flex justify-between gap-4">
-          <Button className="bg-transparent rounded-xl border border-grey-dark hover:bg-gray-300 hover:border-gray-300 text-black md-phone:w-32 lg-phone:w-36 s-laptop:w-48 md-laptop:w-64 md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8">
+        <div className="grid grid-cols-3 gap-4 ">
+          <Button className="bg-transparent rounded-xl border border-grey-dark hover:bg-gray-300 hover:border-gray-300 text-black md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8">
             Cancel
           </Button>
           <Button
             type="submit"
-            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} rounded-xl w-full md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
+            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} col-span-2 rounded-xl w-full md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
           >
             Save This Address
           </Button>
