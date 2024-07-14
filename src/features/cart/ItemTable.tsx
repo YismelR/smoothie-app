@@ -20,6 +20,7 @@ export function ItemTable() {
     incrementSmoothie,
     decrementSmoothie,
     removeSmoothie,
+    removeAllSmoothie,
   } = useShoppingCartStore((state) => state);
 
   const handlePlus = (smoothie: CartSmoothie) => {
@@ -44,7 +45,12 @@ export function ItemTable() {
               <TableHead className="">Product</TableHead>
               <TableHead className="text-center">Quantity</TableHead>
               <TableHead className="text-center">Price</TableHead>
-              <TableHead className="text-center">Remove</TableHead>
+              <TableHead
+                className="text-center cursor-pointer underline"
+                onClick={() => removeAllSmoothie()}
+              >
+                Remove All
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -156,7 +162,12 @@ export function ItemTable() {
           <TableRow>
             <TableHead className="w-[100px]">Product</TableHead>
             <TableHead></TableHead>
-            <TableHead>Remove</TableHead>
+            <TableHead
+              onClick={() => removeAllSmoothie()}
+              className="underline"
+            >
+              Remove
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

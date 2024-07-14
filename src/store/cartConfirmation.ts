@@ -13,6 +13,7 @@ type ShoppingCartStore = {
   incrementSmoothie: (Smoothie: CartSmoothie) => void;
   decrementSmoothie: (Smoothie: CartSmoothie) => void;
   removeSmoothie: (Smoothie: CartSmoothie) => void;
+  removeAllSmoothie: () => void;
 };
 
 function generateSmoothies(
@@ -165,6 +166,15 @@ const useShoppingCartStore = create<ShoppingCartStore>((set) => ({
         smoothiesInCart: removedSmoothie,
         totalNumberItems: totalNumberItems,
         totalAmount: totalAmount,
+      };
+    }),
+
+  removeAllSmoothie: () =>
+    set(() => {
+      return {
+        smoothiesInCart: [],
+        totalNumberItems: 0,
+        totalAmount: 0,
       };
     }),
 }));
