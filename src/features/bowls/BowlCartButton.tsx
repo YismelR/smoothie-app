@@ -35,7 +35,7 @@ export default forwardRef(function BowlCartButton(
     <DialogTrigger asChild>
       <Button
         variant="outline"
-        className={`flex gap-2 text-white ${currSmoothie?.backgroundColor} opacity-80 ${currSmoothie.hoverColor} rounded-xl cursor-pointer md-tablet:text-base md-desktop:text-xl md-desktop:py-7 lg-desktop:text-2xl lg-desktop:py-8`}
+        className={`flex gap-2 text-white ${currSmoothie?.backgroundColor} opacity-80 ${currSmoothie.hoverColor} rounded-xl shadow-3xl ${currSmoothie.shadowBtnColor} cursor-pointer md-tablet:text-base md-desktop:text-xl md-desktop:py-7 lg-desktop:text-2xl lg-desktop:py-8`}
         onClick={() => handleAddToCart(count, smoothie)}
         ref={ref}
       >

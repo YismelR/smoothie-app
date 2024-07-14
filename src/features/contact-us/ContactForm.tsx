@@ -146,7 +146,7 @@ export function ContactForm() {
         />
         <Button
           type="submit"
-          className={`${selectedSmoothie.backgroundColor} s-phone:rounded-full md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl`}
+          className={`${selectedSmoothie.backgroundColor} shadow-3xl ${selectedSmoothie.shadowBtnColor} s-phone:rounded-full md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl`}
         >
           Submit
         </Button>
