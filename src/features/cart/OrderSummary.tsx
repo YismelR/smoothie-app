@@ -22,7 +22,7 @@ export function OrderSummary({ CheckoutButton }: OrderSummaryProps) {
 
   return (
     <div
-      className={`${smoothie.backgroundColor} bg-opacity-5 p-4 md-laptop:p-10 md-tablet:h-fit rounded-md`}
+      className={`${smoothie.backgroundColor} bg-opacity-5 p-4 md-laptop:p-10 md-tablet:h-fit rounded-xl`}
     >
       <div className="flex flex-col gap-2 pb-4 border-b">
         {CheckoutButton}
