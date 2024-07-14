@@ -39,13 +39,13 @@ export function OrderSummary({ CheckoutButton }: OrderSummaryProps) {
         <div className="text-sm grid grid-cols-2 text-grey-dark md-desktop:text-lg lg-desktop:text-2xl">
           <div className="grid auto-cols-max gap-2">
             <p>Items({totalNumberItems})</p>
-            <p>Shipping and handling:</p>
+            <p>Delivery fee:</p>
             <p>Total Before tax:</p>
             <p>Tax Collected:</p>
           </div>
           <div className="grid place-items-end gap-2">
             <p>{totalAmountItemDisplay}</p>
-            <p>{shippingCost + "0"}</p>
+            <p>{shippingCost}</p>
             <p>{totalBeforeTaxDisplay}</p>
             <p>{tax}</p>
           </div>
