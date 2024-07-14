@@ -51,7 +51,7 @@ export const smoothiesList = [
     className: "",
     content: [blueberry, blueRaspberry],
     nutritionalVal: ["209", "3g", "35g", "14g", "44mg"],
-    price: "15.75",
+    price: "10.75",
     relatedSmoothies: [2, 3, 1],
   },
   {
@@ -74,7 +74,7 @@ export const smoothiesList = [
     className: "",
     content: [blueberry, banana, mango, cucumber, strawberry],
     nutritionalVal: ["817", "56.7g", "71.2g", "121.4g", "107.6mg"],
-    price: "16.99",
+    price: "6.99",
     relatedSmoothies: [1, 3, 2],
   },
   {
@@ -97,7 +97,7 @@ export const smoothiesList = [
     className: "",
     content: [blueberry, blueRaspberry, coconut, dragonFruit],
     nutritionalVal: ["209", "3g", "35g", "14g", "44mg"],
-    price: "17.75",
+    price: "7.75",
     relatedSmoothies: [1, 2, 3],
   },
   {
@@ -120,7 +120,7 @@ export const smoothiesList = [
     className: "md-tablet:px-8",
     content: [banana, cucumber, pineapple],
     nutritionalVal: ["389", "1.4g", "96.6g", "4.8g", "17.2mg"],
-    price: "13.25",
+    price: "11.25",
     relatedSmoothies: [5, 6, 4],
   },
   {
@@ -143,7 +143,7 @@ export const smoothiesList = [
     className: "md-tablet:px-8",
     content: [banana, avocado, blueberry, raspberry],
     nutritionalVal: ["310", "15.6g", "41.5g", "7.9g", "171mg"],
-    price: "12.99",
+    price: "9.99",
     relatedSmoothies: [4, 6, 5],
   },
   {
@@ -166,7 +166,7 @@ export const smoothiesList = [
     className: "md-tablet:px-8",
     content: [kiwi, banana, avocado, blueberry, coconut],
     nutritionalVal: ["420", "20g", "59g", "8g", "162mg"],
-    price: "14.25",
+    price: "6.25",
     relatedSmoothies: [4, 5, 6],
   },
 
@@ -190,7 +190,7 @@ export const smoothiesList = [
     className: "",
     content: [strawberry, raspberry],
     nutritionalVal: ["155", "0g", "35g", "5g", "54mg"],
-    price: "18.99",
+    price: "12.99",
     relatedSmoothies: [8, 9, 7],
   },
   {
@@ -213,7 +213,7 @@ export const smoothiesList = [
     className: "",
     content: [strawberry, apple, berries],
     nutritionalVal: ["270", "9g", "33g", "10g", "0mg"],
-    price: "10.99",
+    price: "8.99",
     relatedSmoothies: [7, 9, 8],
   },
   {
@@ -236,7 +236,7 @@ export const smoothiesList = [
     className: "",
     content: [strawberry, banana],
     nutritionalVal: ["303", "2g", "69g", "3g", "0mg"],
-    price: "19.75",
+    price: "8.75",
     relatedSmoothies: [7, 8, 9],
   },
 
@@ -260,7 +260,7 @@ export const smoothiesList = [
     className: "md-tablet:px-5",
     content: [banana, strawberry, dragonFruit],
     nutritionalVal: ["209", "3g", "35g", "14g", "44mg"],
-    price: "17.99",
+    price: "10.99",
     relatedSmoothies: [11, 12, 10],
   },
   {
@@ -283,7 +283,7 @@ export const smoothiesList = [
     className: "md-tablet:px-5",
     content: [banana, strawberry, dragonFruit, coconut],
     nutritionalVal: ["260", "10g", "34g", "12g", "44mg"],
-    price: "11.99",
+    price: "5.99",
     relatedSmoothies: [10, 12, 11],
   },
   {
@@ -306,7 +306,7 @@ export const smoothiesList = [
     className: "md-tablet:px-5",
     content: [blueberry, raspberry, grapefruit, avocado, apple],
     nutritionalVal: ["209", "3g", "35g", "14g", "44mg"],
-    price: "14.99",
+    price: "8.99",
     relatedSmoothies: [10, 11, 12],
   },
 
@@ -330,7 +330,7 @@ export const smoothiesList = [
     className: "",
     content: [mango, pineapple, banana, coconut],
     nutritionalVal: ["209", "3g", "35g", "14g", "44mg"],
-    price: "19.99",
+    price: "11.99",
     relatedSmoothies: [14, 15, 13],
   },
   {
@@ -353,7 +353,7 @@ export const smoothiesList = [
     className: "",
     content: [mango, pineapple, blueberry, coconut],
     nutritionalVal: ["525", "12g", "109g", "8g", "262mg"],
-    price: "18.75",
+    price: "8.75",
     relatedSmoothies: [13, 15, 14],
   },
   {
@@ -376,7 +376,7 @@ export const smoothiesList = [
     className: "",
     content: [mango, raspberry, banana, coconut],
     nutritionalVal: ["412", "26g", "47g", "4g", "179mg"],
-    price: "12.99",
+    price: "7.99",
     relatedSmoothies: [13, 14, 15],
   },
 ];
