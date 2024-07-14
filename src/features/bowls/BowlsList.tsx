@@ -49,7 +49,7 @@ export default function BowlsList() {
                 />
               </CardContent>
             </Link>
-            <CardHeader className="bg-white px-4 md-tablet:p-4 md-desktop:p-8  s-phone:w-full">
+            <CardHeader className="bg-white gap-2 md-desktop:gap-6 px-4 md-tablet:p-4 md-desktop:p-8 s-phone:w-full">
               <div className="s-phone:flex s-phone:place-items-center s-phone:gap-4 md-tablet:gap-0 md-phone:justify-between">
                 <Link to={`/details/${smoothie.id}`} className="w-full">
                   <CardTitle className="s-phone:text-sm md-phone:text-base md-tablet:text-xl s-laptop:text-lg md-desktop:text-2xl lg-desktop:text-3xl ">
@@ -74,16 +74,18 @@ export default function BowlsList() {
                   />
                 </label>
               </div>
-              <Link to={`/details/${smoothie.id}`}>
-                <CardDescription className="md-tablet:text-base md-desktop:text-xl lg-desktop:text-2xl">
-                  ${smoothie.price}
-                </CardDescription>
-              </Link>
-              <DrawerDialog
-                count={1}
-                ButtonTrigger={<BowlCartButton count={1} id={smoothie.id} />}
-                smoothieId={smoothie.id}
-              />
+              <div className="flex gap-4 place-items-center justify-between">
+                <Link to={`/details/${smoothie.id}`}>
+                  <CardDescription className="md-tablet:text-base md-desktop:text-xl lg-desktop:text-2xl">
+                    ${smoothie.price}
+                  </CardDescription>
+                </Link>
+                <DrawerDialog
+                  count={1}
+                  ButtonTrigger={<BowlCartButton count={1} id={smoothie.id} />}
+                  smoothieId={smoothie.id}
+                />
+              </div>
             </CardHeader>
           </Card>
         );

@@ -114,6 +114,7 @@ function ProfileForm({ className, smoothieId }: ProfileFormProps) {
   const smoothie = useSmoothiesStore((state) =>
     state.smoothiesList.find((smoothie) => smoothie.id === smoothieId)
   );
+  const currSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
   if (smoothie === undefined) {
     return;
   }
@@ -142,7 +143,7 @@ function ProfileForm({ className, smoothieId }: ProfileFormProps) {
       <Link to={"/shopping-cart"} className="flex">
         <Button
           type="submit"
-          className={`text-white w-full ${smoothie.hoverColor}  ${smoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl md-tablet:py-6 s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-7`}
+          className={`text-white w-full ${currSmoothie.hoverColor}  ${currSmoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl md-tablet:py-6 s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-7`}
         >
           View Cart ({totalNumberItems})
         </Button>
