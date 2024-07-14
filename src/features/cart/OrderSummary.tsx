@@ -28,9 +28,8 @@ export function OrderSummary({ CheckoutButton }: OrderSummaryProps) {
         {CheckoutButton}
         <p className="text-xs text-center text-grey-dark md-desktop:text-sm lg-desktop:text-base">
           By placing your order, you agree to our company{" "}
-          <a className="text-black">Privacy policy </a>
-          and
-          <a className="text-black"> Conditions of use</a>.
+          <a className="text-black underline">Privacy policy </a>
+          and <a className="text-black underline">Conditions of use</a>.
         </p>
       </div>
       <div className="grid pt-4 gap-5 pb-8 border-b-2">
