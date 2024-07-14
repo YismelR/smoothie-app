@@ -214,12 +214,12 @@ export function AddressForm() {
           />
         </div>
         <div className="flex justify-between gap-4">
-          <Button className="bg-transparent border border-grey-dark hover:bg-gray-300 hover:border-gray-300 text-black md-phone:w-32 lg-phone:w-36 s-laptop:w-48 md-laptop:w-64 md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8">
+          <Button className="bg-transparent border border-grey-dark rounded-xl hover:bg-gray-300 hover:border-gray-300 text-black md-phone:w-32 lg-phone:w-36 s-laptop:w-48 md-laptop:w-64 md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8">
             Cancel
           </Button>
           <Button
             type="submit"
-            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} w-full md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
+            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} w-full rounded-xl md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
           >
             Save This Address
           </Button>
