@@ -6,7 +6,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import RelatedSmoothies from "./RelatedSmoothies";
 import { Smoothie } from "@/types";
 import useSmoothiesStore from "@/store/store";
-import { DrawerDialog } from "./DrawerDialog";
+import { DrawerDialog } from "../dialog-pop-drawer/DrawerDialog";
 import DetailsCartButton from "./DetailsCartButton";
 export default function SmoothieDetails() {
   const [count, setCount] = useState(1);

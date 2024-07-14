@@ -52,7 +52,7 @@ export function DrawerDialog({
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         {ButtonTrigger}
-        <DialogContent className="sm:max-w-[425px] gap-6 lg-desktop:gap-8 lg-desktop:max-w-[700px]">
+        <DialogContent className="sm:max-w-[425px] gap-6 lg-desktop:gap-8 lg-desktop:max-w-[700px] rounded-lg">
           <DialogHeader className=" flex flex-row gap-4">
             <img src={addedCart} alt="added to cart" className="w-10" />
             <div className="flex flex-col">
@@ -143,7 +143,7 @@ function ProfileForm({ className, smoothieId }: ProfileFormProps) {
       <Link to={"/shopping-cart"} className="flex">
         <Button
           type="submit"
-          className={`text-white w-full ${currSmoothie.hoverColor}  ${currSmoothie.backgroundColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl md-tablet:py-6 s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-7`}
+          className={`text-white w-full ${currSmoothie.hoverColor}  ${currSmoothie.backgroundColor} shadow-3xl ${currSmoothie.shadowBtnColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl md-tablet:py-6 s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-7`}
         >
           View Cart ({totalNumberItems})
         </Button>

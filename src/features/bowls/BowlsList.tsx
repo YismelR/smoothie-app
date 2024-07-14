@@ -10,7 +10,7 @@ import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
 import { Link } from "react-router-dom";
 import useSmoothiesStore from "@/store/store";
 import { Smoothie } from "@/types";
-import { DrawerDialog } from "../smoothie-details/DrawerDialog";
+import { DrawerDialog } from "../dialog-pop-drawer/DrawerDialog";
 import BowlCartButton from "./BowlCartButton";
 
 export default function BowlsList() {
