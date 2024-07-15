@@ -13,7 +13,7 @@ export default function HomeFooter() {
   };
 
   return (
-    <footer className="max-md-tablet:w-full s-laptop:flex md-tablet:text-base s-phone:grid grid-cols-4 s-laptop:gap-8 absolute bottom-0 md-laptop:left-20 md-desktop:gap-12 md-desktop:left-24 lg-desktop:gap-16 lg-desktop:left-8 lg-desktop:text-3xl s-laptop:left-6 md-tablet:gap-5 md-tablet:right-0 lg-phone:text-sm md-desktop:text-xl max-md-phone:pb-4 max-lg-phone:pb-12 max-lg-phone:pl-4 z-20">
+    <footer className="max-md-tablet:w-full s-laptop:flex md-tablet:text-base s-phone:grid grid-cols-4 s-laptop:gap-8 absolute bottom-0 md-laptop:left-32 md-desktop:gap-12 md-desktop:left-24 lg-desktop:gap-16 lg-desktop:left-8 lg-desktop:text-3xl s-laptop:left-32 md-tablet:gap-5 md-tablet:right-0 lg-phone:text-sm md-desktop:text-xl max-md-phone:pb-4 max-lg-phone:pb-12 max-lg-phone:pl-4 z-20">
       {smoothies.map((smoothie, idx) => {
         return (
           <div
