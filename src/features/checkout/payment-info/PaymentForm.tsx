@@ -18,6 +18,7 @@ import { toast } from "@/components/ui/use-toast";
 import useSmoothiesStore from "@/store/store";
 import bulletPoint from "@/assets/icons/bullet-point.svg";
 import { CheckBox } from "./CheckBox";
+import visa from "@/assets/icons/visa.svg";
 
 const FormSchema = z.object({
   cardNumber: z
@@ -134,11 +135,18 @@ export function PaymentForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input
-                  placeholder="Card Number"
-                  {...field}
-                  className="md-desktop:h-12 lg-desktop:h-14 placeholder:text-[11px] md-tablet:placeholder:text-sm md-desktop:placeholder:text-lg lg-desktop:placeholder:text-2xl text-[11px] md-tablet:text-sm md-desktop:text-lg lg-desktop:text-2xl"
-                />
+                <div className=" flex flex-row border rounded-sm pr-4">
+                  <Input
+                    placeholder="Card Number"
+                    {...field}
+                    className=" border-none md-desktop:h-12 lg-desktop:h-14 placeholder:text-[11px] md-tablet:placeholder:text-sm md-desktop:placeholder:text-lg lg-desktop:placeholder:text-2xl text-[11px] md-tablet:text-sm md-desktop:text-lg lg-desktop:text-2xl"
+                  />
+                  <img
+                    src={visa}
+                    alt="visa"
+                    className="place-self-center size-8 md-desktop:size-10 lg-desktop:size-12"
+                  />
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
