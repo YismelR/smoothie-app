@@ -3,7 +3,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import straightLine from "@/assets/icons/straight-line.svg";
@@ -20,17 +19,20 @@ export function HeaderSeparator() {
       <Breadcrumb className="pt-8 mb-4 s-laptop:mb-0">
         <BreadcrumbList className=" justify-center gap-0 flex-nowrap">
           <BreadcrumbItem className="relative top-[10px] left-11 md-phone:left-14 lg-phone:top-0 lg-desktop:left-20">
-            <BreadcrumbPage className="flex flex-col place-items-center ">
+            <BreadcrumbLink
+              href="/payment-info"
+              className="flex flex-col place-items-center "
+            >
               <BulletPoint1 />
               <p className="lg-desktop:text-xl text-center">Payment Info</p>
-            </BreadcrumbPage>
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator className="relative bottom-[10px] left-[20px] lg-desktop:left-7">
             <img src={straightLine} alt="straight line" />
           </BreadcrumbSeparator>
           <BreadcrumbItem>
             <BreadcrumbLink
-              href="/components"
+              href="/summary"
               className="flex flex-col place-items-center "
             >
               <BulletPoint2 />
@@ -42,7 +44,7 @@ export function HeaderSeparator() {
           </BreadcrumbSeparator>
           <BreadcrumbItem className="relative top-0 right-11 lg-desktop:right-14">
             <BreadcrumbLink
-              href="/components"
+              href="/checkout"
               className="flex flex-col place-items-center "
             >
               <BulletPoint3 />
