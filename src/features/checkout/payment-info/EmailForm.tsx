@@ -14,7 +14,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import useSmoothiesStore from "@/store/store";
-import bulletPoint from "@/assets/icons/bullet-point.svg";
 
 const FormSchema = z.object({
   firstName: z
@@ -33,7 +32,7 @@ const FormSchema = z.object({
     .max(50, {
       message: "Last name must be less than 50 character",
     }),
-  streetAddress: z
+  emailAddress: z
     .string()
     .min(2, {
       message: "Street Address must be at least 2 characters",
@@ -41,39 +40,16 @@ const FormSchema = z.object({
     .max(50, {
       message: "Street Address must be less than 50 character",
     }),
-  aptNumber: z
-    .string()
-    .min(2, {
-      message: "Apartment number must be at least 2 characters",
-    })
-    .max(50, {
-      message: "Apartment number must be less than 50 character",
-    }),
-  state: z
-    .string()
-    .min(2, {
-      message: "State must be at least 2 characters",
-    })
-    .max(50, {
-      message: "State must be less than 50 character",
-    }),
-  zip: z
-    .string()
-    .min(2, {
-      message: "Zip code must be at least 2 characters",
-    })
-    .max(50, {
-      message: "Zip code must be less than 50 character",
-    }),
 });
 
-export function AddressForm() {
+export function EmailForm() {
   const smoothie = useSmoothiesStore((state) => state.selectedSmoothie);
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
+      emailAddress: "",
     },
   });
 
@@ -94,14 +70,6 @@ export function AddressForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-6 w-full border flex flex-col p-4 border-grey-dark rounded-sm s-laptop:p-7 md-laptop:p-8 md-desktop:py-12"
       >
-        <div className="flex gap-3 md-laptop:text-lg md-desktop:text-2xl lg-desktop:text-3xl">
-          <img
-            src={bulletPoint}
-            alt="bullet point"
-            className="lg-desktop:size-8"
-          />
-          <h1>Add New Address</h1>
-        </div>
         <div className=" gap-4 grid grid-cols-2">
           <FormField
             control={form.control}
@@ -142,84 +110,30 @@ export function AddressForm() {
         </div>
         <FormField
           control={form.control}
-          name="streetAddress"
+          name="emailAddress"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="md-desktop:text-lg lg-desktop:text-2xl">
-                Street Address
+                Email Address
               </FormLabel>
               <FormControl>
-                <Input {...field} className="md-desktop:h-12 lg-desktop:h-14" />
+                <Input
+                  {...field}
+                  placeholder="email@janesfakedomain.net"
+                  className="md-desktop:h-12 lg-desktop:h-14"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <div className="grid grid-cols-3 gap-4">
-          <FormField
-            control={form.control}
-            name="aptNumber"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="md-desktop:text-lg lg-desktop:text-2xl">
-                  Apt#
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    {...field}
-                    className="md-desktop:h-12 lg-desktop:h-14"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="state"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="md-desktop:text-lg lg-desktop:text-2xl">
-                  State
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    {...field}
-                    className="md-desktop:h-12 lg-desktop:h-14"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="zip"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="md-desktop:text-lg lg-desktop:text-2xl">
-                  Zip Code
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    {...field}
-                    className="md-desktop:h-12 lg-desktop:h-14"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
+
         <div className="grid grid-cols-3 gap-4 ">
-          <Button className="bg-transparent border border-grey-dark rounded-xl hover:bg-gray-300 hover:border-gray-300 text-black  md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8">
-            Cancel
-          </Button>
           <Button
             type="submit"
-            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} col-span-2 w-full rounded-xl md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
+            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} col-span-3 w-full rounded-xl md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
           >
-            Save This Address
+            Save This Email
           </Button>
         </div>
       </form>

@@ -1,4 +1,5 @@
 import { OrderSummary } from "../../cart/OrderSummary";
+import EmailAddress from "./EmailAddress";
 import PaymentInfoButton from "./PaymentInfoButton";
 import PaymentMethod from "./PaymentMethod";
 import ShippingAddress from "./ShippingAddress";
@@ -10,6 +11,7 @@ export default function PaymentInfo() {
         <div className="flex flex-col gap-4">
           <ShippingAddress />
           <PaymentMethod />
+          <EmailAddress />
         </div>
         <div className="mt-4 md-tablet:mt-11 lg-desktop:mt-16">
           <OrderSummary CheckoutButton={<PaymentInfoButton />} />

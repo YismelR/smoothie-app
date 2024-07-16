@@ -1,5 +1,3 @@
-"use client";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -285,7 +283,7 @@ export function PaymentForm() {
             type="submit"
             className={`${smoothie.backgroundColor} ${smoothie.hoverColor} col-span-2 rounded-xl w-full md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
           >
-            Save This Address
+            Save This Payment
           </Button>
         </div>
       </form>
