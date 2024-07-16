@@ -1,6 +1,6 @@
-import { OrderSummary } from "../cart/OrderSummary";
+import { OrderSummary } from "../../cart/OrderSummary";
 import PaymentInfoButton from "./PaymentInfoButton";
-import { HeaderSeparator } from "./header-separator/HeaderSeparator";
+import { HeaderSeparator } from "../header-separator/HeaderSeparator";
 import PaymentMethod from "./PaymentMethod";
 import ShippingAddress from "./ShippingAddress";
 

@@ -15,7 +15,7 @@ import Root from "./routes/root/Root.tsx";
 import SmoothieDetails from "./features/smoothie-details/SmoothieDetails.tsx";
 import { smoothiesList } from "@/store/smoothiesList.ts";
 import { ShoppingCart } from "./features/cart/ShoppingCart.tsx";
-import PaymentInfo from "./features/checkout/PaymentInfo.tsx";
+import PaymentInfo from "./features/checkout/payment-info/PaymentInfo.tsx";
 
 type DetailParams = { params: Params };
 
