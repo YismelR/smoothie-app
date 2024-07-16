@@ -15,7 +15,7 @@ import Root from "./routes/root/Root.tsx";
 import SmoothieDetails from "./features/smoothie-details/SmoothieDetails.tsx";
 import { smoothiesList } from "@/store/smoothiesList.ts";
 import { ShoppingCart } from "./features/cart/ShoppingCart.tsx";
-import CheckOut from "./features/checkout/CheckOut.tsx";
+import PaymentInfo from "./features/checkout/PaymentInfo.tsx";
 
 type DetailParams = { params: Params };
 
@@ -62,8 +62,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/check-out",
-    element: <CheckOut />,
+    path: "/payment-info",
+    element: <PaymentInfo />,
   },
 ]);
 

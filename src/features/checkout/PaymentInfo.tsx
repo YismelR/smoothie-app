@@ -1,10 +1,10 @@
 import { OrderSummary } from "../cart/OrderSummary";
-import CheckoutButton from "./CheckoutButton";
-import { HeaderSeparator } from "./HeaderSeparator";
+import PaymentInfoButton from "./PaymentInfoButton";
+import { HeaderSeparator } from "./header-separator/HeaderSeparator";
 import PaymentMethod from "./PaymentMethod";
 import ShippingAddress from "./ShippingAddress";
 
-export default function CheckOut() {
+export default function PaymentInfo() {
   return (
     <>
       <HeaderSeparator />
@@ -14,7 +14,7 @@ export default function CheckOut() {
           <PaymentMethod />
         </div>
         <div className="mt-4 md-tablet:mt-11 lg-desktop:mt-16">
-          <OrderSummary CheckoutButton={<CheckoutButton />} />
+          <OrderSummary CheckoutButton={<PaymentInfoButton />} />
         </div>
       </div>
     </>
