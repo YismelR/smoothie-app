@@ -11,6 +11,7 @@ import BulletPoint1 from "./BulletPoint1";
 import BulletPoint2 from "./BulletPoint2";
 import BulletPoint3 from "./BulletPoint3";
 import HomeLogo from "./HomeLogo";
+import { Outlet } from "react-router-dom";
 
 export function HeaderSeparator() {
   return (
@@ -50,6 +51,7 @@ export function HeaderSeparator() {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
+      <Outlet />
     </>
   );
 }

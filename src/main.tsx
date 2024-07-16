@@ -16,6 +16,7 @@ import SmoothieDetails from "./features/smoothie-details/SmoothieDetails.tsx";
 import { smoothiesList } from "@/store/smoothiesList.ts";
 import { ShoppingCart } from "./features/cart/ShoppingCart.tsx";
 import PaymentInfo from "./features/checkout/payment-info/PaymentInfo.tsx";
+import { HeaderSeparator } from "./features/checkout/header-separator/HeaderSeparator.tsx";
 
 type DetailParams = { params: Params };
 
@@ -62,8 +63,14 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/payment-info",
-    element: <PaymentInfo />,
+    path: "",
+    element: <HeaderSeparator />,
+    children: [
+      {
+        path: "/payment-info",
+        element: <PaymentInfo />,
+      },
+    ],
   },
 ]);
 
