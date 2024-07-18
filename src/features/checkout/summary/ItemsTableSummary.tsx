@@ -17,7 +17,7 @@ export function ItemsTableSummary() {
 
   if (isDesktop) {
     return (
-      <ScrollArea className="h-[600px] w-full rounded-md border">
+      <ScrollArea className="h-[600px] w-full rounded-md border md-laptop:w-[500px] md-desktop:w-[700px] lg-desktop:w-[800px]">
         <Table>
           <TableHeader>
             <TableRow className="md-desktop:text-xl lg-desktop:text-2xl">
