@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import visa from "@/assets/icons/visa.svg";
 export default function PayingWith() {
   return (
-    <div className="flex flex-col gap-4 px-4 w-full">
+    <div className="flex flex-col gap-4 px-4 md-tablet:px-0 w-full">
       <h1 className="font-medium md-tablet:text-lg md-desktop:text-2xl lg-desktop:text-3xl">
         Paying With:
       </h1>
