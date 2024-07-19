@@ -38,10 +38,10 @@ const FormSchema = z.object({
   CVV: z
     .string()
     .min(2, {
-      message: "SEC code must be at least 3 characters",
+      message: "CVV code must be at least 3 characters",
     })
     .max(50, {
-      message: "SEC code must 3 character",
+      message: "CVV code must 3 character",
     }),
   zipCode: z
     .string()
@@ -117,7 +117,7 @@ export function PaymentForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-6 w-full border flex flex-col p-4 border-grey-dark rounded-sm s-laptop:p-7 md-laptop:p-8 md-desktop:py-12"
+        className="flex w-full flex-col space-y-6 rounded-sm border border-grey-dark p-4 s-laptop:p-7 md-laptop:p-8 md-desktop:py-12"
       >
         <div className="flex gap-3 md-laptop:text-lg md-desktop:text-2xl lg-desktop:text-3xl">
           <img
@@ -133,16 +133,16 @@ export function PaymentForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <div className=" flex flex-row border rounded-sm pr-4">
+                <div className="flex flex-row rounded-sm border pr-4">
                   <Input
                     placeholder="Card Number"
                     {...field}
-                    className=" border-none md-desktop:h-12 lg-desktop:h-14 placeholder:text-[11px] md-tablet:placeholder:text-sm md-desktop:placeholder:text-lg lg-desktop:placeholder:text-2xl text-[11px] md-tablet:text-sm md-desktop:text-lg lg-desktop:text-2xl"
+                    className="border-none text-[11px] placeholder:text-[11px] md-tablet:text-sm md-tablet:placeholder:text-sm md-desktop:h-12 md-desktop:text-lg md-desktop:placeholder:text-lg lg-desktop:h-14 lg-desktop:text-2xl lg-desktop:placeholder:text-2xl"
                   />
                   <img
                     src={visa}
                     alt="visa"
-                    className="place-self-center size-8 md-desktop:size-10 lg-desktop:size-12"
+                    className="size-8 place-self-center md-desktop:size-10 lg-desktop:size-12"
                   />
                 </div>
               </FormControl>
@@ -150,7 +150,7 @@ export function PaymentForm() {
             </FormItem>
           )}
         />
-        <div className=" gap-4 grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-4">
           <FormField
             control={form.control}
             name="expirationDate"
@@ -160,7 +160,7 @@ export function PaymentForm() {
                   <Input
                     placeholder="MM/YY"
                     {...field}
-                    className="md-desktop:h-12 lg-desktop:h-14 placeholder:text-[11px] md-tablet:placeholder:text-sm md-desktop:placeholder:text-lg lg-desktop:placeholder:text-2xl text-[11px] md-tablet:text-sm md-desktop:text-lg lg-desktop:text-2xl"
+                    className="text-[11px] placeholder:text-[11px] md-tablet:text-sm md-tablet:placeholder:text-sm md-desktop:h-12 md-desktop:text-lg md-desktop:placeholder:text-lg lg-desktop:h-14 lg-desktop:text-2xl lg-desktop:placeholder:text-2xl"
                   />
                 </FormControl>
                 <FormMessage />
@@ -176,7 +176,7 @@ export function PaymentForm() {
                   <Input
                     placeholder="CVV"
                     {...field}
-                    className="md-desktop:h-12 lg-desktop:h-14 placeholder:text-[11px] md-tablet:placeholder:text-sm md-desktop:placeholder:text-lg lg-desktop:placeholder:text-2xl text-[11px] md-tablet:text-sm md-desktop:text-lg lg-desktop:text-2xl"
+                    className="text-[11px] placeholder:text-[11px] md-tablet:text-sm md-tablet:placeholder:text-sm md-desktop:h-12 md-desktop:text-lg md-desktop:placeholder:text-lg lg-desktop:h-14 lg-desktop:text-2xl lg-desktop:placeholder:text-2xl"
                   />
                 </FormControl>
                 <FormMessage />
@@ -192,7 +192,7 @@ export function PaymentForm() {
                   <Input
                     placeholder="Zip Code"
                     {...field}
-                    className="md-desktop:h-12 lg-desktop:h-14 placeholder:text-[11px] md-tablet:placeholder:text-sm md-desktop:placeholder:text-lg lg-desktop:placeholder:text-2xl text-[11px] md-tablet:text-sm md-desktop:text-lg lg-desktop:text-2xl"
+                    className="text-[11px] placeholder:text-[11px] md-tablet:text-sm md-tablet:placeholder:text-sm md-desktop:h-12 md-desktop:text-lg md-desktop:placeholder:text-lg lg-desktop:h-14 lg-desktop:text-2xl lg-desktop:placeholder:text-2xl"
                   />
                 </FormControl>
                 <FormMessage />
@@ -212,7 +212,7 @@ export function PaymentForm() {
               <FormControl>
                 <Input
                   {...field}
-                  className="md-desktop:h-12 lg-desktop:h-14 text-[11px] md-tablet:text-sm md-desktop:text-lg lg-desktop:text-2xl "
+                  className="text-[11px] md-tablet:text-sm md-desktop:h-12 md-desktop:text-lg lg-desktop:h-14 lg-desktop:text-2xl"
                 />
               </FormControl>
               <FormMessage />
@@ -231,7 +231,7 @@ export function PaymentForm() {
                 <FormControl>
                   <Input
                     {...field}
-                    className="md-desktop:h-12 lg-desktop:h-14 text-[11px] md-tablet:text-sm md-desktop:text-lg lg-desktop:text-2xl"
+                    className="text-[11px] md-tablet:text-sm md-desktop:h-12 md-desktop:text-lg lg-desktop:h-14 lg-desktop:text-2xl"
                   />
                 </FormControl>
                 <FormMessage />
@@ -249,7 +249,7 @@ export function PaymentForm() {
                 <FormControl>
                   <Input
                     {...field}
-                    className="md-desktop:h-12 lg-desktop:h-14 text-[11px] md-tablet:text-sm md-desktop:text-lg lg-desktop:text-2xl"
+                    className="text-[11px] md-tablet:text-sm md-desktop:h-12 md-desktop:text-lg lg-desktop:h-14 lg-desktop:text-2xl"
                   />
                 </FormControl>
                 <FormMessage />
@@ -267,7 +267,7 @@ export function PaymentForm() {
                 <FormControl>
                   <Input
                     {...field}
-                    className="md-desktop:h-12 lg-desktop:h-14 text-[11px] md-tablet:text-sm md-desktop:text-lg lg-desktop:text-2xl"
+                    className="text-[11px] md-tablet:text-sm md-desktop:h-12 md-desktop:text-lg lg-desktop:h-14 lg-desktop:text-2xl"
                   />
                 </FormControl>
                 <FormMessage />
@@ -275,13 +275,13 @@ export function PaymentForm() {
             )}
           />
         </div>
-        <div className="grid grid-cols-3 gap-4 ">
-          <Button className="bg-transparent rounded-xl border border-grey-dark hover:bg-gray-300 hover:border-gray-300 text-black md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8">
+        <div className="grid grid-cols-3 gap-4">
+          <Button className="rounded-xl border border-grey-dark bg-transparent text-black hover:border-gray-300 hover:bg-gray-300 md-desktop:h-12 md-desktop:text-lg lg-desktop:py-8 lg-desktop:text-2xl">
             Cancel
           </Button>
           <Button
             type="submit"
-            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} col-span-2 rounded-xl w-full md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
+            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} col-span-2 w-full rounded-xl md-desktop:h-12 md-desktop:text-lg lg-desktop:py-8 lg-desktop:text-2xl`}
           >
             Save This Payment
           </Button>
