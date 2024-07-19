@@ -1,7 +1,6 @@
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
@@ -16,40 +15,31 @@ export function HeaderSeparator() {
   return (
     <>
       <HomeLogo />
-      <Breadcrumb className="pt-8 mb-4 s-laptop:mb-0">
-        <BreadcrumbList className=" justify-center gap-0 flex-nowrap">
-          <BreadcrumbItem className="relative top-[10px] left-11 md-phone:left-14 lg-phone:top-0 lg-desktop:left-20">
-            <BreadcrumbLink
-              href="/payment-info"
-              className="flex flex-col place-items-center "
-            >
+      <Breadcrumb className="mb-4 pt-8 s-laptop:mb-0">
+        <BreadcrumbList className="flex-nowrap justify-center gap-0">
+          <BreadcrumbItem className="relative left-11 top-[10px] md-phone:left-14 lg-phone:top-0 lg-desktop:left-20">
+            <div className="flex flex-col place-items-center">
               <BulletPoint1 />
-              <p className="lg-desktop:text-xl text-center">Payment Info</p>
-            </BreadcrumbLink>
+              <p className="text-center lg-desktop:text-xl">Payment Info</p>
+            </div>
           </BreadcrumbItem>
           <BreadcrumbSeparator className="relative bottom-[10px] left-[20px] lg-desktop:left-7">
             <img src={straightLine} alt="straight line" />
           </BreadcrumbSeparator>
           <BreadcrumbItem>
-            <BreadcrumbLink
-              href="/summary"
-              className="flex flex-col place-items-center "
-            >
+            <div className="flex flex-col place-items-center">
               <BulletPoint2 />
               <p className="lg-desktop:text-xl">Summary</p>
-            </BreadcrumbLink>
+            </div>
           </BreadcrumbItem>
-          <BreadcrumbSeparator className="relative bottom-[10px] right-[22px] lg-desktop:right-7 ">
+          <BreadcrumbSeparator className="relative bottom-[10px] right-[22px] lg-desktop:right-7">
             <img src={straightLine} alt="straight line" />
           </BreadcrumbSeparator>
-          <BreadcrumbItem className="relative top-0 right-11 lg-desktop:right-14">
-            <BreadcrumbLink
-              href="/checkout"
-              className="flex flex-col place-items-center "
-            >
+          <BreadcrumbItem className="relative right-11 top-0 lg-desktop:right-14">
+            <div className="flex flex-col place-items-center">
               <BulletPoint3 />
               <p className="lg-desktop:text-xl">Checkout</p>
-            </BreadcrumbLink>
+            </div>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
