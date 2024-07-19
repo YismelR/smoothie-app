@@ -17,28 +17,30 @@ export function HeaderSeparator() {
       <HomeLogo />
       <Breadcrumb className="mb-4 pt-8 s-laptop:mb-0">
         <BreadcrumbList className="flex-nowrap justify-center gap-0">
-          <BreadcrumbItem className="relative left-11 top-[10px] md-phone:left-14 lg-phone:top-0 lg-desktop:left-20">
+          <BreadcrumbItem className="relative left-11 top-[10px] md-phone:left-14 lg-phone:top-0 md-desktop:left-[70px] lg-desktop:left-20">
             <div className="flex flex-col place-items-center">
               <BulletPoint1 />
-              <p className="text-center lg-desktop:text-xl">Payment Info</p>
+              <p className="text-center md-desktop:text-lg lg-desktop:text-2xl">
+                Payment Info
+              </p>
             </div>
           </BreadcrumbItem>
-          <BreadcrumbSeparator className="relative bottom-[10px] left-[20px] lg-desktop:left-7">
+          <BreadcrumbSeparator className="relative bottom-[10px] left-[20px] md-desktop:bottom-3 md-desktop:left-7 lg-desktop:bottom-4 lg-desktop:left-7">
             <img src={straightLine} alt="straight line" />
           </BreadcrumbSeparator>
           <BreadcrumbItem>
             <div className="flex flex-col place-items-center">
               <BulletPoint2 />
-              <p className="lg-desktop:text-xl">Summary</p>
+              <p className="md-desktop:text-lg lg-desktop:text-2xl">Summary</p>
             </div>
           </BreadcrumbItem>
-          <BreadcrumbSeparator className="relative bottom-[10px] right-[22px] lg-desktop:right-7">
+          <BreadcrumbSeparator className="relative bottom-[10px] right-[22px] md-desktop:bottom-3 md-desktop:right-7 lg-desktop:bottom-4 lg-desktop:right-7">
             <img src={straightLine} alt="straight line" />
           </BreadcrumbSeparator>
-          <BreadcrumbItem className="relative right-11 top-0 lg-desktop:right-14">
+          <BreadcrumbItem className="relative right-11 top-0 md-desktop:right-14 lg-desktop:right-14">
             <div className="flex flex-col place-items-center">
               <BulletPoint3 />
-              <p className="lg-desktop:text-xl">Checkout</p>
+              <p className="md-desktop:text-lg lg-desktop:text-2xl">Checkout</p>
             </div>
           </BreadcrumbItem>
         </BreadcrumbList>
