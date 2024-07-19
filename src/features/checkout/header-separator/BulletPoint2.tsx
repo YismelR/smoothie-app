@@ -1,4 +1,7 @@
+import { useLocation } from "react-router-dom";
+
 export default function BulletPoint2() {
+  const location = useLocation();
   const colorChangeBg = location.pathname === "/summary" ? "#979797" : "white";
   const colorChangeNum = location.pathname === "/summary" ? "white" : "#979797";
   return (
