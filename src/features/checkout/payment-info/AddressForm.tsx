@@ -59,11 +59,14 @@ const FormSchema = z.object({
     }),
   zip: z
     .string()
-    .min(2, {
-      message: "Zip code must be at least 2 characters",
+    .min(5, {
+      message: "Zip code must be at least 5 characters",
     })
-    .max(50, {
-      message: "Zip code must be less than 50 character",
+    .max(5, {
+      message: "Zip code must be less than 5 character",
+    })
+    .regex(/^\d+$/, {
+      message: "Zip code must be a valid number",
     }),
 });
 
@@ -74,6 +77,10 @@ export function AddressForm() {
     defaultValues: {
       firstName: "",
       lastName: "",
+      streetAddress: "",
+      aptNumber: "",
+      state: "",
+      zip: "",
     },
   });
 
@@ -92,7 +99,7 @@ export function AddressForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-6 w-full border flex flex-col p-4 border-grey-dark rounded-sm s-laptop:p-7 md-laptop:p-8 md-desktop:py-12"
+        className="flex w-full flex-col space-y-6 rounded-sm border border-grey-dark p-4 s-laptop:p-7 md-laptop:p-8 md-desktop:py-12"
       >
         <div className="flex gap-3 md-laptop:text-lg md-desktop:text-2xl lg-desktop:text-3xl">
           <img
@@ -102,7 +109,7 @@ export function AddressForm() {
           />
           <h1>Add New Address</h1>
         </div>
-        <div className=" gap-4 grid grid-cols-2">
+        <div className="grid grid-cols-2 gap-4">
           <FormField
             control={form.control}
             name="firstName"
@@ -211,13 +218,13 @@ export function AddressForm() {
             )}
           />
         </div>
-        <div className="grid grid-cols-3 gap-4 ">
-          <Button className="bg-transparent border border-grey-dark rounded-xl hover:bg-gray-300 hover:border-gray-300 text-black  md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8">
+        <div className="grid grid-cols-3 gap-4">
+          <Button className="rounded-xl border border-grey-dark bg-transparent text-black hover:border-gray-300 hover:bg-gray-300 md-desktop:h-12 md-desktop:text-lg lg-desktop:py-8 lg-desktop:text-2xl">
             Cancel
           </Button>
           <Button
             type="submit"
-            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} col-span-2 w-full rounded-xl md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
+            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} col-span-2 w-full rounded-xl md-desktop:h-12 md-desktop:text-lg lg-desktop:py-8 lg-desktop:text-2xl`}
           >
             Save This Address
           </Button>

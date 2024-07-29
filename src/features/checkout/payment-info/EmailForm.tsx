@@ -35,10 +35,10 @@ const FormSchema = z.object({
   emailAddress: z
     .string()
     .min(2, {
-      message: "Street Address must be at least 2 characters",
+      message: "Email address must be at least 2 characters",
     })
     .max(50, {
-      message: "Street Address must be less than 50 character",
+      message: "Email address must be less than 50 character",
     }),
 });
 
@@ -68,9 +68,9 @@ export function EmailForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-6 w-full border flex flex-col p-4 border-grey-dark rounded-sm s-laptop:p-7 md-laptop:p-8 md-desktop:py-12"
+        className="flex w-full flex-col space-y-6 rounded-sm border border-grey-dark p-4 s-laptop:p-7 md-laptop:p-8 md-desktop:py-12"
       >
-        <div className=" gap-4 grid grid-cols-2">
+        <div className="grid grid-cols-2 gap-4">
           <FormField
             control={form.control}
             name="firstName"
@@ -128,10 +128,10 @@ export function EmailForm() {
           )}
         />
 
-        <div className="grid grid-cols-3 gap-4 ">
+        <div className="grid grid-cols-3 gap-4">
           <Button
             type="submit"
-            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} col-span-3 w-full rounded-xl md-desktop:text-lg lg-desktop:text-2xl md-desktop:h-12 lg-desktop:py-8`}
+            className={`${smoothie.backgroundColor} ${smoothie.hoverColor} col-span-3 w-full rounded-xl md-desktop:h-12 md-desktop:text-lg lg-desktop:py-8 lg-desktop:text-2xl`}
           >
             Save This Email
           </Button>
