@@ -17,9 +17,11 @@ export default function SmoothieDetails() {
     let isFavorite = !smoothie.isFavorite;
     changeFavorite(smoothie, isFavorite);
   };
+
   const handlePlus = () => {
     setCount(count + 1);
   };
+  
   const handleMinus = () => {
     if (count === 1) {
       return;
