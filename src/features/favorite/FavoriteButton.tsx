@@ -2,10 +2,12 @@ import { Smoothie } from "@/types";
 import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
 import useSmoothiesStore from "@/store/store";
+
 type FavoriteSmoothieProps = {
   heartId: string;
   smoothie: Smoothie;
 };
+
 export default function FavoriteButton({
   heartId,
   smoothie,
