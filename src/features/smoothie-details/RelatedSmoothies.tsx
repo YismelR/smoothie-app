@@ -6,14 +6,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import useSmoothiesStore from "@/store/store";
-import heartChecked from "@/assets/icons/heart-checked.svg";
-import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
 import { generateListOfSmoothies } from "@/store/store";
 import { Link, useLoaderData } from "react-router-dom";
 import { Smoothie } from "@/types";
+import FavoriteButton from "../favorite/FavoriteButton";
 
 export default function RelatedSmoothies() {
-  const { smoothiesList, changeFavorite } = useSmoothiesStore((state) => state);
+  const { smoothiesList } = useSmoothiesStore((state) => state);
   const smoothie = useLoaderData() as Smoothie;
 
   const relatedSmoothieIDs = smoothie.relatedSmoothies;
@@ -22,11 +21,6 @@ export default function RelatedSmoothies() {
     smoothiesList,
     relatedSmoothieIDs,
   );
-
-  const handleCheckbox = (smoothie: Smoothie) => {
-    let isFavorite = !smoothie.isFavorite;
-    changeFavorite(smoothie, isFavorite);
-  };
 
   return (
     <div className="flex-col s-phone:flex s-phone:gap-8 s-laptop:grid s-laptop:grid-cols-3 md-laptop:gap-12 md-desktop:gap-20">
@@ -53,27 +47,7 @@ export default function RelatedSmoothies() {
                     {smoothie.text}
                   </CardTitle>
                 </Link>
-                <input
-                  type="checkbox"
-                  id={heartId}
-                  className="hidden"
-                  checked={smoothie.isFavorite}
-                  onChange={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    handleCheckbox(smoothie);
-                  }}
-                />
-                <label
-                  htmlFor={heartId}
-                  className="z-50 cursor-pointer s-phone:h-5 s-phone:w-5 s-phone:flex-shrink-0 md-tablet:h-5 md-tablet:w-5 md-tablet:flex-shrink md-desktop:h-6 md-desktop:w-6 lg-desktop:h-10 lg-desktop:w-10"
-                >
-                  <img
-                    src={smoothie.isFavorite ? heartChecked : heartUnchecked}
-                    alt="heart favorite"
-                    className="lg-desktop:h-10 lg-desktop:w-10"
-                  />
-                </label>
+                <FavoriteButton heartId={heartId} smoothie={smoothie} />
               </div>
               <Link to={`/details/${smoothie.id}`}>
                 <CardDescription className="md-tablet:text-base md-desktop:text-xl lg-desktop:text-2xl">
