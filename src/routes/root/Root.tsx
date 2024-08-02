@@ -9,18 +9,18 @@ import useShoppingCartStore from "@/store/cartConfirmation";
 export default function Root() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
   const totalNumberOfItems = useShoppingCartStore(
-    (state) => state.totalNumberItems
+    (state) => state.totalNumberItems,
   );
 
   function displayActiveCart() {
     if (totalNumberOfItems > 0) {
       return (
-        <span className="relative flex h-2 w-2 -top-2 right-1 lg-desktop:h-4 lg-desktop:w-4 lg-desktop:right-2 lg-desktop:-top-3">
+        <span className="relative -top-2 right-1 flex h-2 w-2 lg-desktop:-top-3 lg-desktop:right-2 lg-desktop:h-4 lg-desktop:w-4">
           <span
-            className={`animate-ping absolute inline-flex h-full w-full rounded-full ${selectedSmoothie.backgroundColor} opacity-75`}
+            className={`absolute inline-flex h-full w-full animate-ping rounded-full ${selectedSmoothie.backgroundColor} opacity-75`}
           ></span>
           <span
-            className={`relative inline-flex rounded-full h-2 w-2 ${selectedSmoothie.backgroundColor} lg-desktop:h-4 lg-desktop:w-4`}
+            className={`relative inline-flex h-2 w-2 rounded-full ${selectedSmoothie.backgroundColor} lg-desktop:h-4 lg-desktop:w-4`}
           ></span>
         </span>
       );
@@ -28,8 +28,8 @@ export default function Root() {
   }
 
   return (
-    <div className="relative md-phone:h-screen flex flex-col">
-      <header className="flex relative justify-between items-center md-tablet:px-12 lg-phone:pr-6 s-phone:pl-4 s-phone:pr-4 z-20 md-tablet:pt-8 md-laptop:px-32 lg-desktop:pb-8 shadow-headerShadow">
+    <div className="relative flex flex-col md-phone:h-screen">
+      <header className="relative z-20 flex items-center justify-between shadow-headerShadow s-phone:pl-4 s-phone:pr-4 lg-phone:pr-6 md-tablet:px-12 md-tablet:pt-8 md-laptop:px-32 lg-desktop:pb-8">
         <Link to="/">
           <svg
             viewBox="0 0 203 82"
@@ -55,7 +55,7 @@ export default function Root() {
             <path d="M162.867 33.2C159.333 35.4667 160 61.9334 163.667 62.4C166.533 62.8667 166.667 62.4667 166.667 52.4C166.667 46.6667 167.067 39.7334 167.533 37C168.4 31.8 166.933 30.6 162.867 33.2Z" />
           </svg>
         </Link>
-        <div className="flex justify-center place-items-center">
+        <div className="flex place-items-center justify-center">
           <SidebarMenu />
           <Link to={"/shopping-cart"}>
             <svg
@@ -76,10 +76,10 @@ export default function Root() {
           <div>{displayActiveCart()}</div>
         </div>
       </header>
-      <main id="detail" className="z-20 relative pt-4">
+      <main id="detail" className="relative z-20 pt-4">
         <Outlet />
       </main>
-      <footer className="s-phone:px-4 s-phone:grid s-phone:gap-8 shadow-footerShadow s-phone:py-8  md-tablet:grid-cols-2 md-tablet:px-12 md-laptop:px-32 lg-desktop:pt-12 lg-desktop:pb-20">
+      <footer className="shadow-footerShadow s-phone:grid s-phone:gap-8 s-phone:px-4 s-phone:py-8 md-tablet:grid-cols-2 md-tablet:px-12 md-laptop:px-32 lg-desktop:pb-20 lg-desktop:pt-12">
         <div className="md-tablet:grid md-tablet:gap-24">
           <svg
             viewBox="0 0 216 63"
@@ -126,32 +126,32 @@ export default function Root() {
             />
           </svg>
 
-          <div className=" hidden md-tablet:flex gap-4  ">
+          <div className="hidden gap-4 md-tablet:flex">
             <img
               src={facebook}
               alt="facebook"
-              className="s-laptop:w-4 lg-desktop:w-8 md-laptop:w-4"
+              className="s-laptop:w-4 md-laptop:w-4 lg-desktop:w-8"
             />
             <img
               src={twitter}
               alt="twitter"
-              className="s-laptop:w-4 lg-desktop:w-8 md-laptop:w-4"
+              className="s-laptop:w-4 md-laptop:w-4 lg-desktop:w-8"
             />
             <img
               src={instagram}
               alt="instagram"
-              className="s-laptop:w-4 lg-desktop:w-8 md-laptop:w-4"
+              className="s-laptop:w-4 md-laptop:w-4 lg-desktop:w-8"
             />
           </div>
         </div>
-        <div className=" s-phone:grid s-phone:gap-4 md-tablet:flex md-tablet:gap-24 s-laptop:justify-end">
-          <div className="s-phone:flex flex-col s-phone:gap-4 lg-desktop:text-2xl">
+        <div className="s-phone:grid s-phone:gap-4 md-tablet:flex md-tablet:gap-24 s-laptop:justify-end">
+          <div className="flex-col s-phone:flex s-phone:gap-4 lg-desktop:text-2xl">
             <Link to={"/about"}>
               <h2 className="font-semibold">About:</h2>
             </Link>
             <p>Yismel Rodriguez</p>
           </div>
-          <div className="s-phone:flex flex-col s-phone:gap-4 lg-desktop:text-2xl">
+          <div className="flex-col s-phone:flex s-phone:gap-4 lg-desktop:text-2xl">
             <Link to={"/contact-us"}>
               <h2 className="font-semibold">Contact Us:</h2>
             </Link>

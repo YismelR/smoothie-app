@@ -42,7 +42,7 @@ export function DrawerDialog({
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const { totalAmount, totalNumberItems } = useShoppingCartStore(
-    (state) => state
+    (state) => state,
   );
 
   // Derived State
@@ -52,8 +52,8 @@ export function DrawerDialog({
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         {ButtonTrigger}
-        <DialogContent className="sm:max-w-[425px] gap-6 lg-desktop:gap-8 lg-desktop:max-w-[700px] rounded-lg">
-          <DialogHeader className=" flex flex-row gap-4">
+        <DialogContent className="sm:max-w-[425px] gap-6 rounded-lg lg-desktop:max-w-[700px] lg-desktop:gap-8">
+          <DialogHeader className="flex flex-row gap-4">
             <img src={addedCart} alt="added to cart" className="w-10" />
             <div className="flex flex-col">
               <DialogTitle className="lg-desktop:text-3xl">
@@ -85,7 +85,7 @@ export function DrawerDialog({
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>{ButtonTrigger}</DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader className="text-left flex gap-4">
+        <DrawerHeader className="flex gap-4 text-left">
           <img src={addedCart} alt="added to cart" className="w-8" />
           <div className="flex flex-col">
             <DrawerTitle>{count} Item Added to the Cart</DrawerTitle>
@@ -112,7 +112,7 @@ type ProfileFormProps = {
 function ProfileForm({ className, smoothieId }: ProfileFormProps) {
   const { totalNumberItems } = useShoppingCartStore((state) => state);
   const smoothie = useSmoothiesStore((state) =>
-    state.smoothiesList.find((smoothie) => smoothie.id === smoothieId)
+    state.smoothiesList.find((smoothie) => smoothie.id === smoothieId),
   );
   const currSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
   if (smoothie === undefined) {
@@ -122,7 +122,7 @@ function ProfileForm({ className, smoothieId }: ProfileFormProps) {
     <form
       className={cn(
         "grid items-start gap-4 md-tablet:gap-6 lg-desktop:gap-8",
-        className
+        className,
       )}
     >
       <div className="flex gap-4 lg-desktop:gap-8">
@@ -131,7 +131,7 @@ function ProfileForm({ className, smoothieId }: ProfileFormProps) {
           alt={smoothie.alt}
           className="max-w-28 md-tablet:max-w-36 lg-desktop:max-w-44"
         />
-        <div className="flex flex-col gap-4 justify-center md-tablet:justify-start lg-desktop:justify-center">
+        <div className="flex flex-col justify-center gap-4 md-tablet:justify-start lg-desktop:justify-center">
           <p className="font-semibold md-tablet:text-2xl lg-desktop:text-3xl">
             {smoothie.text}
           </p>
@@ -143,7 +143,7 @@ function ProfileForm({ className, smoothieId }: ProfileFormProps) {
       <Link to={"/shopping-cart"} className="flex">
         <Button
           type="submit"
-          className={`text-white w-full ${currSmoothie.hoverColor}  ${currSmoothie.backgroundColor} shadow-3xl ${currSmoothie.shadowBtnColor} px-4 py-2 rounded-[2rem] cursor-pointer lg-phone:text-xl md-tablet:text-2xl md-tablet:py-6 s-laptop:text-xl md-laptop:text-2xl lg-desktop:text-4xl lg-desktop:py-7`}
+          className={`w-full text-white ${currSmoothie.hoverColor} ${currSmoothie.backgroundColor} shadow-3xl ${currSmoothie.shadowBtnColor} cursor-pointer rounded-[2rem] px-4 py-2 lg-phone:text-xl md-tablet:py-6 md-tablet:text-2xl s-laptop:text-xl md-laptop:text-2xl lg-desktop:py-7 lg-desktop:text-4xl`}
         >
           View Cart ({totalNumberItems})
         </Button>

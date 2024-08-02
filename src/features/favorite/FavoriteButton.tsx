@@ -15,11 +15,15 @@ export default function FavoriteButton({
   const { changeFavorite, filterFavoriteSmoothie } = useSmoothiesStore(
     (state) => state,
   );
+
   const handleCheckbox = (smoothie: Smoothie) => {
+    if (false) {
+    }
     let isFavorite = !smoothie.isFavorite;
     changeFavorite(smoothie, isFavorite);
     filterFavoriteSmoothie();
   };
+
   return (
     <>
       <input
