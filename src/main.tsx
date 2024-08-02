@@ -19,7 +19,6 @@ import PaymentInfo from "./features/checkout/payment-info/PaymentInfo.tsx";
 import { HeaderSeparator } from "./features/checkout/header-separator/HeaderSeparator.tsx";
 import CheckoutSummary from "./features/checkout/summary/CheckoutSummary.tsx";
 import Checkout from "./features/checkout/checkout-page/Checkout.tsx";
-import { RegisterNow } from "./features/register/RegisterNow.tsx";
 
 type DetailParams = { params: Params };
 
@@ -62,10 +61,6 @@ const router = createBrowserRouter([
       {
         path: "/shopping-cart",
         element: <ShoppingCart />,
-      },
-      {
-        path: "/register-now",
-        element: <RegisterNow />,
       },
     ],
   },

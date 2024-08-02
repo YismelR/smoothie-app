@@ -2,6 +2,7 @@ import { Smoothie } from "@/types";
 import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
 import useSmoothiesStore from "@/store/store";
+import useFavoriteSmoothieStore from "@/store/favoriteSmoothie";
 
 type FavoriteSmoothieProps = {
   heartId: string;
@@ -15,9 +16,12 @@ export default function FavoriteButton({
   const { changeFavorite, filterFavoriteSmoothie } = useSmoothiesStore(
     (state) => state,
   );
+  const { setOpen } = useFavoriteSmoothieStore((state) => state);
 
   const handleCheckbox = (smoothie: Smoothie) => {
-    if (false) {
+    if (true) {
+      setOpen(true);
+      return;
     }
     let isFavorite = !smoothie.isFavorite;
     changeFavorite(smoothie, isFavorite);

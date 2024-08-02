@@ -21,17 +21,16 @@ import {
 } from "@/components/ui/drawer";
 
 import { TabSwitch } from "./TabSwitch";
+import useFavoriteSmoothieStore from "@/store/favoriteSmoothie";
 
 export function RegisterNow() {
-  const [open, setOpen] = React.useState(false);
+  const { open, setOpen } = useFavoriteSmoothieStore((state) => state);
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
-          <Button variant="outline">Edit Profile</Button>
-        </DialogTrigger>
+        <DialogTrigger asChild></DialogTrigger>
         <DialogContent className="sm:max-w-[425px] rounded-md">
           <DialogHeader>
             <DialogTitle className="text-2xl lg-desktop:text-4xl">
@@ -49,9 +48,7 @@ export function RegisterNow() {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
-      </DrawerTrigger>
+      <DrawerTrigger asChild></DrawerTrigger>
       <DrawerContent className="place-items-center">
         <DrawerHeader className="text-left">
           <DrawerTitle className="text-2xl">Register Now</DrawerTitle>
