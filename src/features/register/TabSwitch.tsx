@@ -39,7 +39,7 @@ export function TabSwitch() {
           <CardHeader className="mb-4">
             <CardTitle className="py-2 md-phone:py-3">Sign Up</CardTitle>
             <CardDescription className="lg-desktop:text-xl">
-              Change your password here. After saving, you'll be logged out.
+              Sign up today! After submitting, you'll be signed in.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">

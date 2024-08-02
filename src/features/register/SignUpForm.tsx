@@ -142,7 +142,7 @@ export function SignUpForm() {
                   <FormControl>
                     <Input
                       type="password"
-                      placeholder="*******"
+                      placeholder=""
                       {...field}
                       className="md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl"
                     />
@@ -162,7 +162,7 @@ export function SignUpForm() {
                   <FormControl>
                     <Input
                       type="password"
-                      placeholder="*******"
+                      placeholder=""
                       {...field}
                       className="md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl"
                     />
@@ -178,7 +178,7 @@ export function SignUpForm() {
           type="submit"
           className={`${selectedSmoothie.backgroundColor} shadow-3xl ${selectedSmoothie.shadowBtnColor} s-phone:rounded-full md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl`}
         >
-          Submit
+          Sign Up
         </Button>
       </form>
     </Form>

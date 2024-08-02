@@ -23,6 +23,7 @@ export default function FavoriteButton({
       setOpen(true);
       return;
     }
+    setOpen(false);
     let isFavorite = !smoothie.isFavorite;
     changeFavorite(smoothie, isFavorite);
     filterFavoriteSmoothie();

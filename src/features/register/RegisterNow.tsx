@@ -36,9 +36,7 @@ export function RegisterNow() {
             <DialogTitle className="text-2xl lg-desktop:text-4xl">
               Register Now
             </DialogTitle>
-            <DialogDescription className="lg-desktop:text-lg">
-              Make changes to your profile here. Click save when you're done.
-            </DialogDescription>
+            <DialogDescription className="lg-desktop:text-lg"></DialogDescription>
           </DialogHeader>
           <ProfileForm />
         </DialogContent>
