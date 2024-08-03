@@ -10,7 +10,7 @@ export type Smoothie = {
   mainBackgroundColor: string;
   bgFill: string;
   logoFill: string;
-  shadowBtnColor: String;
+  shadowBtnColor: string;
   text: string;
   textColor: string;
   className: string;
