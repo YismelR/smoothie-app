@@ -6,6 +6,7 @@ import instagram from "@/assets/icons/instagram.svg";
 import SidebarMenu from "@/features/header-menu/SidebarMenu";
 import useShoppingCartStore from "@/store/cartConfirmation";
 import { RegisterNow } from "@/features/register/RegisterNow";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function Root() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
@@ -80,6 +81,7 @@ export default function Root() {
       <main id="detail" className="relative z-20 pt-4">
         <Outlet />
         <RegisterNow />
+        <Toaster />
       </main>
       <footer className="shadow-footerShadow s-phone:grid s-phone:gap-8 s-phone:px-4 s-phone:py-8 md-tablet:grid-cols-2 md-tablet:px-12 md-laptop:px-32 lg-desktop:pb-20 lg-desktop:pt-12">
         <div className="md-tablet:grid md-tablet:gap-24">
