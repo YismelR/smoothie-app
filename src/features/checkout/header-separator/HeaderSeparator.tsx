@@ -25,7 +25,7 @@ export function HeaderSeparator() {
               </p>
             </div>
           </BreadcrumbItem>
-          <BreadcrumbSeparator className="relative bottom-[10px] left-[20px] md-desktop:bottom-3 md-desktop:left-7 lg-desktop:bottom-4 lg-desktop:left-7">
+          <BreadcrumbSeparator className="relative bottom-[10px] left-[21px] md-phone:left-[23.7px] md-desktop:bottom-3 md-desktop:left-7 lg-desktop:bottom-4 lg-desktop:left-7">
             <img src={straightLine} alt="straight line" />
           </BreadcrumbSeparator>
           <BreadcrumbItem>
