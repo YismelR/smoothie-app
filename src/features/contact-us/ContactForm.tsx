@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  //   FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -15,8 +14,10 @@ import { Textarea } from "@/components/ui/textarea";
 import useSmoothiesStore from "@/store/store";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
+import emailjs from "@emailjs/browser";
+import { toast } from "@/components/ui/use-toast";
 
 export const formSchema = z.object({
   firstName: z
@@ -54,19 +55,42 @@ export function ContactForm() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
+  const onSubmit: SubmitHandler<z.infer<typeof formSchema>> = (values) => {
+    const templateParams = {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      email: values.email,
+      message: values.message,
+    };
+
+    emailjs
+      .send(
+        "service_jwu0118", // ServiceId
+        "template_c5j9w7b", // templateId
+        templateParams,
+        "hYcXr23xyMfbEy2ic",
+      )
+      .then(
+        () => {
+          toast({
+            title: "Your message was successfully sent!",
+            description: new Date().toLocaleDateString(),
+          });
+          form.reset();
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        },
+      );
+  };
 
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="s-phone:space-y-6 s-phone:grid "
+        className="s-phone:grid s-phone:space-y-6"
       >
-        <div className="s-laptop:grid grid-cols-2 s-laptop:gap-8">
+        <div className="grid-cols-2 s-laptop:grid s-laptop:gap-8">
           <FormField
             control={form.control}
             name="firstName"
