@@ -81,7 +81,7 @@ export function SignUpForm() {
       });
       return;
     }
-    console.log(values);
+
     const body = {
       firstName: values.firstName,
       lastName: values.lastName,
@@ -91,7 +91,7 @@ export function SignUpForm() {
 
     // Send the Data to the server
     try {
-      await axios.post("http://localhost:3333/register", body);
+      await axios.post("http://localhost:3000/register", body);
       // Close the modal
       setOpen(false);
       // Open a toast and tell the user they've successfully registered

@@ -9,8 +9,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
+import useFavoriteSmoothieStore from "@/store/favoriteSmoothie";
 import useSmoothiesStore from "@/store/store";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -29,6 +32,9 @@ export const formSchema = z.object({
 
 export function SignInForm() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
+  const { setOpen } = useFavoriteSmoothieStore();
+
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,11 +43,27 @@ export function SignInForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-    // { email: "mark@test.com", password: "string" }
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const body = {
+      email: values.email,
+      password: values.password,
+    };
+    try {
+      await axios.post("http://localhost:3000/login", body);
+      setOpen(false);
+      toast({
+        title: "You're logged in!",
+        description: new Date().toLocaleDateString(),
+      });
+    } catch (error) {
+      setOpen(false);
+
+      toast({
+        variant: "destructive",
+        title: "There was an error! Check Credentials.",
+        description: new Date().toLocaleDateString(),
+      });
+    }
   }
 
   return (
@@ -60,6 +82,7 @@ export function SignInForm() {
               </FormLabel>
               <FormControl>
                 <Input
+                  type="email"
                   placeholder="email@fakejanedomain.net"
                   {...field}
                   className="md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl"
@@ -79,6 +102,7 @@ export function SignInForm() {
               </FormLabel>
               <FormControl>
                 <Input
+                  type="password"
                   placeholder="********"
                   {...field}
                   className="md-tablet:text-base md-desktop:text-lg lg-desktop:text-2xl"
