@@ -49,7 +49,9 @@ export function SignInForm() {
       password: values.password,
     };
     try {
-      await axios.post("http://localhost:3000/login", body);
+      await axios.post("http://localhost:3000/login", body, {
+        withCredentials: true,
+      });
       setOpen(false);
       toast({
         title: "You're logged in!",
