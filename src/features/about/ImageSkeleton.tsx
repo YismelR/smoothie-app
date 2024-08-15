@@ -14,7 +14,7 @@ function ImageSkeleton({ src, alt, className }: ImageSkeletonProps) {
     // Simulate loading or fetch your data here
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // Adjust the delay as needed
+    }, 1000); // Adjust the delay as needed
 
     return () => clearTimeout(timer); // Cleanup the timeout if the component unmounts
   }, []);

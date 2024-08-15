@@ -10,6 +10,8 @@ import useSmoothiesStore from "@/store/store";
 import { DrawerDialog } from "../dialog-pop-drawer/DrawerDialog";
 import BowlCartButton from "./BowlCartButton";
 import FavoriteButton from "../favorite/FavoriteButton";
+import { useEffect, useState } from "react";
+import { CardSkeleton } from "./CardSkeleton";
 
 export default function BowlsList() {
   const {
@@ -21,11 +23,24 @@ export default function BowlsList() {
 
   const smoothiesDisplay =
     currentFilter === "favorite" ? favoriteSmoothiesList : smoothiesList;
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading or fetch your data here
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust the delay as needed
+
+    return () => clearTimeout(timer); // Cleanup the timeout if the component unmounts
+  }, []);
 
   return (
     <div className="flex-col s-phone:flex s-phone:gap-8 s-phone:px-4 lg-phone:px-8 md-tablet:grid md-tablet:grid-cols-2 md-tablet:gap-10 md-tablet:px-10 s-laptop:grid-cols-3 md-laptop:gap-12 md-laptop:px-32 md-desktop:gap-20">
       {smoothiesDisplay.map((smoothie, idx) => {
         const heartId = `heartChecked-${idx}`;
+        if (isLoading) {
+          return <CardSkeleton key={idx} />;
+        }
         return (
           <Card
             key={idx}
