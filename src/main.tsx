@@ -53,6 +53,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    loader: checkAuthLoader,
     children: [
       {
         path: "/about",

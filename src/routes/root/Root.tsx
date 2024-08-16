@@ -7,6 +7,7 @@ import SidebarMenu from "@/features/header-menu/SidebarMenu";
 import useShoppingCartStore from "@/store/cartConfirmation";
 import { RegisterNow } from "@/features/register/RegisterNow";
 import { Toaster } from "@/components/ui/toaster";
+import { RegisterButton } from "@/features/header-menu/RegisterButton";
 
 export default function Root() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
@@ -31,7 +32,7 @@ export default function Root() {
 
   return (
     <div className="relative flex flex-col md-phone:h-screen">
-      <header className="relative z-20 flex items-center justify-between shadow-headerShadow s-phone:pl-4 s-phone:pr-4 lg-phone:pr-6 md-tablet:px-12 md-tablet:pt-8 md-laptop:px-32 lg-desktop:pb-8">
+      <header className="relative z-20 flex items-center justify-between shadow-headerShadow s-phone:pl-4 s-phone:pr-4 lg-phone:pr-6 md-tablet:px-12 md-laptop:px-32 md-desktop:py-4 lg-desktop:pb-8 lg-desktop:pt-6">
         <Link to="/">
           <svg
             viewBox="0 0 203 82"
@@ -59,6 +60,7 @@ export default function Root() {
         </Link>
         <div className="flex place-items-center justify-center">
           <SidebarMenu />
+          <RegisterButton />
           <Link to={"/shopping-cart"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -75,6 +77,7 @@ export default function Root() {
               />
             </svg>
           </Link>
+
           <div>{displayActiveCart()}</div>
         </div>
       </header>
