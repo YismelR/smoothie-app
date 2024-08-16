@@ -58,8 +58,7 @@ export default function Root() {
             <path d="M162.867 33.2C159.333 35.4667 160 61.9334 163.667 62.4C166.533 62.8667 166.667 62.4667 166.667 52.4C166.667 46.6667 167.067 39.7334 167.533 37C168.4 31.8 166.933 30.6 162.867 33.2Z" />
           </svg>
         </Link>
-        <div className="flex place-items-center justify-center">
-          <SidebarMenu />
+        <div className="flex place-items-center justify-center md-tablet:flex-row-reverse">
           <RegisterButton />
           <Link to={"/shopping-cart"}>
             <svg
@@ -77,6 +76,7 @@ export default function Root() {
               />
             </svg>
           </Link>
+          <SidebarMenu />
 
           <div>{displayActiveCart()}</div>
         </div>
