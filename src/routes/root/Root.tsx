@@ -18,7 +18,7 @@ export default function Root() {
   function displayActiveCart() {
     if (totalNumberOfItems > 0) {
       return (
-        <span className="relative -top-2 right-1 flex h-2 w-2 lg-desktop:-top-3 lg-desktop:right-2 lg-desktop:h-4 lg-desktop:w-4">
+        <span className="relative -top-2 right-[54px] flex h-2 w-2 md-tablet:left-[332px] s-laptop:left-[276px] md-laptop:left-[295px] md-desktop:left-[332px] lg-desktop:-top-3 lg-desktop:left-[450px] lg-desktop:h-4 lg-desktop:w-4">
           <span
             className={`absolute inline-flex h-full w-full animate-ping rounded-full ${selectedSmoothie.backgroundColor} opacity-75`}
           ></span>

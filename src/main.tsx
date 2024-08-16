@@ -19,8 +19,9 @@ import PaymentInfo from "./features/checkout/payment-info/PaymentInfo.tsx";
 import { HeaderSeparator } from "./features/checkout/header-separator/HeaderSeparator.tsx";
 import CheckoutSummary from "./features/checkout/summary/CheckoutSummary.tsx";
 import Checkout from "./features/checkout/checkout-page/Checkout.tsx";
-import axios from "axios";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+const queryClient = new QueryClient();
 type DetailParams = { params: Params };
 
 async function detailsLoader({ params }: DetailParams) {
@@ -33,18 +34,6 @@ async function detailsLoader({ params }: DetailParams) {
   return smoothie;
 }
 
-async function checkAuthLoader(): Promise<boolean> {
-  try {
-    const response = await axios.get("http://localhost:3000/check-auth", {
-      withCredentials: true,
-    });
-    console.log(response.data);
-    return true;
-  } catch (err) {
-    return false;
-  }
-}
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,7 +42,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    loader: checkAuthLoader,
+
     children: [
       {
         path: "/about",
@@ -62,7 +51,6 @@ const router = createBrowserRouter([
       {
         path: "/bowls",
         element: <Bowls />,
-        loader: checkAuthLoader,
       },
       {
         path: "/contact-us",
@@ -101,6 +89,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>,
 );

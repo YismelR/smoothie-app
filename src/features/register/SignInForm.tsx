@@ -13,6 +13,7 @@ import { useToast } from "@/components/ui/use-toast";
 import useFavoriteSmoothieStore from "@/store/favoriteSmoothie";
 import useSmoothiesStore from "@/store/store";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 import { useForm } from "react-hook-form";
@@ -34,6 +35,7 @@ export function SignInForm() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
   const { setOpen } = useFavoriteSmoothieStore();
   const { toast } = useToast();
+  const queryClient = useQueryClient();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -43,32 +45,33 @@ export function SignInForm() {
   });
 
   async function isSignOk() {
-    await axios.get("http://localhost:3000/check-auth", {
+    return await axios.get("http://localhost:3000/check-auth", {
       withCredentials: true,
     });
   }
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    const body = {
-      email: values.email,
-      password: values.password,
-    };
-    try {
-      await axios.post("http://localhost:3000/login", body, {
-        withCredentials: true,
-      });
+  async function loginRequest(body: { email: string; password: string }) {
+    return await axios.post("http://localhost:3000/login", body, {
+      withCredentials: true,
+    });
+  }
 
-      await isSignOk();
+  useQuery({
+    queryKey: ["session"],
+    queryFn: isSignOk,
+  });
+
+  const mutation = useMutation({
+    mutationFn: loginRequest,
+    onSuccess: () => {
       setOpen(false);
       toast({
         title: "You're logged in!",
         description: new Date().toLocaleDateString(),
       });
-
-      setTimeout(() => {
-        window.location.reload();
-      }, 1200);
-    } catch (error) {
+      queryClient.invalidateQueries({ queryKey: ["session"] });
+    },
+    onError: () => {
       setOpen(false);
 
       toast({
@@ -76,7 +79,15 @@ export function SignInForm() {
         title: "There was an error! Check Credentials.",
         description: new Date().toLocaleDateString(),
       });
-    }
+    },
+  });
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const body = {
+      email: values.email,
+      password: values.password,
+    };
+    mutation.mutate(body);
   }
 
   return (

@@ -3,7 +3,8 @@ import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
 import useSmoothiesStore from "@/store/store";
 import useFavoriteSmoothieStore from "@/store/favoriteSmoothie";
-import { useLoaderData } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 type FavoriteSmoothieProps = {
   heartId: string;
@@ -17,8 +18,18 @@ export default function FavoriteButton({
   const { changeFavorite, filterFavoriteSmoothie } = useSmoothiesStore(
     (state) => state,
   );
+  async function checkAuth() {
+    return await axios.get("http://localhost:3000/check-auth", {
+      withCredentials: true,
+    });
+  }
   const { setOpen } = useFavoriteSmoothieStore((state) => state);
-  const isLoggedIn = useLoaderData() as boolean;
+  const { data } = useQuery({
+    queryKey: ["session"],
+    queryFn: checkAuth,
+  });
+
+  const isLoggedIn: boolean = data?.data.ok;
 
   const handleCheckbox = (smoothie: Smoothie) => {
     if (!isLoggedIn) {
