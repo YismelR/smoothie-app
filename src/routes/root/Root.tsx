@@ -60,7 +60,7 @@ export default function Root() {
         </Link>
         <div className="flex place-items-center justify-center md-tablet:flex-row-reverse">
           <RegisterButton />
-          <Link to={"/shopping-cart"}>
+          <Link to={"/shopping-cart"} className="px-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
