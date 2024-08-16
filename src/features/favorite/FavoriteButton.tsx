@@ -3,6 +3,7 @@ import heartChecked from "@/assets/icons/heart-checked.svg";
 import heartUnchecked from "@/assets/icons/heart-unchecked.svg";
 import useSmoothiesStore from "@/store/store";
 import useFavoriteSmoothieStore from "@/store/favoriteSmoothie";
+import { useLoaderData } from "react-router-dom";
 
 type FavoriteSmoothieProps = {
   heartId: string;
@@ -17,9 +18,10 @@ export default function FavoriteButton({
     (state) => state,
   );
   const { setOpen } = useFavoriteSmoothieStore((state) => state);
+  const isLoggedIn = useLoaderData() as boolean;
 
   const handleCheckbox = (smoothie: Smoothie) => {
-    if (true) {
+    if (!isLoggedIn) {
       setOpen(true);
       return;
     }

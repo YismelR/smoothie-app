@@ -33,7 +33,6 @@ export const formSchema = z.object({
 export function SignInForm() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
   const { setOpen } = useFavoriteSmoothieStore();
-
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,6 +41,12 @@ export function SignInForm() {
       password: "",
     },
   });
+
+  async function isSignOk() {
+    await axios.get("http://localhost:3000/check-auth", {
+      withCredentials: true,
+    });
+  }
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const body = {
@@ -52,11 +57,17 @@ export function SignInForm() {
       await axios.post("http://localhost:3000/login", body, {
         withCredentials: true,
       });
+
+      await isSignOk();
       setOpen(false);
       toast({
         title: "You're logged in!",
         description: new Date().toLocaleDateString(),
       });
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 1200);
     } catch (error) {
       setOpen(false);
 

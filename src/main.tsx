@@ -19,6 +19,7 @@ import PaymentInfo from "./features/checkout/payment-info/PaymentInfo.tsx";
 import { HeaderSeparator } from "./features/checkout/header-separator/HeaderSeparator.tsx";
 import CheckoutSummary from "./features/checkout/summary/CheckoutSummary.tsx";
 import Checkout from "./features/checkout/checkout-page/Checkout.tsx";
+import axios from "axios";
 
 type DetailParams = { params: Params };
 
@@ -30,6 +31,18 @@ async function detailsLoader({ params }: DetailParams) {
     Navigate({ to: "/" });
 
   return smoothie;
+}
+
+async function checkAuthLoader(): Promise<boolean> {
+  try {
+    const response = await axios.get("http://localhost:3000/check-auth", {
+      withCredentials: true,
+    });
+    console.log(response.data);
+    return true;
+  } catch (err) {
+    return false;
+  }
 }
 
 const router = createBrowserRouter([
@@ -48,6 +61,7 @@ const router = createBrowserRouter([
       {
         path: "/bowls",
         element: <Bowls />,
+        loader: checkAuthLoader,
       },
       {
         path: "/contact-us",
