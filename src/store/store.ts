@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { Smoothie } from "@/types";
-import pinkBowl from "@/assets/images/berry-smoothie.png";
+import pinkBowl from "@/assets/images/berry-smoothie.webp";
 
 import strawberry from "@/assets/icons/strawberry.svg";
 import raspberry from "@/assets/icons/raspberry.svg";
@@ -24,7 +24,7 @@ const ids = [1, 4, 10, 13];
 
 export function generateListOfSmoothies(
   smoothieList: Array<Smoothie>,
-  ids: Array<number>
+  ids: Array<number>,
 ) {
   const res: Array<Smoothie> = [];
 
@@ -46,7 +46,7 @@ const useSmoothiesStore = create<SmoothieStore>((set) => ({
   smoothies: generateListOfSmoothies(smoothiesList, ids),
   smoothiesList: smoothiesList,
   favoriteSmoothiesList: smoothiesList.filter(
-    (smoothies) => smoothies.isFavorite
+    (smoothies) => smoothies.isFavorite,
   ),
   currentFilter: "all bowls",
   selectedSmoothie: {

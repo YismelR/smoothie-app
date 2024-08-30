@@ -1,5 +1,5 @@
-import fruits from "@/assets/images/fruits-about.svg";
-import bowls from "@/assets/images/bowls-about.svg";
+import fruits from "@/assets/images/fruits-about.webp";
+import bowls from "@/assets/images/bowls-about.webp";
 import { Features } from "./Features";
 import useSmoothiesStore from "@/store/store";
 import ImageSkeleton from "./ImageSkeleton";

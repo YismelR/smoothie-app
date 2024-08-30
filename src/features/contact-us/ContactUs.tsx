@@ -1,6 +1,6 @@
 import useSmoothiesStore from "@/store/store";
 import { ContactForm } from "./ContactForm";
-import contactImg from "@/assets/images/contact-image.svg";
+import contactImg from "@/assets/images/contact-image.webp";
 import ImageSkeleton from "../about/ImageSkeleton";
 export default function ContactUs() {
   const selectedSmoothie = useSmoothiesStore((state) => state.selectedSmoothie);
